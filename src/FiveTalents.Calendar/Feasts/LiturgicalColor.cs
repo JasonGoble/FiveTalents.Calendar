@@ -1,6 +1,6 @@
 namespace FiveTalents.Calendar.Feasts;
 
-public enum LiturgicalColour
+public enum LiturgicalColor
 {
     White,
     Red,
