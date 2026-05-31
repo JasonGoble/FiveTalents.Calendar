@@ -1,4 +1,4 @@
-﻿namespace FiveTalents.Calendar.Tests;
+namespace FiveTalents.Calendar.Tests;
 
 public class UnitTest1
 {

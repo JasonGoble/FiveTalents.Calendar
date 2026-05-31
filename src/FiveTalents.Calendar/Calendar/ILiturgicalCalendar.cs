@@ -5,14 +5,14 @@ namespace FiveTalents.Calendar.Calendar;
 /// </summary>
 public interface ILiturgicalCalendar
 {
-    LiturgicalTradition Tradition { get; }
+    public LiturgicalTradition Tradition { get; }
 
-    LiturgicalDay GetDay(DateOnly date);
-    IReadOnlyList<LiturgicalDay> GetRange(DateOnly from, DateOnly to);
+    public LiturgicalDay GetDay(DateOnly date);
+    public IReadOnlyList<LiturgicalDay> GetRange(DateOnly from, DateOnly to);
 
     /// <summary>Returns the liturgical year that contains <paramref name="date"/>.</summary>
-    int GetLiturgicalYear(DateOnly date);
+    public int GetLiturgicalYear(DateOnly date);
 
     /// <summary>Returns the date of Easter Sunday for the given Gregorian year.</summary>
-    DateOnly GetEaster(int year);
+    public DateOnly GetEaster(int year);
 }

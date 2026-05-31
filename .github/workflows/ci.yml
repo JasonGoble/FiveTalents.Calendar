@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dotnet:
+    name: .NET Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore local tools
+        run: dotnet tool restore
+
+      - name: Format check
+        run: dotnet format --verify-no-changes
+
+      - name: Build
+        run: dotnet build --no-incremental
+
+      - name: Test with coverage
+        run: dotnet test --settings coverlet.runsettings --results-directory coverage/raw
+
+      - name: Generate coverage summary
+        run: dotnet reportgenerator -reports:"coverage/raw/**/*.xml" -targetdir:"coverage/html" -reporttypes:JsonSummary
+
+      - name: Enforce coverage threshold
+        run: |
+          python3 - <<'EOF'
+          import json, sys
+          with open('coverage/html/Summary.json') as f:
+              data = json.load(f)
+          cov = data['summary']['linecoverage']
+          threshold = 70
+          print(f'Line coverage: {cov:.1f}% (threshold: {threshold}%)')
+          if cov < threshold:
+              print(f'::error::Coverage {cov:.1f}% is below the {threshold}% minimum')
+              sys.exit(1)
+          EOF
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage/html/
+          retention-days: 14
+
+  angular:
+    name: Angular Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/five-talents-calendar-web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: web/five-talents-calendar-web
+        run: npm ci
+
+      - name: Build
+        working-directory: web/five-talents-calendar-web
+        run: npm run build
