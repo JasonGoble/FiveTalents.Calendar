@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FiveTalents.Calendar\FiveTalents.Calendar.csproj" />
+    <ProjectReference Include="..\..\src\FiveTalents.Calendar\FiveTalents.Calendar.csproj" />
   </ItemGroup>
 
 </Project>

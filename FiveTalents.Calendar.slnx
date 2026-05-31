@@ -1,7 +1,9 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/FiveTalents.Calendar.Api/FiveTalents.Calendar.Api.csproj" />
-    <Project Path="src/FiveTalents.Calendar.Tests/FiveTalents.Calendar.Tests.csproj" />
     <Project Path="src/FiveTalents.Calendar/FiveTalents.Calendar.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FiveTalents.Calendar.Tests.Unit/FiveTalents.Calendar.Tests.Unit.csproj" />
   </Folder>
 </Solution>
