@@ -1,0 +1,45 @@
+# FiveTalents.Calendar
+
+A .NET library for resolving dates against church liturgical calendars — mapping any date to its liturgical season, observance, feast rank, colour, and assigned lectionary readings.
+
+## Supported Traditions
+
+| Tradition | Status |
+|-----------|--------|
+| ACNA Book of Common Prayer 2019 | Planned |
+| Revised Common Lectionary | Planned |
+| Common Lectionary (1983) | Planned |
+| Episcopal Church (TEC) | Planned |
+
+## Projects
+
+| Project | Description |
+|---------|-------------|
+| `src/FiveTalents.Calendar` | Core library — publishable as a NuGet package |
+| `src/FiveTalents.Calendar.Api` | ASP.NET Core Web API host |
+| `src/FiveTalents.Calendar.Tests` | Unit tests |
+| `web/five-talents-calendar-web` | Angular 21 companion website |
+
+## Running Locally
+
+```bash
+# API (http://localhost:5290)
+dotnet run --project src/FiveTalents.Calendar.Api
+
+# Frontend (http://localhost:4200)
+cd web/five-talents-calendar-web && npm start
+```
+
+## Tech Stack
+
+- **.NET 10** — class library + ASP.NET Core Web API
+- **Angular 21** — standalone components, Angular Material, signals-first state
+- **xUnit** — unit tests
+
+## NuGet
+
+The `FiveTalents.Calendar` library is designed to be consumed independently of the hosted API. NuGet publication is planned once the ACNA BCP 2019 tradition is fully implemented.
+
+## License
+
+MIT
