@@ -2,6 +2,8 @@
 
 A .NET library for resolving dates against church liturgical calendars — mapping any date to its liturgical season, observance, feast rank, colour, and assigned lectionary readings.
 
+> **A note on how this was built:** This project is an experiment in *vibe coding* — the practice of building software through a collaborative, conversational workflow with an AI pair programmer (Claude). Every feature, migration, and architectural decision in this codebase was shaped through that dialogue. The goal is not just a working product, but a demonstration that thoughtful AI-assisted development can produce clean, maintainable, production-quality code.
+
 ## Supported Traditions
 
 | Tradition | Status |
