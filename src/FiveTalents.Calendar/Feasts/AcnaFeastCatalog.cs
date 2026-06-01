@@ -158,10 +158,13 @@ internal static class AcnaFeastCatalog
         // October
         [new(10, 18)] = new() { Name = "Luke the Evangelist and Companion of Paul", Rank = FeastRank.Major, Color = LiturgicalColor.Red },
         [new(10, 23)] = new() { Name = "James of Jerusalem, Bishop and Martyr, Brother of Our Lord", Rank = FeastRank.Major, Color = LiturgicalColor.Red },
-        [new(10, 27)] = new() { Name = "Simon and Jude, Apostles", Rank = FeastRank.Major, Color = LiturgicalColor.Red },
+        [new(10, 28)] = new() { Name = "Simon and Jude, Apostles", Rank = FeastRank.Major, Color = LiturgicalColor.Red },
 
         // November
         [new(11, 1)] = new() { Name = "All Saints' Day", Rank = FeastRank.Principal, Color = LiturgicalColor.White },
+
+        // November
+        [new(11, 30)] = new() { Name = "Andrew the Apostle", Rank = FeastRank.Major, Color = LiturgicalColor.Red },
 
         // December
         [new(12, 21)] = new() { Name = "Thomas the Apostle", Rank = FeastRank.Major, Color = LiturgicalColor.Red },
