@@ -1,5 +1,4 @@
 using FiveTalents.Calendar.Feasts;
-using FiveTalents.Calendar.Lectionary;
 using FiveTalents.Calendar.Seasons;
 
 namespace FiveTalents.Calendar.Calendar;
@@ -14,22 +13,14 @@ public sealed record LiturgicalDay
     public required LiturgicalWeek Week { get; init; }
 
     /// <summary>
-    /// The Principal Feast or Holy Day (rank Major or above) for this day, if any.
-    /// When a fixed feast conflicts with a Sunday, the higher-ranked observance is returned.
+    /// All liturgical observances for this day, ordered by effective priority descending.
+    /// Includes Principal Feasts, Major Holy Days, the season Sunday proper (on Sundays),
+    /// and optional commemorations. Transferred feasts appear last.
     /// </summary>
-    public FeastDay? Feast { get; init; }
+    public IReadOnlyList<Observance> Observances { get; init; } = [];
 
     /// <summary>
-    /// Optional commemorations (Anglican and Ecumenical) observed on this day.
-    /// These do not displace the season or a higher-ranked feast.
-    /// </summary>
-    public IReadOnlyList<FeastDay> Commemorations { get; init; } = [];
-
-    /// <summary>Lectionary readings assigned to this day.</summary>
-    public IReadOnlyList<LectionaryReading> Readings { get; init; } = [];
-
-    /// <summary>
-    /// The BCP Proper number (1–29) governing this day's readings in the Season after
+    /// The BCP Proper number (1-29) governing this day's readings in the Season after
     /// Pentecost. Null outside OrdinaryTime. Weekdays share the Proper of their
     /// preceding Sunday.
     /// </summary>

@@ -8,6 +8,15 @@ public sealed class AcnaBcp2019CalendarTests
 {
     private readonly AcnaBcp2019Calendar _calendar = new();
 
+    // ── Helpers ───────────────────────────────────────────────────────────────
+
+    /// <summary>Primary (highest-priority) observance for the day.</summary>
+    private static Observance Primary(LiturgicalDay day) => day.Observances.First();
+
+    /// <summary>First observance whose name matches (case-insensitive start).</summary>
+    private static Observance? Named(LiturgicalDay day, string name) =>
+        day.Observances.FirstOrDefault(o => o.Name == name);
+
     // ── Tradition ─────────────────────────────────────────────────────────────
 
     [Fact]
@@ -109,7 +118,7 @@ public sealed class AcnaBcp2019CalendarTests
     public void GetDay_LectionaryYear_CyclesCorrectly(int y, int m, int d, char expected) =>
         Assert.Equal(expected, _calendar.GetDay(new DateOnly(y, m, d)).Week.LectionaryYear);
 
-    // ── Principal feasts and Holy Days ───────────────────────────────────────
+    // ── Principal Feasts and Holy Days ────────────────────────────────────────
 
     [Theory]
     [InlineData(2026, 2, 18, "Ash Wednesday")]
@@ -123,26 +132,36 @@ public sealed class AcnaBcp2019CalendarTests
     [InlineData(2026, 1, 1, "The Circumcision and Holy Name of Our Lord Jesus Christ")]
     [InlineData(2026, 3, 19, "Joseph, the Guardian of Jesus")]
     [InlineData(2026, 3, 25, "The Annunciation of Our Lord Jesus Christ to the Virgin Mary")]
-    [InlineData(2026, 5, 31, "Trinity Sunday")]   // Trinity beats Visitation in 2026
+    [InlineData(2026, 5, 31, "Trinity Sunday")]   // Trinity outranks Visitation
     [InlineData(2026, 8, 6, "The Transfiguration of Our Lord Jesus Christ")]
     [InlineData(2026, 9, 29, "Holy Michael and All Angels")]
     [InlineData(2026, 10, 28, "Simon and Jude, Apostles")]
     [InlineData(2026, 11, 1, "All Saints' Day")]
     [InlineData(2026, 12, 25, "Christmas Day")]
-    public void GetDay_Feast_HasExpectedName(int y, int m, int d, string expected)
+    public void GetDay_PrimaryObservance_HasExpectedName(int y, int m, int d, string expected)
     {
         var day = _calendar.GetDay(new DateOnly(y, m, d));
-        Assert.NotNull(day.Feast);
-        Assert.Equal(expected, day.Feast.Name);
+        Assert.NotEmpty(day.Observances);
+        Assert.Equal(expected, Primary(day).Name);
     }
 
     [Fact]
-    public void GetDay_Visitation_AppearsInYearWhereNotDisplacedByTrinity()
+    public void GetDay_TrinitySunday_AlsoHasVisitationAsSecondObservance()
     {
-        // In 2025 Pentecost = June 8, Trinity = June 15, so Visitation (May 31) is free
+        // May 31, 2026 = Trinity Sunday (Principal) and The Visitation (Major) — both present
+        var day = _calendar.GetDay(new DateOnly(2026, 5, 31));
+        Assert.Equal(2, day.Observances.Count(o => o.Rank >= FeastRank.Major));
+        var visitation = Named(day, "The Visitation of the Virgin Mary to Elizabeth and Zechariah");
+        Assert.NotNull(visitation);
+        Assert.Equal(FeastRank.Major, visitation.Rank);
+    }
+
+    [Fact]
+    public void GetDay_Visitation_IsPrimaryInYearWhereNotDisplacedByTrinity()
+    {
+        // In 2025: Pentecost = June 8, Trinity = June 15, so Visitation (May 31) stands alone
         var day = _calendar.GetDay(new DateOnly(2025, 5, 31));
-        Assert.NotNull(day.Feast);
-        Assert.Equal("The Visitation of the Virgin Mary to Elizabeth and Zechariah", day.Feast.Name);
+        Assert.Equal("The Visitation of the Virgin Mary to Elizabeth and Zechariah", Primary(day).Name);
     }
 
     // ── Feast rank corrections ────────────────────────────────────────────────
@@ -151,7 +170,7 @@ public sealed class AcnaBcp2019CalendarTests
     [InlineData(2026, 3, 25)]  // Annunciation
     [InlineData(2026, 8, 6)]  // Transfiguration
     public void GetDay_FormerlyPrincipalFeasts_AreNowMajor(int y, int m, int d) =>
-        Assert.Equal(FeastRank.Major, _calendar.GetDay(new DateOnly(y, m, d)).Feast!.Rank);
+        Assert.Equal(FeastRank.Major, Primary(_calendar.GetDay(new DateOnly(y, m, d))).Rank);
 
     // ── Commemorations ───────────────────────────────────────────────────────
 
@@ -162,10 +181,10 @@ public sealed class AcnaBcp2019CalendarTests
     [InlineData(2026, 6, 5, "Boniface, Archbishop of Mainz, Missionary to the Germans and Martyr, 754", FeastRank.Optional)]
     [InlineData(2026, 11, 2, "Commemoration of the Faithful Departed (All Souls' Day)", FeastRank.Commemoration)]
     [InlineData(2026, 11, 29, "Clive Staples Lewis, Teacher of the Faith, 1963", FeastRank.Optional)]
-    public void GetDay_Commemoration_IsInList(int y, int m, int d, string name, FeastRank rank)
+    public void GetDay_Commemoration_IsInObservances(int y, int m, int d, string name, FeastRank rank)
     {
         var day = _calendar.GetDay(new DateOnly(y, m, d));
-        var match = day.Commemorations.FirstOrDefault(c => c.Name == name);
+        var match = Named(day, name);
         Assert.NotNull(match);
         Assert.Equal(rank, match.Rank);
     }
@@ -174,7 +193,8 @@ public sealed class AcnaBcp2019CalendarTests
     public void GetDay_Commemoration_HasNullColor()
     {
         var day = _calendar.GetDay(new DateOnly(2026, 1, 13)); // Hilary of Poitiers
-        var hilary = day.Commemorations.First(c => c.Name.StartsWith("Hilary"));
+        var hilary = Named(day, "Hilary of Poitiers, Bishop and Teacher of the Faith, 367");
+        Assert.NotNull(hilary);
         Assert.Null(hilary.Color);
     }
 

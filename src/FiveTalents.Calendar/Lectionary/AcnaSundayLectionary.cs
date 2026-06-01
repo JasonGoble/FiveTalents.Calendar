@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Text.Json;
 
 using FiveTalents.Calendar.Calendar;
+using FiveTalents.Calendar.Feasts;
 using FiveTalents.Calendar.Seasons;
 
 namespace FiveTalents.Calendar.Lectionary;
@@ -12,14 +13,14 @@ namespace FiveTalents.Calendar.Lectionary;
 /// </summary>
 internal static class AcnaSundayLectionary
 {
-    // Loaded once; key = occasion key, value = year map ("A"/"B"/"C" or flat array)
+    // Loaded once; key = occasion key, value = year map ("A"/"B"/"C" or array)
     private static readonly Dictionary<string, JsonElement> _data = Load();
 
     private static Dictionary<string, JsonElement> Load()
     {
         Assembly asm = Assembly.GetExecutingAssembly();
         string name = asm.GetManifestResourceNames()
-            .First(n => n.EndsWith("sunday-lectionary.json", StringComparison.OrdinalIgnoreCase));
+            .First(n => n.EndsWith("acna-bcp2019-lectionary.json", StringComparison.OrdinalIgnoreCase));
 
         using var stream = asm.GetManifestResourceStream(name)!;
         JsonDocument doc = JsonDocument.Parse(stream);
@@ -62,6 +63,15 @@ internal static class AcnaSundayLectionary
         ["James of Jerusalem, Bishop and Martyr, Brother of Our Lord"] = "HolyDay_JamesOfJerusalem",
         ["Simon and Jude, Apostles"] = "HolyDay_SimonAndJude",
         ["All Saints' Day"] = "HolyDay_AllSaints",
+        // Fixed feasts
+        ["Christmas Day"] = "ChristmasDay",
+        // Easter week weekdays
+        ["Monday in Easter Week"] = "EasterMonday",
+        ["Tuesday in Easter Week"] = "EasterTuesday",
+        ["Wednesday in Easter Week"] = "EasterWednesday",
+        ["Thursday in Easter Week"] = "EasterThursday",
+        ["Friday in Easter Week"] = "EasterFriday",
+        ["Saturday in Easter Week"] = "EasterSaturday",
         // Moveable feast names that have entries in the JSON
         ["Ash Wednesday"] = "AshWednesday",
         ["Palm Sunday"] = "PalmSunday",
@@ -77,12 +87,41 @@ internal static class AcnaSundayLectionary
     // ── Public API ────────────────────────────────────────────────────────────
 
     /// <summary>
-    /// Returns the lectionary readings for the given day, or an empty list if
-    /// no readings are assigned (e.g. an ordinary weekday with no proper).
+    /// Returns the reading sets for a specific feast or commemoration. For feasts
+    /// with entries in the lectionary, returns their specific readings. For
+    /// commemorations, falls back to the appropriate Common of Saints.
+    /// Returns an empty list when no readings can be resolved.
     /// </summary>
-    public static IReadOnlyList<LectionaryReading> GetReadings(LiturgicalDay day)
+    public static IReadOnlyList<ReadingSet> GetReadingsForFeast(FeastDay feast, char lectionaryYear)
     {
-        string? key = ResolveKey(day);
+        // Specific Holy Day propers
+        if (_feastKeyMap.TryGetValue(feast.Name, out string? key)
+            && _data.TryGetValue(key, out var element))
+        {
+            return ParseReadings(element, lectionaryYear);
+        }
+
+        // Common of Saints fallback for commemorations
+        if (feast.Common is CommemorationCommon common)
+        {
+            string commonKey = $"Common_{common}";
+            if (_data.TryGetValue(commonKey, out var commonEl))
+            {
+                return ParseReadings(commonEl, lectionaryYear);
+            }
+        }
+
+        return [];
+    }
+
+    /// <summary>
+    /// Returns the season proper reading sets for the given day (ignoring any feast).
+    /// Used for the season Sunday proper observance, and for transferred feast days.
+    /// Returns an empty list when no season proper applies.
+    /// </summary>
+    public static IReadOnlyList<ReadingSet> GetSeasonProperReadings(LiturgicalDay day)
+    {
+        string? key = ResolveSeasonKey(day);
         if (key is null || !_data.TryGetValue(key, out var element))
         {
             return [];
@@ -91,23 +130,76 @@ internal static class AcnaSundayLectionary
         return ParseReadings(element, day.Week.LectionaryYear);
     }
 
-    // ── Key resolution ────────────────────────────────────────────────────────
-
-    private static string? ResolveKey(LiturgicalDay day)
+    /// <summary>
+    /// Returns the human-readable name for the season Sunday proper on the given day.
+    /// Returns null when the day has no season proper (e.g. a weekday, or Days After Epiphany).
+    /// </summary>
+    public static string? GetSeasonProperName(LiturgicalDay day)
     {
-        // 1. Holy Days take precedence, EXCEPT on Sundays in Advent, Lent, or Easter,
-        //    where the Sunday proper is retained and the feast is transferred to a weekday.
-        bool feastTransferred =
-            day.Date.DayOfWeek == DayOfWeek.Sunday &&
-            day.Season is LiturgicalSeason.Advent or LiturgicalSeason.Lent or LiturgicalSeason.Easter;
-
-        if (!feastTransferred && day.Feast is not null
-            && _feastKeyMap.TryGetValue(day.Feast.Name, out string? holyDayKey))
+        if (day.Date.DayOfWeek != DayOfWeek.Sunday)
         {
-            return holyDayKey;
+            return null;
         }
 
-        // 2. Season-based lookup
+        return day.Season switch
+        {
+            LiturgicalSeason.Advent => day.Week.WeekNumber switch
+            {
+                1 => "The First Sunday of Advent",
+                2 => "The Second Sunday of Advent",
+                3 => "The Third Sunday of Advent",
+                4 => "The Fourth Sunday of Advent",
+                _ => null,
+            },
+            LiturgicalSeason.Christmas => day.Week.WeekNumber switch
+            {
+                1 => "The First Sunday after Christmas Day",
+                2 => "The Second Sunday after Christmas Day",
+                _ => null,
+            },
+            LiturgicalSeason.Epiphany => day.Week.WeekNumber switch
+            {
+                0 => null,
+                1 => "The First Sunday after the Epiphany",
+                2 => "The Second Sunday after the Epiphany",
+                3 => "The Third Sunday after the Epiphany",
+                4 => "The Fourth Sunday after the Epiphany",
+                5 => "The Fifth Sunday after the Epiphany",
+                6 => "The Sixth Sunday after the Epiphany",
+                7 => "The Seventh Sunday after the Epiphany",
+                8 => "The Eighth Sunday after the Epiphany",
+                _ => null,
+            },
+            LiturgicalSeason.Lent => day.Week.WeekNumber switch
+            {
+                1 => "The First Sunday in Lent",
+                2 => "The Second Sunday in Lent",
+                3 => "The Third Sunday in Lent",
+                4 => "The Fourth Sunday in Lent",
+                5 => "The Fifth Sunday in Lent",
+                _ => null,
+            },
+            LiturgicalSeason.Easter => day.Week.WeekNumber switch
+            {
+                1 => "The First Sunday of Easter",
+                2 => "The Second Sunday of Easter",
+                3 => "The Third Sunday of Easter",
+                4 => "The Fourth Sunday of Easter",
+                5 => "The Fifth Sunday of Easter",
+                6 => "The Sixth Sunday of Easter",
+                7 => "The Seventh Sunday of Easter",
+                _ => null,
+            },
+            LiturgicalSeason.OrdinaryTime when day.ProperNumber is int p
+                => $"Proper {p}",
+            _ => null,
+        };
+    }
+
+    // ── Season key resolution (no feast lookup) ───────────────────────────────
+
+    private static string? ResolveSeasonKey(LiturgicalDay day)
+    {
         return day.Season switch
         {
             LiturgicalSeason.Advent => AdventKey(day),
@@ -116,7 +208,6 @@ internal static class AcnaSundayLectionary
             LiturgicalSeason.Lent => LentKey(day),
             LiturgicalSeason.HolyWeek => HolyWeekKey(day),
             LiturgicalSeason.Easter => EasterKey(day),
-            LiturgicalSeason.Pentecost => "Pentecost",
             LiturgicalSeason.OrdinaryTime => OrdinaryTimeKey(day),
             _ => null,
         };
@@ -125,18 +216,14 @@ internal static class AcnaSundayLectionary
     private static string? AdventKey(LiturgicalDay day) =>
         day.Week.WeekNumber switch { 1 => "Advent1", 2 => "Advent2", 3 => "Advent3", 4 => "Advent4", _ => null };
 
-    private static string? ChristmasKey(LiturgicalDay day)
-    {
-        // Christmas Day itself is handled via the feast name → CircumcisionHolyName
-        // First and Second Sunday of Christmas
-        return day.Week.WeekNumber switch { 1 => "Christmas1", 2 => "Christmas2", _ => null };
-    }
+    private static string? ChristmasKey(LiturgicalDay day) =>
+        day.Week.WeekNumber switch { 1 => "Christmas1", 2 => "Christmas2", _ => null };
 
     private static string? EpiphanyKey(LiturgicalDay day)
     {
         if (day.Week.WeekNumber == 0)
         {
-            return null; // Days After Epiphany — no Sunday proper
+            return null;
         }
 
         return day.Week.WeekNumber switch
@@ -149,7 +236,7 @@ internal static class AcnaSundayLectionary
             6 => "Epiphany6",
             7 => "Epiphany7",
             8 => "Epiphany8",
-            _ => null, // Will be overridden by EpiphanySecondToLast/Last detection below
+            _ => null,
         };
     }
 
@@ -157,7 +244,7 @@ internal static class AcnaSundayLectionary
     {
         if (day.Week.WeekNumber == 0)
         {
-            return null; // Ash Wednesday → handled via feast name
+            return null; // Ash Wednesday → handled as feast
         }
 
         return day.Week.WeekNumber switch { 1 => "Lent1", 2 => "Lent2", 3 => "Lent3", 4 => "Lent4", 5 => "Lent5", _ => null };
@@ -178,7 +265,6 @@ internal static class AcnaSundayLectionary
 
     private static string? EasterKey(LiturgicalDay day)
     {
-        // Easter week weekdays
         if (day.Date.DayOfWeek != DayOfWeek.Sunday)
         {
             return day.Date.DayOfWeek switch
@@ -208,23 +294,16 @@ internal static class AcnaSundayLectionary
 
     private static string? OrdinaryTimeKey(LiturgicalDay day)
     {
-        if (day.ProperNumber is null)
+        if (day.ProperNumber is null || day.Week.WeekNumber == 0)
         {
             return null;
         }
 
-        if (day.Week.WeekNumber == 0)
-        {
-            return null; // Mon–Sat between Pentecost and Trinity
-        }
-
-        // Trinity Sunday (week 1 of OrdinaryTime)
         if (day.Date.DayOfWeek == DayOfWeek.Sunday && day.Week.WeekNumber == 1)
         {
             return "TrinitySunday";
         }
 
-        // All Saints' Day (handled via feast name above, but included here for weekday reference)
         if (day.ProperNumber is >= 1 and <= 29)
         {
             return $"Proper{day.ProperNumber}";
@@ -235,27 +314,47 @@ internal static class AcnaSundayLectionary
 
     // ── JSON parsing ──────────────────────────────────────────────────────────
 
-    private static IReadOnlyList<LectionaryReading> ParseReadings(JsonElement element, char lectionaryYear)
+    private static IReadOnlyList<ReadingSet> ParseReadings(JsonElement element, char lectionaryYear)
     {
         // Year-keyed object: { "A": [...], "B": [...], "C": [...] }
         if (element.ValueKind == JsonValueKind.Object)
         {
-            // Try the specific year first, then fall back (shouldn't be needed but defensive)
             if (element.TryGetProperty(lectionaryYear.ToString(), out var yearEl))
             {
-                return ParseArray(yearEl);
+                return [new ReadingSet { Readings = ParseArray(yearEl) }];
             }
 
             return [];
         }
 
-        // Flat array: year-independent readings
         if (element.ValueKind == JsonValueKind.Array)
         {
-            return ParseArray(element);
+            // Labeled multi-set format: [ { "label": "I", "readings": [...] }, ... ]
+            var first = element.EnumerateArray().FirstOrDefault();
+            if (first.ValueKind == JsonValueKind.Object && first.TryGetProperty("readings", out _))
+            {
+                return ParseLabeledSets(element);
+            }
+
+            // Flat array: single unnamed set, year-independent
+            return [new ReadingSet { Readings = ParseArray(element) }];
         }
 
         return [];
+    }
+
+    private static IReadOnlyList<ReadingSet> ParseLabeledSets(JsonElement array)
+    {
+        List<ReadingSet> sets = new List<ReadingSet>();
+        foreach (var item in array.EnumerateArray())
+        {
+            string? label = item.TryGetProperty("label", out var labelEl) ? labelEl.GetString() : null;
+            IReadOnlyList<LectionaryReading> readings = item.TryGetProperty("readings", out var readingsEl)
+                ? ParseArray(readingsEl)
+                : [];
+            sets.Add(new ReadingSet { Label = label, Readings = readings });
+        }
+        return sets;
     }
 
     private static IReadOnlyList<LectionaryReading> ParseArray(JsonElement array)

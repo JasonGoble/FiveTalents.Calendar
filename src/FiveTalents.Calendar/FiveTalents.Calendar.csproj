@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\sunday-lectionary.json" />
+    <EmbeddedResource Include="Resources\acna-bcp2019-lectionary.json" />
   </ItemGroup>
 
   <ItemGroup>

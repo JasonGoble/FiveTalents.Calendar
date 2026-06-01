@@ -4,4 +4,5 @@ ADRs are numbered with a four-digit zero-padded prefix (e.g. `0001-my-decision.m
 
 | # | Title | Status |
 |---|-------|--------|
-| [0001](0001-liturgical-day-model.md) | Liturgical Day Model: Feasts, Commemorations, and Discipline Flags | Accepted |
+| [0001](0001-liturgical-day-model.md) | Liturgical Day Model: Feasts, Commemorations, and Discipline Flags | Superseded by 0002 |
+| [0002](0002-observance-model-and-lectionary-data-shape.md) | Observance Model and Lectionary Data Shape | Accepted |

@@ -9,7 +9,7 @@
       { "type": "Gospel", "citation": "Matt 24:29-44" }
     ],
     "B": [
-      { "type": "OldTestament", "citation": "Isa 64:1-9" },
+      { "type": "OldTestament", "citation": "Isa 64:1-9a" },
       { "type": "Psalm", "citation": "Ps 80", "alternate": "Ps 80:1-7" },
       { "type": "Epistle", "citation": "1 Cor 1:1-9" },
       { "type": "Gospel", "citation": "Mark 13:24-37" }
@@ -85,25 +85,34 @@
     ]
   },
 
-  "ChristmasDayI": [
-    { "type": "OldTestament", "citation": "Isa 9:1-7" },
-    { "type": "Psalm", "citation": "Ps 96" },
-    { "type": "Epistle", "citation": "Titus 2:11-14" },
-    { "type": "Gospel", "citation": "Luke 2:1-20", "alternate": "Luke 2:1-14" }
-  ],
-
-  "ChristmasDayII": [
-    { "type": "OldTestament", "citation": "Isa 62:6-12" },
-    { "type": "Psalm", "citation": "Ps 97" },
-    { "type": "Epistle", "citation": "Titus 3:4-7" },
-    { "type": "Gospel", "citation": "Luke 2:1-20", "alternate": "Luke 2:15-20" }
-  ],
-
-  "ChristmasDayIII": [
-    { "type": "OldTestament", "citation": "Isa 52:7-12" },
-    { "type": "Psalm", "citation": "Ps 98" },
-    { "type": "Epistle", "citation": "Heb 1:1-12" },
-    { "type": "Gospel", "citation": "John 1:1-18" }
+  "ChristmasDay": [
+    {
+      "label": "I",
+      "readings": [
+        { "type": "OldTestament", "citation": "Isa 9:1-7" },
+        { "type": "Psalm", "citation": "Ps 96" },
+        { "type": "Epistle", "citation": "Titus 2:11-14" },
+        { "type": "Gospel", "citation": "Luke 2:1-20", "alternate": "Luke 2:1-14" }
+      ]
+    },
+    {
+      "label": "II",
+      "readings": [
+        { "type": "OldTestament", "citation": "Isa 62:6-12" },
+        { "type": "Psalm", "citation": "Ps 97" },
+        { "type": "Epistle", "citation": "Titus 3:4-7" },
+        { "type": "Gospel", "citation": "Luke 2:1-20", "alternate": "Luke 2:15-20" }
+      ]
+    },
+    {
+      "label": "III",
+      "readings": [
+        { "type": "OldTestament", "citation": "Isa 52:7-12" },
+        { "type": "Psalm", "citation": "Ps 98" },
+        { "type": "Epistle", "citation": "Heb 1:1-12" },
+        { "type": "Gospel", "citation": "John 1:1-18" }
+      ]
+    }
   ],
 
   "Christmas1": [
