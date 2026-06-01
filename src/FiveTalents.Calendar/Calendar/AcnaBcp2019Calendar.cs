@@ -1,4 +1,5 @@
 using FiveTalents.Calendar.Feasts;
+using FiveTalents.Calendar.Lectionary;
 using FiveTalents.Calendar.Seasons;
 
 namespace FiveTalents.Calendar.Calendar;
@@ -29,7 +30,9 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             ? holyDays.MaxBy(f => (int)f.Rank)
             : null;
 
-        return new LiturgicalDay
+        int? properNumber = SeasonResolver.GetProperNumber(date, info.Season);
+
+        LiturgicalDay day = new LiturgicalDay
         {
             Date = date,
             Season = info.Season,
@@ -44,7 +47,10 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             IsEmberDay = AcnaFeastCatalog.IsEmberDay(date, date.Year),
             IsRogationDay = IsRogationDay(date, date.Year),
             IsFastDay = IsFastDay(date, info.Season),
+            ProperNumber = properNumber,
         };
+
+        return day with { Readings = AcnaSundayLectionary.GetReadings(day) };
     }
 
     public IReadOnlyList<LiturgicalDay> GetRange(DateOnly from, DateOnly to)

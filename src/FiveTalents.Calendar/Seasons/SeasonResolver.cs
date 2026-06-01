@@ -138,6 +138,34 @@ internal static class SeasonResolver
     }
 
     /// <summary>
+    /// Returns the BCP Proper number (1–29) for any day in the Season after Pentecost,
+    /// or null if the date is not in OrdinaryTime. Weekdays use the Proper of their
+    /// preceding Sunday. Propers 1–2 are weekday-only (no Sunday falls in those ranges);
+    /// Proper 3 onwards include a Sunday.
+    /// </summary>
+    public static int? GetProperNumber(DateOnly date, LiturgicalSeason season)
+    {
+        if (season != LiturgicalSeason.OrdinaryTime)
+        {
+            return null;
+        }
+
+        // Find the governing Sunday (most recent Sunday on or before this date)
+        int daysSinceSunday = (int)date.DayOfWeek;
+        DateOnly governingSunday = date.AddDays(-daysSinceSunday);
+
+        DateOnly may8 = new DateOnly(governingSunday.Year, 5, 8);
+        int daysSinceMay8 = governingSunday.DayNumber - may8.DayNumber;
+        if (daysSinceMay8 < 0)
+        {
+            return null;
+        }
+
+        int proper = (daysSinceMay8 / 7) + 1;
+        return proper is >= 1 and <= 29 ? proper : null;
+    }
+
+    /// <summary>
     /// Returns the 1-based week number for <paramref name="date"/> within a season,
     /// where the first Sunday on or after <paramref name="seasonStart"/> is week 1.
     /// Days before that first Sunday return 0 (e.g. "Days After Epiphany",

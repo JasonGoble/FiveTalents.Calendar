@@ -126,7 +126,7 @@ public sealed class AcnaBcp2019CalendarTests
     [InlineData(2026, 5, 31, "Trinity Sunday")]   // Trinity beats Visitation in 2026
     [InlineData(2026, 8, 6, "The Transfiguration of Our Lord Jesus Christ")]
     [InlineData(2026, 9, 29, "Holy Michael and All Angels")]
-    [InlineData(2026, 10, 27, "Simon and Jude, Apostles")]
+    [InlineData(2026, 10, 28, "Simon and Jude, Apostles")]
     [InlineData(2026, 11, 1, "All Saints' Day")]
     [InlineData(2026, 12, 25, "Christmas Day")]
     public void GetDay_Feast_HasExpectedName(int y, int m, int d, string expected)

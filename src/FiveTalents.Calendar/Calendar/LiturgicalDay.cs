@@ -29,6 +29,13 @@ public sealed record LiturgicalDay
     public IReadOnlyList<LectionaryReading> Readings { get; init; } = [];
 
     /// <summary>
+    /// The BCP Proper number (1–29) governing this day's readings in the Season after
+    /// Pentecost. Null outside OrdinaryTime. Weekdays share the Proper of their
+    /// preceding Sunday.
+    /// </summary>
+    public int? ProperNumber { get; init; }
+
+    /// <summary>
     /// True on the twelve Ember Days per year (Wed, Fri, Sat after the First Sunday
     /// of Lent, after Pentecost, after Holy Cross Day, and after St. Lucy's Day).
     /// </summary>
