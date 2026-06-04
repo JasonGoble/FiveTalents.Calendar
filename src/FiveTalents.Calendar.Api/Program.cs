@@ -28,7 +28,11 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseCors();
 
 // GET /calendar/traditions
@@ -123,3 +127,5 @@ static string TraditionDisplayName(LiturgicalTradition tradition)
         _ => tradition.ToString(),
     };
 }
+
+public partial class Program { }

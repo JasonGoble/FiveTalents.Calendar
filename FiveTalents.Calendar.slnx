@@ -5,5 +5,6 @@
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/FiveTalents.Calendar.Tests.Unit/FiveTalents.Calendar.Tests.Unit.csproj" />
+    <Project Path="tests/FiveTalents.Calendar.Tests.Api/FiveTalents.Calendar.Tests.Api.csproj" />
   </Folder>
 </Solution>
