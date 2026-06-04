@@ -5,3 +5,4 @@ ADRs are numbered with a four-digit zero-padded prefix (e.g. `0001-my-decision.m
 | # | Title | Status |
 |---|-------|--------|
 | [0001](0001-liturgical-day-model.md) | Liturgical Day Model: Feasts, Commemorations, and Discipline Flags | Accepted |
+| [0002](0002-lectionary-reading-model.md) | Lectionary Reading Model: Services, Reading Types, and Alternate Citations | Accepted |

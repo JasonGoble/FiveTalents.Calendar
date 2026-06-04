@@ -25,8 +25,12 @@ public sealed record LiturgicalDay
     /// </summary>
     public IReadOnlyList<FeastDay> Commemorations { get; init; } = [];
 
-    /// <summary>Lectionary readings assigned to this day.</summary>
-    public IReadOnlyList<LectionaryReading> Readings { get; init; } = [];
+    /// <summary>
+    /// Liturgical services for this day, each with their own set of readings.
+    /// Most days have one unnamed service. Palm Sunday has two named services:
+    /// "Liturgy of the Palms" and "Liturgy of the Word".
+    /// </summary>
+    public IReadOnlyList<LiturgicalService> Readings { get; init; } = [];
 
     /// <summary>
     /// The BCP Proper number (1–29) governing this day's readings in the Season after

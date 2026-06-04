@@ -11,9 +11,15 @@ public sealed record LectionaryReading
     public required string Citation { get; init; }
 
     /// <summary>
-    /// Shorter or alternate citation, if the BCP provides one.
-    /// For parenthetical readings, this is the reading without the optional portion.
-    /// For "or" alternatives, this is the second passage. Null when no alternate exists.
+    /// Shorter or alternate citations provided by the BCP (e.g. a truncated passage, or an
+    /// "or" alternative). Empty when none exist. Most readings have zero or one entry;
+    /// a few (e.g. the Palm Sunday Psalm) have more.
     /// </summary>
-    public string? AlternateCitation { get; init; }
+    public IReadOnlyList<string> AlternateCitations { get; init; } = [];
+
+    /// <summary>
+    /// Optional translation identifier when the citation follows a non-default versification
+    /// (e.g. "LXX" for Septuagint Psalm numbering). Null for the default Hebrew/Masoretic text.
+    /// </summary>
+    public string? TranslationCode { get; init; }
 }

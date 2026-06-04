@@ -8,7 +8,7 @@ A .NET library for resolving dates against church liturgical calendars — mappi
 
 | Tradition | Status |
 |-----------|--------|
-| ACNA Book of Common Prayer 2019 | Planned |
+| ACNA Book of Common Prayer 2019 | In progress — calendar engine and Sunday/Holy Day lectionary complete |
 | Revised Common Lectionary | Planned |
 | Common Lectionary (1983) | Planned |
 | Episcopal Church (TEC) | Planned |
@@ -19,7 +19,7 @@ A .NET library for resolving dates against church liturgical calendars — mappi
 |---------|-------------|
 | `src/FiveTalents.Calendar` | Core library — publishable as a NuGet package |
 | `src/FiveTalents.Calendar.Api` | ASP.NET Core Web API host |
-| `src/FiveTalents.Calendar.Tests` | Unit tests |
+| `tests/FiveTalents.Calendar.Tests.Unit` | Unit tests |
 | `web/five-talents-calendar-web` | Angular 21 companion website |
 
 ## Running Locally
