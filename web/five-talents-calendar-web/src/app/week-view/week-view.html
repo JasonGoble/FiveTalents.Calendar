@@ -1,0 +1,42 @@
+<div class="week-view-container">
+
+  <div class="week-nav">
+    <button mat-icon-button (click)="navigateWeek(-1)" matTooltip="Previous week">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <span class="week-label">{{ weekLabel() }}</span>
+    <button mat-icon-button (click)="navigateWeek(1)" matTooltip="Next week">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <a mat-stroked-button [routerLink]="['/day']" [queryParams]="{ date: selectedDate(), tradition: selectedTradition() }" class="day-link">
+      <mat-icon>today</mat-icon>
+      Day view
+    </a>
+  </div>
+
+  <div class="week-grid">
+    @for (day of days(); track day.date) {
+      <a class="day-card" [class]="colorClassFor(day)"
+         [routerLink]="dayUrl(day.date)"
+         [queryParams]="dayQueryParams(day.date)">
+        <div class="color-bar"></div>
+        <div class="day-card-content">
+          <div class="day-name">{{ day.date | date:'EEE' }}</div>
+          <div class="day-date">{{ day.date | date:'MMM d' }}</div>
+          <div class="day-season">{{ day.season | seasonLabel }}</div>
+          @if (day.feast) {
+            <div class="day-feast" [title]="day.feast.name">{{ day.feast.name }}</div>
+          }
+          @if (day.isEmberDay || day.isRogationDay || day.isFastDay) {
+            <div class="day-flags">
+              @if (day.isEmberDay) { <span class="flag-dot" title="Ember Day">E</span> }
+              @if (day.isRogationDay) { <span class="flag-dot" title="Rogation Day">R</span> }
+              @if (day.isFastDay) { <span class="flag-dot" title="Fast Day">F</span> }
+            </div>
+          }
+        </div>
+      </a>
+    }
+  </div>
+
+</div>

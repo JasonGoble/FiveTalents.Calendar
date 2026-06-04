@@ -1,0 +1,105 @@
+.week-view-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.week-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  .week-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    flex: 1;
+    text-align: center;
+  }
+
+  .day-link {
+    margin-left: auto;
+  }
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.day-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--mat-sys-outline-variant);
+  transition: box-shadow 0.2s;
+  background: var(--mat-sys-surface-container);
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .color-bar {
+    height: 6px;
+    background-color: var(--liturgical-color);
+  }
+
+  .day-card-content {
+    padding: 8px;
+  }
+
+  .day-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--mat-sys-outline);
+    letter-spacing: 0.05em;
+  }
+
+  .day-date {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .day-season {
+    font-size: 0.75rem;
+    color: var(--mat-sys-outline);
+    margin-bottom: 4px;
+  }
+
+  .day-feast {
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--mat-sys-primary);
+  }
+
+  .day-flags {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .flag-dot {
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: var(--mat-sys-tertiary-container);
+    color: var(--mat-sys-on-tertiary-container);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

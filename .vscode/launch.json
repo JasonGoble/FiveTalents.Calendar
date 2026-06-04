@@ -1,0 +1,42 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "API (http)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: API",
+      "program": "${workspaceFolder}/src/FiveTalents.Calendar.Api/bin/Debug/net10.0/FiveTalents.Calendar.Api.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/FiveTalents.Calendar.Api",
+      "stopAtEntry": false,
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5299"
+      }
+    },
+    {
+      "name": "Angular (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "serve: Angular",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/web/five-talents-calendar-web/src"
+    },
+    {
+      "name": "Angular (Edge)",
+      "type": "msedge",
+      "request": "launch",
+      "preLaunchTask": "serve: Angular",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/web/five-talents-calendar-web/src"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack",
+      "configurations": ["API (http)", "Angular (Chrome)"],
+      "stopAll": true
+    }
+  ]
+}

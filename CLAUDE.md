@@ -14,7 +14,7 @@ Project-specific conventions and technical gotchas. Shared workflow and process 
 
 ```bash
 # API
-dotnet run --project src/FiveTalents.Calendar.Api   # http://localhost:5290
+dotnet run --project src/FiveTalents.Calendar.Api   # http://localhost:5299
 
 # Frontend (Angular build path for the pre-commit check)
 cd web/five-talents-calendar-web && npm start        # http://localhost:4200

@@ -1,0 +1,138 @@
+<div class="day-view-container">
+
+  <!-- Controls -->
+  <mat-card class="controls-card">
+    <mat-card-content>
+      <div class="controls-row">
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>Tradition</mat-label>
+          <mat-select [ngModel]="selectedTradition()" (ngModelChange)="onTraditionChange($event)">
+            @for (t of traditions(); track t.tradition) {
+              <mat-option [value]="t.tradition">{{ t.name }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <div class="date-nav">
+          <button mat-icon-button (click)="navigateDay(-1)" matTooltip="Previous day">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+          <mat-form-field appearance="outline" subscriptSizing="dynamic">
+            <mat-label>Date</mat-label>
+            <input matInput type="date" [ngModel]="selectedDate()" (ngModelChange)="onDateChange($event)" />
+          </mat-form-field>
+          <button mat-icon-button (click)="navigateDay(1)" matTooltip="Next day">
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
+
+        <a mat-stroked-button [routerLink]="['/week']" [queryParams]="{ date: selectedDate(), tradition: selectedTradition() }">
+          <mat-icon>calendar_view_week</mat-icon>
+          Week view
+        </a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Day details -->
+  @if (day(); as d) {
+    <div class="day-header" [class]="colorClass()">
+      <div class="color-bar"></div>
+      <div class="day-header-content">
+        <div class="day-date">{{ d.date | date:'EEEE, MMMM d, y' }}</div>
+        <div class="day-season">
+          <mat-chip-set>
+            <mat-chip>{{ d.season | seasonLabel }}</mat-chip>
+            @if (d.week.weekNumber > 0) {
+              <mat-chip>Week {{ d.week.weekNumber }}</mat-chip>
+            }
+            <mat-chip>Year {{ d.week.lectionaryYear }}</mat-chip>
+            @if (d.properNumber) {
+              <mat-chip>Proper {{ d.properNumber }}</mat-chip>
+            }
+          </mat-chip-set>
+        </div>
+        <div class="day-flags">
+          @if (d.isEmberDay) { <span class="flag">Ember Day</span> }
+          @if (d.isRogationDay) { <span class="flag">Rogation Day</span> }
+          @if (d.isFastDay) { <span class="flag">Fast Day</span> }
+        </div>
+      </div>
+    </div>
+
+    <!-- Feast -->
+    @if (d.feast) {
+      <mat-card class="feast-card">
+        <mat-card-header>
+          <mat-card-title>{{ d.feast.name }}</mat-card-title>
+          <mat-card-subtitle>{{ d.feast.rank }}@if (d.feast.color) { · {{ d.feast.color }} }</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    }
+
+    <!-- Commemorations -->
+    @if (d.commemorations.length > 0) {
+      <mat-card class="commemorations-card">
+        <mat-card-header>
+          <mat-card-title>Commemorations</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <ul class="commemoration-list">
+            @for (c of d.commemorations; track c.name) {
+              <li>{{ c.name }}<span class="rank-label"> · {{ c.rank }}</span></li>
+            }
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    }
+
+    <!-- Readings -->
+    @if (d.readings.length > 0) {
+      <mat-card class="readings-card">
+        <mat-card-header>
+          <mat-card-title>Lectionary Readings</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          @for (service of d.readings; track $index) {
+            <mat-expansion-panel [expanded]="$index === 0">
+              <mat-expansion-panel-header>
+                <mat-panel-title>{{ service.name ?? 'Readings' }}</mat-panel-title>
+              </mat-expansion-panel-header>
+              <table class="readings-table">
+                <tbody>
+                  @for (r of service.readings; track $index) {
+                    <tr>
+                      <td class="reading-type">{{ r.type | readingTypeLabel }}</td>
+                      <td class="reading-citation">
+                        {{ r.citation }}
+                        @if (r.translationCode) {
+                          <span class="translation-code">({{ r.translationCode }})</span>
+                        }
+                        @if (r.alternateCitations.length > 0) {
+                          <span class="alternate-citations">
+                            or {{ r.alternateCitations.join(' / ') }}
+                          </span>
+                        }
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </mat-expansion-panel>
+          }
+        </mat-card-content>
+      </mat-card>
+    }
+
+    @if (d.readings.length === 0) {
+      <mat-card class="no-readings-card">
+        <mat-card-content>No lectionary readings assigned for this day.</mat-card-content>
+      </mat-card>
+    }
+  } @else {
+    <mat-card class="loading-card">
+      <mat-card-content>Loading…</mat-card-content>
+    </mat-card>
+  }
+
+</div>
