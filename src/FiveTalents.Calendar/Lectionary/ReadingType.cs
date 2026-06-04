@@ -2,9 +2,9 @@ namespace FiveTalents.Calendar.Lectionary;
 
 public enum ReadingType
 {
-    OldTestament,
+    FirstLesson,
     Psalm,
-    Epistle,
+    SecondLesson,
     Gospel,
     MorningPrayer,
     EveningPrayer,

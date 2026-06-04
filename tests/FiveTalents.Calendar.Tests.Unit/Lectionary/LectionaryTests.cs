@@ -40,10 +40,11 @@ public sealed class LectionaryTests
         Assert.Equal('A', day.Week.LectionaryYear);
         Assert.Equal(LiturgicalSeason.Advent, day.Season);
 
-        var ot = day.Readings.First(r => r.Type == ReadingType.OldTestament);
-        Assert.Equal("Isa 2:1-5", ot.Citation);
+        var readings = day.Readings[0].Readings;
+        var firstLesson = readings.First(r => r.Type == ReadingType.FirstLesson);
+        Assert.Equal("Isa 2:1-5", firstLesson.Citation);
 
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var gospel = readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 24:29-44", gospel.Citation);
     }
 
@@ -54,13 +55,14 @@ public sealed class LectionaryTests
         var day = _calendar.GetDay(new DateOnly(2024, 12, 1));
         Assert.Equal('C', day.Week.LectionaryYear);
 
-        var ot = day.Readings.First(r => r.Type == ReadingType.OldTestament);
-        Assert.Equal("Zech 14:1-9", ot.Citation);
-        Assert.Equal("Zech 14:3-9", ot.AlternateCitation);
+        var readings = day.Readings[0].Readings;
+        var firstLesson = readings.First(r => r.Type == ReadingType.FirstLesson);
+        Assert.Equal("Zech 14:1-9", firstLesson.Citation);
+        Assert.Equal("Zech 14:3-9", firstLesson.AlternateCitations[0]);
 
-        var psalm = day.Readings.First(r => r.Type == ReadingType.Psalm);
+        var psalm = readings.First(r => r.Type == ReadingType.Psalm);
         Assert.Equal("Ps 50", psalm.Citation);
-        Assert.Equal("Ps 50:1-6", psalm.AlternateCitation);
+        Assert.Equal("Ps 50:1-6", psalm.AlternateCitations[0]);
     }
 
     // ── Christmas readings ────────────────────────────────────────────────────
@@ -90,11 +92,13 @@ public sealed class LectionaryTests
         // which maps to "CircumcisionHolyName" in the JSON
         var day = _calendar.GetDay(new DateOnly(2026, 1, 1));
         Assert.NotNull(day.Feast);
-        var ot = day.Readings.FirstOrDefault(r => r.Type == ReadingType.OldTestament);
-        Assert.NotNull(ot);
-        Assert.Equal("Ex 34:1-9", ot.Citation);
 
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var readings = day.Readings[0].Readings;
+        var firstLesson = readings.FirstOrDefault(r => r.Type == ReadingType.FirstLesson);
+        Assert.NotNull(firstLesson);
+        Assert.Equal("Ex 34:1-9", firstLesson.Citation);
+
+        var gospel = readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Luke 2:15-21", gospel.Citation);
     }
 
@@ -108,11 +112,12 @@ public sealed class LectionaryTests
         Assert.Equal(LiturgicalSeason.Epiphany, day.Season);
         Assert.Equal(1, day.Week.WeekNumber);
 
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var readings = day.Readings[0].Readings;
+        var gospel = readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 3:13-17", gospel.Citation);
 
-        var epistle = day.Readings.First(r => r.Type == ReadingType.Epistle);
-        Assert.Equal("Acts 10:34-38", epistle.Citation);
+        var secondLesson = readings.First(r => r.Type == ReadingType.SecondLesson);
+        Assert.Equal("Acts 10:34-38", secondLesson.Citation);
     }
 
     [Fact]
@@ -133,9 +138,10 @@ public sealed class LectionaryTests
         var day = _calendar.GetDay(new DateOnly(2026, 2, 18));
         Assert.Equal("Ash Wednesday", day.Feast!.Name);
 
-        var ot = day.Readings.First(r => r.Type == ReadingType.OldTestament);
-        Assert.Equal("Joel 2:1-2,12-17", ot.Citation);
-        Assert.Equal("Isa 58:1-12", ot.AlternateCitation);
+        var readings = day.Readings[0].Readings;
+        var firstLesson = readings.First(r => r.Type == ReadingType.FirstLesson);
+        Assert.Equal("Joel 2:1-2,12-17", firstLesson.Citation);
+        Assert.Equal("Isa 58:1-12", firstLesson.AlternateCitations[0]);
     }
 
     [Fact]
@@ -146,23 +152,40 @@ public sealed class LectionaryTests
         Assert.Equal(LiturgicalSeason.Lent, day.Season);
         Assert.Equal(2, day.Week.WeekNumber);
 
-        var epistle = day.Readings.First(r => r.Type == ReadingType.Epistle);
-        Assert.Equal("Rom 4:1-17", epistle.Citation);
-        Assert.Equal("Rom 4:1-5,13-17", epistle.AlternateCitation);
+        var secondLesson = day.Readings[0].Readings.First(r => r.Type == ReadingType.SecondLesson);
+        Assert.Equal("Rom 4:1-17", secondLesson.Citation);
+        Assert.Equal("Rom 4:1-5,13-17", secondLesson.AlternateCitations[0]);
     }
 
     // ── Holy Week readings ────────────────────────────────────────────────────
+
+    [Fact]
+    public void Readings_PalmSunday_YearA_ReturnsTwoNamedServices()
+    {
+        // Palm Sunday 2026 = March 29, Year A
+        var day = _calendar.GetDay(new DateOnly(2026, 3, 29));
+        Assert.Equal(LiturgicalSeason.HolyWeek, day.Season);
+        Assert.Equal(2, day.Readings.Count);
+
+        var palms = day.Readings.First(s => s.Name == "Liturgy of the Palms");
+        Assert.Equal("Matt 21:1-11", palms.Readings.First(r => r.Type == ReadingType.Gospel).Citation);
+        Assert.Equal("Ps 118:19-29", palms.Readings.First(r => r.Type == ReadingType.Psalm).Citation);
+
+        var word = day.Readings.First(s => s.Name == "Liturgy of the Word");
+        Assert.Equal("Matt 26:36-27:66", word.Readings.First(r => r.Type == ReadingType.Gospel).Citation);
+        Assert.Equal("Matt 27:1-54", word.Readings.First(r => r.Type == ReadingType.Gospel).AlternateCitations[0]);
+    }
 
     [Fact]
     public void Readings_GoodFriday_HasReadings()
     {
         var day = _calendar.GetDay(new DateOnly(2026, 4, 3));
         Assert.Equal("Good Friday", day.Feast!.Name);
-        Assert.Equal(4, day.Readings.Count);
+        Assert.Equal(4, day.Readings[0].Readings.Count);
 
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("John 18:1-19:37", gospel.Citation);
-        Assert.Equal("John 19:1-37", gospel.AlternateCitation);
+        Assert.Equal("John 19:1-37", gospel.AlternateCitations[0]);
     }
 
     // ── Easter readings ───────────────────────────────────────────────────────
@@ -172,9 +195,9 @@ public sealed class LectionaryTests
     {
         var day = _calendar.GetDay(new DateOnly(2026, 4, 5));
         Assert.Equal("Easter Day", day.Feast!.Name);
-        Assert.Equal(4, day.Readings.Count);
+        Assert.Equal(4, day.Readings[0].Readings.Count);
 
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("John 20:1-18", gospel.Citation);
     }
 
@@ -184,7 +207,7 @@ public sealed class LectionaryTests
         var day = _calendar.GetDay(new DateOnly(2026, 4, 6));
         Assert.Equal(LiturgicalSeason.Easter, day.Season);
         Assert.NotEmpty(day.Readings);
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 28:9-15", gospel.Citation);
     }
 
@@ -197,7 +220,7 @@ public sealed class LectionaryTests
         var day = _calendar.GetDay(new DateOnly(2026, 5, 31));
         Assert.Equal("Trinity Sunday", day.Feast!.Name);
 
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 28:16-20", gospel.Citation);
     }
 
@@ -209,10 +232,11 @@ public sealed class LectionaryTests
         Assert.Equal(5, day.ProperNumber);
         Assert.Equal('A', day.Week.LectionaryYear);
 
-        var ot = day.Readings.First(r => r.Type == ReadingType.OldTestament);
-        Assert.Equal("Hos 5:15-6:6", ot.Citation);
+        var readings = day.Readings[0].Readings;
+        var firstLesson = readings.First(r => r.Type == ReadingType.FirstLesson);
+        Assert.Equal("Hos 5:15-6:6", firstLesson.Citation);
 
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var gospel = readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 9:9-13", gospel.Citation);
     }
 
@@ -225,7 +249,7 @@ public sealed class LectionaryTests
         Assert.Equal(29, day.ProperNumber);
         Assert.Equal('A', day.Week.LectionaryYear);
 
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         // Year A = Matt 25:31-46
         Assert.Equal("Matt 25:31-46", gospel.Citation);
     }
@@ -238,9 +262,9 @@ public sealed class LectionaryTests
         var day = _calendar.GetDay(new DateOnly(2026, 11, 1));
         Assert.Equal("All Saints' Day", day.Feast!.Name);
 
-        var ot = day.Readings.First(r => r.Type == ReadingType.OldTestament);
-        Assert.Equal("Ecclesiasticus 44:1-14", ot.Citation);
-        Assert.Equal("Rev 7:9-17", ot.AlternateCitation);
+        var firstLesson = day.Readings[0].Readings.First(r => r.Type == ReadingType.FirstLesson);
+        Assert.Equal("Ecclesiasticus 44:1-14", firstLesson.Citation);
+        Assert.Equal("Rev 7:9-17", firstLesson.AlternateCitations[0]);
     }
 
     [Fact]
@@ -251,7 +275,7 @@ public sealed class LectionaryTests
         Assert.NotNull(day.Feast);
         Assert.Equal("Andrew the Apostle", day.Feast.Name);
 
-        var gospel = day.Readings.First(r => r.Type == ReadingType.Gospel);
+        var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 4:18-22", gospel.Citation);
     }
 
@@ -262,9 +286,9 @@ public sealed class LectionaryTests
         var day = _calendar.GetDay(new DateOnly(2026, 3, 25));
         Assert.Equal("The Annunciation of Our Lord Jesus Christ to the Virgin Mary", day.Feast!.Name);
 
-        var psalm = day.Readings.First(r => r.Type == ReadingType.Psalm);
+        var psalm = day.Readings[0].Readings.First(r => r.Type == ReadingType.Psalm);
         Assert.Equal("Ps 40:1-13", psalm.Citation);
-        Assert.Equal("Magnificat", psalm.AlternateCitation);
+        Assert.Equal("Magnificat", psalm.AlternateCitations[0]);
     }
 
     // ── Ordinary weekdays have no readings ───────────────────────────────────
@@ -282,7 +306,7 @@ public sealed class LectionaryTests
         // BCP: "The Lessons for each Sunday are used at celebrations of the
         // Holy Communion during the following week." — weekdays share the Sunday proper.
         Assert.NotEmpty(day.Readings);
-        var ot = day.Readings.First(r => r.Type == ReadingType.OldTestament);
-        Assert.Equal("Zech 9:9-12", ot.Citation); // Proper 9 Year A
+        var firstLesson = day.Readings[0].Readings.First(r => r.Type == ReadingType.FirstLesson);
+        Assert.Equal("Zech 9:9-12", firstLesson.Citation); // Proper 9 Year A
     }
 }

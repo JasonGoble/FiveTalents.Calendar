@@ -77,18 +77,47 @@ internal static class AcnaSundayLectionary
     // ── Public API ────────────────────────────────────────────────────────────
 
     /// <summary>
-    /// Returns the lectionary readings for the given day, or an empty list if
-    /// no readings are assigned (e.g. an ordinary weekday with no proper).
+    /// Returns the liturgical services for the given day, each containing their own
+    /// readings. Returns an empty list when no readings are assigned (e.g. an ordinary
+    /// weekday with no proper). Most days return a single unnamed service; Palm Sunday
+    /// returns two named services ("Liturgy of the Palms" and "Liturgy of the Word").
     /// </summary>
-    public static IReadOnlyList<LectionaryReading> GetReadings(LiturgicalDay day)
+    public static IReadOnlyList<LiturgicalService> GetReadings(LiturgicalDay day)
     {
         string? key = ResolveKey(day);
-        if (key is null || !_data.TryGetValue(key, out var element))
+        if (key is null)
         {
             return [];
         }
 
-        return ParseReadings(element, day.Week.LectionaryYear);
+        if (key == "PalmSunday")
+        {
+            var palms = BuildService("PalmSundayPalms", day.Week.LectionaryYear);
+            var word = BuildService("PalmSunday", day.Week.LectionaryYear);
+            return
+            [
+                new LiturgicalService { Name = "Liturgy of the Palms", Readings = palms },
+                new LiturgicalService { Name = "Liturgy of the Word", Readings = word },
+            ];
+        }
+
+        if (!_data.TryGetValue(key, out var element))
+        {
+            return [];
+        }
+
+        var readings = ParseReadings(element, day.Week.LectionaryYear);
+        return readings.Count == 0 ? [] : [new LiturgicalService { Readings = readings }];
+    }
+
+    private static IReadOnlyList<LectionaryReading> BuildService(string key, char lectionaryYear)
+    {
+        if (!_data.TryGetValue(key, out var element))
+        {
+            return [];
+        }
+
+        return ParseReadings(element, lectionaryYear);
     }
 
     // ── Key resolution ────────────────────────────────────────────────────────
@@ -274,15 +303,24 @@ internal static class AcnaSundayLectionary
                 continue;
             }
 
-            string? alternate = item.TryGetProperty("alternate", out var altEl)
-                ? altEl.GetString()
+            IReadOnlyList<string> alternates = [];
+            if (item.TryGetProperty("alternate", out var altEl))
+            {
+                alternates = altEl.ValueKind == JsonValueKind.Array
+                    ? altEl.EnumerateArray().Select(e => e.GetString()!).ToList()
+                    : [altEl.GetString()!];
+            }
+
+            string? translationCode = item.TryGetProperty("translationCode", out var tcEl)
+                ? tcEl.GetString()
                 : null;
 
             readings.Add(new LectionaryReading
             {
                 Type = type,
                 Citation = citEl.GetString()!,
-                AlternateCitation = alternate,
+                AlternateCitations = alternates,
+                TranslationCode = translationCode,
             });
         }
         return readings;
