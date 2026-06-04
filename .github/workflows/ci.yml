@@ -70,7 +70,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: web/five-talents-calendar-web
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Build
         working-directory: web/five-talents-calendar-web
