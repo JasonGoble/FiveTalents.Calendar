@@ -1,0 +1,120 @@
+.day-view-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controls-card {
+  .controls-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .date-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.day-header {
+  border-radius: 8px;
+  overflow: hidden;
+
+  .color-bar {
+    height: 8px;
+    background-color: var(--liturgical-color);
+  }
+
+  .day-header-content {
+    padding: 16px;
+    background: var(--mat-sys-surface-container);
+  }
+
+  .day-date {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .day-flags {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .flag {
+    font-size: 0.8rem;
+    background: var(--mat-sys-tertiary-container);
+    color: var(--mat-sys-on-tertiary-container);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+}
+
+.feast-card mat-card-title {
+  font-size: 1.1rem;
+}
+
+.commemoration-list {
+  margin: 0;
+  padding-left: 20px;
+
+  .rank-label {
+    color: var(--mat-sys-outline);
+    font-size: 0.85rem;
+  }
+}
+
+.readings-card mat-expansion-panel {
+  margin-bottom: 4px;
+}
+
+.readings-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    border-bottom: 1px solid var(--mat-sys-outline-variant);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  td {
+    padding: 8px 4px;
+    vertical-align: top;
+  }
+
+  .reading-type {
+    width: 120px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--mat-sys-primary);
+  }
+
+  .translation-code {
+    font-size: 0.8rem;
+    color: var(--mat-sys-outline);
+    margin-left: 4px;
+  }
+
+  .alternate-citations {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--mat-sys-outline);
+    margin-top: 2px;
+  }
+}
+
+.no-readings-card,
+.loading-card {
+  color: var(--mat-sys-outline);
+}

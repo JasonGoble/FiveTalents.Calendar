@@ -20,6 +20,7 @@ A .NET library for resolving dates against church liturgical calendars — mappi
 | `src/FiveTalents.Calendar` | Core library — publishable as a NuGet package |
 | `src/FiveTalents.Calendar.Api` | ASP.NET Core Web API host |
 | `tests/FiveTalents.Calendar.Tests.Unit` | Unit tests |
+| `tests/FiveTalents.Calendar.Tests.Api` | API integration tests |
 | `web/five-talents-calendar-web` | Angular 21 companion website |
 
 ## Running Locally
