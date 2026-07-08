@@ -232,13 +232,6 @@
     ]
   },
 
-  "PresentationOfChrist": [
-    { "type": "FirstLesson", "citation": "Mal 3:1-4" },
-    { "type": "Psalm", "citation": "Ps 84" , "translationCode": "NCP" },
-    { "type": "SecondLesson", "citation": "Heb 2:14-18" },
-    { "type": "Gospel", "citation": "Luke 2:22-40" }
-  ],
-
   "Epiphany5": {
     "A": [
       { "type": "FirstLesson", "citation": "2 Kings 22:8-20" },
