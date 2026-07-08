@@ -1,0 +1,6591 @@
+{
+  "_comment": "STAGING DATA — Lesson citations only, sourced from Michael Wayne Arnold's Date::Lectionary::Daily (acna-sec_lect_daily.xml, BSD 2-Clause, see THIRD_PARTY_NOTICES.md). Produced for issue #20; NOT yet consumed by the calendar engine (that is issue #9). Keyed by MM-DD (calendar date, per BCP 2019's continuous-reading structure — see the Design note in issue #7 for how the two-year Year I/II cycle selects between the Morning and Evening pairs at runtime). Psalms are not included — DOCX extraction tracked in a follow-up issue. The \"†\" character appearing inline within some citations marks an Easter-dependent substitution per the BCP's own legend; preserved verbatim here, not yet parsed into a separate flag — semantic handling is part of the same follow-up issue. Type labels (MorningFirstLesson etc.) are provisional staging labels, not the final ReadingType enum — #9 decides the real data model shape.",
+  "01-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 1"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 1:1-28"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Galations 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 2:8-21"
+    }
+  ],
+  "01-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 1:29-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Galations 2"
+    }
+  ],
+  "01-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 3"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 2"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 2 † 1-22"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Galations 3"
+    }
+  ],
+  "01-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 4"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 3:1-21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Galations 4"
+    }
+  ],
+  "01-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 3:22-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Galations 5"
+    }
+  ],
+  "01-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 6"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 2:1-12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 2:1-12"
+    }
+  ],
+  "01-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 7"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 4:1-26"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Galations 6"
+    }
+  ],
+  "01-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 4:27-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 7 † 1-28,34"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Thessalonians 1"
+    }
+  ],
+  "01-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 9"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 5:1-24"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Thessalonians 2:1-16"
+    }
+  ],
+  "01-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 10 † 1-9,15-22,30-32"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 5:25-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Thessalonians 2:17-3 end"
+    }
+  ],
+  "01-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 11 † 1-9,27-32"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 6:1-21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Thessalonians 4:1-12"
+    }
+  ],
+  "01-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 12"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 6:22-40"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 11"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Thessalonians 4:13-5:11"
+    }
+  ],
+  "01-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 6:41-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 12"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Thessalonians 5:12-end"
+    }
+  ],
+  "01-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 14"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 7:1-24"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 13"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Thessalonians 1"
+    }
+  ],
+  "01-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 15"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 7:25-52"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 14"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Thessalonians 2"
+    }
+  ],
+  "01-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 16"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 7:53-8:30"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 15"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Thessalonians 3"
+    }
+  ],
+  "01-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 17"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 8:31-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 16"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 1:1-25"
+    }
+  ],
+  "01-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 18"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 16:13-20"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 17"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 1:26-2 end"
+    }
+  ],
+  "01-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 19 † 1-29"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 9"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 18"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 3"
+    }
+  ],
+  "01-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 10:1-21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 19"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 4:1-17"
+    }
+  ],
+  "01-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 21 † 1-21"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 10:22-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 20"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 4:18-5 end"
+    }
+  ],
+  "01-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 22"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 11:1-44"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 21"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 6"
+    }
+  ],
+  "01-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 23"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 11:45-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 22"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 7"
+    }
+  ],
+  "01-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 24 † 1-28,53-58"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 12:1-19"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 23 † 1-9,16-18,21-40"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 8"
+    }
+  ],
+  "01-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Acts 9:1-22"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 12:20-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 24"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 9"
+    }
+  ],
+  "01-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 25 † 7-11,19-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 25 † 1-19,26-31"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 10"
+    }
+  ],
+  "01-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 26 † 1-25"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 14:1-14"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 26"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 11"
+    }
+  ],
+  "01-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 27 † 1-13,18-36,39-40"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 14:15-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 27"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 12"
+    }
+  ],
+  "01-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 15:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 28"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 13"
+    }
+  ],
+  "01-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 29 † 1-28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 15:18-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 29 † 1-14,24-32"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 14:1-19"
+    }
+  ],
+  "01-31": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 30 † 1-2,22-43"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 16:1-15"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 30"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 14:20-end"
+    }
+  ],
+  "02-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 31 † 1-3,17-45"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 16:16-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 31 † 1-17,27-37"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 15:1-34"
+    }
+  ],
+  "02-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 32 † 1-13,21-32"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 2:22-40"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 32 † 1-15,36-44"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 15:35-end"
+    }
+  ],
+  "02-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 33"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Corinthians 16"
+    }
+  ],
+  "02-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 18:1-27"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 34"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 1:1-2:11"
+    }
+  ],
+  "02-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 35"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 18:28-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 35"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 2:12-3 end"
+    }
+  ],
+  "02-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 36 † 1-8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 19:1-37"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 36 † 1-10,19-32"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 4"
+    }
+  ],
+  "02-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 37 † 3-8,12-36"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 19:38-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 37"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 5"
+    }
+  ],
+  "02-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 38 † 1-26"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 20"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 38"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 6"
+    }
+  ],
+  "02-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 39"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 39"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 7"
+    }
+  ],
+  "02-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 40"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 1:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 40"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 8"
+    }
+  ],
+  "02-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 41 † 1-15,25-40"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 1:18-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 41"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 9"
+    }
+  ],
+  "02-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 42 † 1-28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 2"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 42"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 10"
+    }
+  ],
+  "02-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 43 † 1-10,15-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 43"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 11"
+    }
+  ],
+  "02-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 44 † 1-20,30-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 44 † 1-19,24-30"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 12:1-13"
+    }
+  ],
+  "02-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 45"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 5:1-20"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 45"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Corinthians 12:14-13 end"
+    }
+  ],
+  "02-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 46 † 1-7,28-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 5:21-48"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 46"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 1"
+    }
+  ],
+  "02-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 47 † 1-15,23-31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 6:1-18"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 47"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 2"
+    }
+  ],
+  "02-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 48"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 6:19-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 48 † 1-20,40-47"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 3"
+    }
+  ],
+  "02-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 49"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 49 † 1-13,23-39"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 4"
+    }
+  ],
+  "02-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Genesis 50"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 8:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 50 † 1-20,33-40"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 5"
+    }
+  ],
+  "02-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 1"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 8:18-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 51 † 6-10,45-64"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 6"
+    }
+  ],
+  "02-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 9:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jeremiah 52 † 1-27,31-34"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 7"
+    }
+  ],
+  "02-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 3"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 9:18-34"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Baruch 4 † 5-13,21-37"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 8:1-17"
+    }
+  ],
+  "02-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Acts 1:15-26"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 9:35-10:23"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Baruch 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 8:18-end"
+    }
+  ],
+  "02-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 4"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 10:24-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Lamentations 1 † 1-12,17-22"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 9"
+    }
+  ],
+  "02-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Lamentations 2 † 1-18"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 10"
+    }
+  ],
+  "02-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 6 † 1-13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 12:1-21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Lamentations 3 † 1-9,19-33,52-66"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 11"
+    }
+  ],
+  "02-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 7"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 12:22-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Lamentations 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 12"
+    }
+  ],
+  "02-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 24:44-53"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Joel 2 † 1-2,12-32"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Peter 3"
+    }
+  ],
+  "03-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 13:1-23"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Lamentations 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 13"
+    }
+  ],
+  "03-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 9 † 1-29,33-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 13:24-43"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 14"
+    }
+  ],
+  "03-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 10"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 13:44-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 15"
+    }
+  ],
+  "03-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 11"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 14"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 3 † 1-27"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Romans 16"
+    }
+  ],
+  "03-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 12 † 1-20,28-36"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 15:1-28"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Philippians 1:1-11"
+    }
+  ],
+  "03-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 15:29-16:12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Philippians 1:12-end"
+    }
+  ],
+  "03-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 14 † 5-31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 16:13-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 6 † 1-11,20-35"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Philippians 2:1-11"
+    }
+  ],
+  "03-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 15"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 17:1-23"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Philippians 2:12-end"
+    }
+  ],
+  "03-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 16 † 1-7,11-33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 17:24-18:14"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Philippians 3"
+    }
+  ],
+  "03-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 17"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 18:15-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Philippians 4"
+    }
+  ],
+  "03-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 18"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 19:1-15"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Col 1:1-20"
+    }
+  ],
+  "03-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 19"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 19:16-20:16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 11"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Col 1:21-2:7"
+    }
+  ],
+  "03-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 20:17-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 12"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Col 2:8-19"
+    }
+  ],
+  "03-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 21 † 1-19,22-29"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 21:1-22"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 13"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Col 2:20-3:11"
+    }
+  ],
+  "03-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 22"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 21:23-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 14"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Col 3:12-end"
+    }
+  ],
+  "03-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 23 † 1-13,18-30"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 22:1-33"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 15"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Col 4"
+    }
+  ],
+  "03-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 24"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 22:34-23:12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 16"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Philemon"
+    }
+  ],
+  "03-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 25 † 1-23,31-40"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 23:13-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 17"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 1:1-14"
+    }
+  ],
+  "03-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 26 † 1-10,15-16,29-37"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 24:1-28"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ephesians 1:15-end"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 1:18-26"
+    }
+  ],
+  "03-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 27"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 24:29-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 18"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 2:1-10"
+    }
+  ],
+  "03-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 28 † 1-6,15-21, 29-43"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 25:1-30"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 19"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 2:11-end"
+    }
+  ],
+  "03-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 29 † 1-18,35-46"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 25:31-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 20"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 3"
+    }
+  ],
+  "03-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 30 † 1-3,7-33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 26:1-30"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 21"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 4:1-16"
+    }
+  ],
+  "03-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 26:31-56"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 22"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 4:17-end"
+    }
+  ],
+  "03-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 32 † 1-29"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 1:26-38"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 23"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 5:1-17"
+    }
+  ],
+  "03-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 26:57-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 24 † 1-14, 23-34"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 5:18-end"
+    }
+  ],
+  "03-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 34 † 1-17,27-35"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 27:1-26"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 25"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 6:1-9"
+    }
+  ],
+  "03-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 35 † 1-10,20-35"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 27:27-56"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 26"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Ephesians 6:10-end"
+    }
+  ],
+  "03-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 36 † 1-10,18-20, 31-38"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 27:57-28 end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 27"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 1:1-17"
+    }
+  ],
+  "03-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 37 † 1-11,16-29"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 1:1-13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 28"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 1:18-2 end"
+    }
+  ],
+  "03-31": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 38 † 1-23"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 1:14-31"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 29"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 3"
+    }
+  ],
+  "04-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 39 † 1-14,27-43"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 1:32-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 30 † 1-9,15-33"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 4"
+    }
+  ],
+  "04-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Exodus 40 † 1,16-38"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 2:1-22"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Proverbs 31"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 5"
+    }
+  ],
+  "04-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 1"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 2:23-3:12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 6"
+    }
+  ],
+  "04-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 8 † 1-24,30-36"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 3:13-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Titus 1"
+    }
+  ],
+  "04-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 10"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 4:1-34"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Titus 2"
+    }
+  ],
+  "04-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 16 † 1-22,29-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 4:35-5:20"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Titus 3"
+    }
+  ],
+  "04-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 17"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 5:21-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Timothy 1"
+    }
+  ],
+  "04-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 18"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 6:1-29"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Timothy 2"
+    }
+  ],
+  "04-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 19 † 1-2,9-37"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 6:30-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Timothy 3"
+    }
+  ],
+  "04-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 7:1-23"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Timothy 4"
+    }
+  ],
+  "04-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 23 † 9-32,39-43"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 7:24-8:10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 1"
+    }
+  ],
+  "04-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Leviticus 26 † 3-20,38-46"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 8:11-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 2"
+    }
+  ],
+  "04-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 6"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 9:1-29"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 11"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 3"
+    }
+  ],
+  "04-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 8 † 5-26"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 9:30-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 12"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 4:1-13"
+    }
+  ],
+  "04-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 11 † 4-6,10-33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 10:1-31"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 13"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 4:14-5:10"
+    }
+  ],
+  "04-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 12"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 10:32-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 14"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 5:11-6 end"
+    }
+  ],
+  "04-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 13 † 1-3,17-33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 11:1-26"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 15"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 7"
+    }
+  ],
+  "04-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 14 † 1-31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 11:27-12:12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 16"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 8"
+    }
+  ],
+  "04-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 15 † 22-41"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 12:13-34"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 17"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 9:1-14"
+    }
+  ],
+  "04-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 16 † 1-11,20-38"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 12:35-13:13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 18"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 9:15-end"
+    }
+  ],
+  "04-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 17"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 13:14-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 19"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 10:1-18"
+    }
+  ],
+  "04-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 18 † 1-24"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 14:1-25"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 20"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 10:19-end"
+    }
+  ],
+  "04-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 14:26-52"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 21"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 11"
+    }
+  ],
+  "04-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 21 † 4-9,21-35"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 14:53-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 22"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 12:1-17"
+    }
+  ],
+  "04-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Acts 12:11-25"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 15"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 23"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 12:18-end"
+    }
+  ],
+  "04-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 22 † 1-35"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 24"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Hebrews 13"
+    }
+  ],
+  "04-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 23 † 1-26"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 1:1-23"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 25 & 26"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "James 1"
+    }
+  ],
+  "04-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 24"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 1:24-56"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 27"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "James 2:1-13"
+    }
+  ],
+  "04-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Numbers 25"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 1:57-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 28"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "James 2:14-end"
+    }
+  ],
+  "04-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 1 † 1-21,26-33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 2:1-21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 29"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "James 3"
+    }
+  ],
+  "05-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 2 † 1-9,14-19,24-37"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 2:22-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "James 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 1:43-end"
+    }
+  ],
+  "05-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 3"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 3:1-22"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 30"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "James 5"
+    }
+  ],
+  "05-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 4 † 1-18,24-40"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 3:23-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 31 † 1-23,35-40"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Peter 1:1-21"
+    }
+  ],
+  "05-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 4:1-30"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 32"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Peter 1:22-2:10"
+    }
+  ],
+  "05-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 6"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 4:31-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 33"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Peter 2:11-3:7"
+    }
+  ],
+  "05-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 7"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 5:1-16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 34 † 1-15,21-28,31-37"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Peter 3:8-4:6"
+    }
+  ],
+  "05-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 5:17-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 35"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Peter 4:7-end"
+    }
+  ],
+  "05-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 9"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 6:1-19"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 36"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Peter 5"
+    }
+  ],
+  "05-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 10"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 6:20-38"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 37"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Peter 1"
+    }
+  ],
+  "05-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 11"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 6:39-7:10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 38 † 1-27,31-33"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Peter 2"
+    }
+  ],
+  "05-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 12"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 7:11-35"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 39"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Peter 3"
+    }
+  ],
+  "05-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 7:36-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 40"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Jude"
+    }
+  ],
+  "05-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 14"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 8:1-21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 41"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 John 1:1-2:6"
+    }
+  ],
+  "05-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 15"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 8:22-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Job 42"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 John 2:7-end"
+    }
+  ],
+  "05-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 16"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 9:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 John 3:1-10"
+    }
+  ],
+  "05-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 17"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 9:18-50"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 John 3:11-4:6"
+    }
+  ],
+  "05-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 18"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 9:51-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 John 4:7-end"
+    }
+  ],
+  "05-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 19"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 10:1-24"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 John 5"
+    }
+  ],
+  "05-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 10:25-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 John"
+    }
+  ],
+  "05-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 21"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 11:1-28"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "3 John"
+    }
+  ],
+  "05-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 22"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 11:29-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 1:1-14"
+    }
+  ],
+  "05-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 23"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 12:1-34"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 1:15-end"
+    }
+  ],
+  "05-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 24"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 12:35-53"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 2:1-21"
+    }
+  ],
+  "05-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 25"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 12:54-13:9"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 2:22-end"
+    }
+  ],
+  "05-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 26"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 13:10-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 11"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 3:1-4:4"
+    }
+  ],
+  "05-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 27"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 14:1-24"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ecclesiastes 12"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 4:5-31"
+    }
+  ],
+  "05-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 28 † 1-25,64-68"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 14:25-15:10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 4:32-5:11"
+    }
+  ],
+  "05-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 29"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 15:11-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 5:12-end"
+    }
+  ],
+  "05-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 30"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 6:1-7:16"
+    }
+  ],
+  "05-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 17:1-19"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 7:17-34"
+    }
+  ],
+  "05-31": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 32 † 1-10,15-22,39-52"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 1:39-56"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 7:35-8:3"
+    }
+  ],
+  "06-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 17:20-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 8:4-25"
+    }
+  ],
+  "06-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Deuteronomy 34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 18:1-30"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 8:26-end"
+    }
+  ],
+  "06-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 1"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 18:31-19:10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 9:1-31"
+    }
+  ],
+  "06-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 19:11-28"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 9:32-end"
+    }
+  ],
+  "06-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 3"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 19:29-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 10:1-23"
+    }
+  ],
+  "06-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 4"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 20:1-26"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 11"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 10:24-end"
+    }
+  ],
+  "06-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 20:27-21:4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 12"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 11:1-18"
+    }
+  ],
+  "06-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 6"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 21:5-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 13"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 11:19-end"
+    }
+  ],
+  "06-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 7"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 22:1-38"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 14"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 12:1-24"
+    }
+  ],
+  "06-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 8 † 1-22,30-35"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 22:39-53"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 15"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 12:25-13:12"
+    }
+  ],
+  "06-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Acts 4:32-37"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 22:54-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 16 † 1-15,33-47, 59-63"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 13:13-43"
+    }
+  ],
+  "06-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 9"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 23:1-25"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 17"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 13:44-14:7"
+    }
+  ],
+  "06-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 10 † 1-27,40-43"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke:23:26-49"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 18"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 14:8-end"
+    }
+  ],
+  "06-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 14 † 5-15"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 23:50-24:12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 33 † 1-23,30-33"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 15:1-21"
+    }
+  ],
+  "06-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 22 † 7-31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 24:13-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 34"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 15:22-35"
+    }
+  ],
+  "06-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 23"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Galations 1"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 35"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 15:36-16:5"
+    }
+  ],
+  "06-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Joshua 24 † 1-31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Galations 2"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 36 † 16-37"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 16:6-end"
+    }
+  ],
+  "06-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 1 † 1-21"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Galations 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 37"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 17:1-15"
+    }
+  ],
+  "06-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 2 † 6-23"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Galations 4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 40 † 1-5,17-19,35-49"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 17:16-end"
+    }
+  ],
+  "06-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 3 † 7-30"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Galations 5"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 43"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 18:1-23"
+    }
+  ],
+  "06-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 4"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Galations 6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezekiel 47"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 18:24-19:7"
+    }
+  ],
+  "06-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 5 † 1-5,19-31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Thessalonians 1"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 19:8-20"
+    }
+  ],
+  "06-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 6 † 1,6,11-24,33-40"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Thessalonians 2:1-16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 2 † 1-14,25-28,31-45"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 19:21-end"
+    }
+  ],
+  "06-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Thessalonians 2:17-3 end"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 14:1-13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 20:1-16"
+    }
+  ],
+  "06-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 7 † 1-8,16-25"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Thessalonians 4:1-12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 4 † 1-9,19-35"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 20:17-end"
+    }
+  ],
+  "06-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 8 † 4-23,28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Thessalonians 4:13-5:11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 21:1-16"
+    }
+  ],
+  "06-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 9 † 1-6,22-25,43-56"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Thessalonians 5:12-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 21:17-36"
+    }
+  ],
+  "06-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 10 † 6-18"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Thessalonians 1"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 21:37-22:22"
+    }
+  ],
+  "06-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Thessalonians 2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Peter 3:14-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 22:23-23:11"
+    }
+  ],
+  "06-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 11 † 1-11,29-40"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Thessalonians 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 23:12-end"
+    }
+  ],
+  "07-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 12"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 1:1-25"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 24:1-23"
+    }
+  ],
+  "07-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 1:26-2 end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 11 † 1-19"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 24:24-25:12"
+    }
+  ],
+  "07-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 14"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Daniel 12"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 25:13-end"
+    }
+  ],
+  "07-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 15"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 4:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Susanna"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 26"
+    }
+  ],
+  "07-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judges 16"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 4:18-5 end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Esther 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 27"
+    }
+  ],
+  "07-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ruth 1"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Esther 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 28:1-15"
+    }
+  ],
+  "07-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ruth 2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Esther 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Acts 28:16-end"
+    }
+  ],
+  "07-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ruth 3"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 8"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Esther 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Philemon"
+    }
+  ],
+  "07-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ruth 4"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 9"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Esther 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 1:1-17"
+    }
+  ],
+  "07-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 1 † 1-20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Esther 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 1:18-2 end"
+    }
+  ],
+  "07-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 2 † 1-21"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Esther 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 3"
+    }
+  ],
+  "07-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 3"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Esther 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 4"
+    }
+  ],
+  "07-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 4"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Esther 9 & 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 5"
+    }
+  ],
+  "07-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 14:1-19"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezra 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "1 Timothy 6"
+    }
+  ],
+  "07-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 6 † 1-15"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 14:20-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezra 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Titus 1"
+    }
+  ],
+  "07-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 7"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 15:1-34"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezra 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Titus 2"
+    }
+  ],
+  "07-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 15:35-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezra 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Titus 3"
+    }
+  ],
+  "07-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 9"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Corinthians 16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezra 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Timothy 1"
+    }
+  ],
+  "07-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 10"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 1:1-2:11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezra 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Timothy 2"
+    }
+  ],
+  "07-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 11"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 2:12-3 end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezra 8 † 21-36"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Timothy 3"
+    }
+  ],
+  "07-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 12"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezra 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "2 Timothy 4"
+    }
+  ],
+  "07-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Corinthians 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 7:36-8:3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Ezra 10 † 1-16"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 1:1-28"
+    }
+  ],
+  "07-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 1:29-end"
+    }
+  ],
+  "07-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 14 † 1-15,20,24-30"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 2"
+    }
+  ],
+  "07-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Corinthians 8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 1:14-20"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 3 † 1-15"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 3:1-21"
+    }
+  ],
+  "07-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 15"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 9"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 3:22-end"
+    }
+  ],
+  "07-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 16"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 4:1-26"
+    }
+  ],
+  "07-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 17 † 1-11,26-27,31-51"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 4:27-end"
+    }
+  ],
+  "07-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 18"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 12:1-13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 5:1-24"
+    }
+  ],
+  "07-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 19"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Corinthians 12:14-13 end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 9 † 1-15,26-38"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 5:25-end"
+    }
+  ],
+  "07-31": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 20 † 1-7,24-42"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 1"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 10 † 28-39"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 6:1-21"
+    }
+  ],
+  "08-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 21"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 2"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 12 † 27-47"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 6:22-40"
+    }
+  ],
+  "08-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 22"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Neh 13 † 1-22,30-31"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 6:41-end"
+    }
+  ],
+  "08-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 23"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 7:1-24"
+    }
+  ],
+  "08-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 24"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 5"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 7:25-52"
+    }
+  ],
+  "08-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 25 † 1-19,23-25,32-42"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 7:53-8:30"
+    }
+  ],
+  "08-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Romans 7"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Mark 9:2-10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 8:31-end"
+    }
+  ],
+  "08-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 26"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 8:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 9"
+    }
+  ],
+  "08-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 27"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 8:18-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 10:1-21"
+    }
+  ],
+  "08-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 9"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 10:22-end"
+    }
+  ],
+  "08-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 29"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 11:1-44"
+    }
+  ],
+  "08-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 30 † 1-25"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 11:45-end"
+    }
+  ],
+  "08-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Samuel 31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 12:1-19"
+    }
+  ],
+  "08-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 1"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 11"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 12:20-end"
+    }
+  ],
+  "08-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 2 † 1-17,26-31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 14"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 12"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 13"
+    }
+  ],
+  "08-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 3 † 6-11,17-39"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 1:26-38"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 13"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 14:1-14"
+    }
+  ],
+  "08-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 4"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 15"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Hosea 14"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 14:15-end"
+    }
+  ],
+  "08-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Romans 16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Joel 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 15:1-17"
+    }
+  ],
+  "08-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 6"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Philippians 1:1-11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Joel 2 † 1-17,28-32"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 15:18-end"
+    }
+  ],
+  "08-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 7"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Philippians 1:12-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Joel 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 16:1-15"
+    }
+  ],
+  "08-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Philippians 2:1-11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Amos 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 16:16-end"
+    }
+  ],
+  "08-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 9"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Philippians 2:12-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Amos 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 17"
+    }
+  ],
+  "08-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 10"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Philippians 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Amos 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 18:1-27"
+    }
+  ],
+  "08-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 11"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Philippians 4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Amos 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 18:28-end"
+    }
+  ],
+  "08-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Col 1:1-20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 6:12-16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Amos 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 19:1-37"
+    }
+  ],
+  "08-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 12 † 1-25"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Col 1:21-2:7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Amos 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 19:38-end"
+    }
+  ],
+  "08-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 13 † 1-29,38-39"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Col 2:8-19"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Amos 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 20"
+    }
+  ],
+  "08-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 14 † 1-21,28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Col 2:20-3:11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Amos 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "John 21"
+    }
+  ],
+  "08-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 15 † 1-18,23-25,32-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Col 3:12-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Amos 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 1:1-17"
+    }
+  ],
+  "08-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 16"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Col 4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Obadiah"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 1:18-end"
+    }
+  ],
+  "08-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 17 † 1-23"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Philemon"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jonah 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 2"
+    }
+  ],
+  "08-31": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 18 † 1-15,19-33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 1:1-14"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jonah 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 3"
+    }
+  ],
+  "09-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 19 † 1-30"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 1:15-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jonah 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 4"
+    }
+  ],
+  "09-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 2:1-10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Jonah 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 5:1-20"
+    }
+  ],
+  "09-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 21"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 2:11-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Micah 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 5:21-48"
+    }
+  ],
+  "09-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 22 † 1-7,14-20,32-51"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Micah 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 6:1-18"
+    }
+  ],
+  "09-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 23 † 1-23"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 4:1-16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Micah 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 6:19-end"
+    }
+  ],
+  "09-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Samuel 24"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 4:17-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Micah 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 7"
+    }
+  ],
+  "09-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Chronicles 22"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 5:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Micah 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 8:1-17"
+    }
+  ],
+  "09-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 1 † 1-18,29-40"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 5:18-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Micah 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 8:18-end"
+    }
+  ],
+  "09-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Chronicles 28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Ephesians 6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Micah 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 9:1-17"
+    }
+  ],
+  "09-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 2 † 1-25"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 1"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Nahum 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 9:18-34"
+    }
+  ],
+  "09-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 3"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 2"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Nahum 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 9:35-10:23"
+    }
+  ],
+  "09-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 4 † 1-6,20-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Nahum 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 10:24-end"
+    }
+  ],
+  "09-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 4:1-13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Habakkuk 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 11"
+    }
+  ],
+  "09-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Hebrews 4:14-5:10"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 12:23-33"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Habakkuk 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 12:1-21"
+    }
+  ],
+  "09-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 6 † 1-7,11-30,37-38"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 5:11-6 end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Habakkuk 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 12:22-end"
+    }
+  ],
+  "09-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 7 † 1-14,40-44,47-51"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zephaniah 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 13:1-23"
+    }
+  ],
+  "09-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 8 † 1-11,22-30,54-63"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 8"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zephaniah 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 13:24-43"
+    }
+  ],
+  "09-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 9 † 1-9,15-28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 9:1-14"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zephaniah 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 13:44-end"
+    }
+  ],
+  "09-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 10 †1-13,23-29"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 9:15-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Haggai 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 14"
+    }
+  ],
+  "09-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 11 † 1-14,23-33,41-43"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 10:1-18"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Haggai 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 15:1-28"
+    }
+  ],
+  "09-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Hebrews 10:19-end"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Matthew 9:9-13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 15:29-16:12"
+    }
+  ],
+  "09-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 12 † 1-20,25-30"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 16:13-end"
+    }
+  ],
+  "09-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 13 † 1-25,33-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 12:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 17:1-23"
+    }
+  ],
+  "09-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 14"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 12:18-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 17:24-18:14"
+    }
+  ],
+  "09-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 12"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Hebrews 13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 18:15-end"
+    }
+  ],
+  "09-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "James 1"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 19:1-15"
+    }
+  ],
+  "09-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 14"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "James 2:1-13"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 19:16-20:16"
+    }
+  ],
+  "09-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 15"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "James 2:14-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 20:17-end"
+    }
+  ],
+  "09-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Revelation 12:7-12"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "James 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 21:1-22"
+    }
+  ],
+  "09-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 16"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "James 4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 21:23-end"
+    }
+  ],
+  "10-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 15 † 1-30"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "James 5"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 11"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 22:1-33"
+    }
+  ],
+  "10-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 16 † 1-4,8-19,23-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Peter 1:1-21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 12"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 22:34-23:12"
+    }
+  ],
+  "10-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 17"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Peter 1:22-2:10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 13"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 23:13-end"
+    }
+  ],
+  "10-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 18 † 1-8,17-46"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Peter 2:11-3:7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Zechariah 14"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 24:1-28"
+    }
+  ],
+  "10-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 19"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Peter 3:8-4:6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Malachi 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 24:29-end"
+    }
+  ],
+  "10-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 20 † 1,13,21-43"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Peter 4:7-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Malachi 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 25:1-30"
+    }
+  ],
+  "10-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 21"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 Peter 5"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Malachi 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 25:31-end"
+    }
+  ],
+  "10-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "1 Kings 22 † 1-23,29-38"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Peter 1"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Malachi 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 26:1-30"
+    }
+  ],
+  "10-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Peter 2"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "1 Macc 1 † 1-15,20-25,41-64"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 26:31-56"
+    }
+  ],
+  "10-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 1"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "2 Peter 3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "1 Macc 2 † 1-28"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 26:57-end"
+    }
+  ],
+  "10-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Jude"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "2 Macc 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 27:1-26"
+    }
+  ],
+  "10-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 3"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 John 1:1-2:6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "2 Macc 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 27:27-56"
+    }
+  ],
+  "10-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 4 † 8-37"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 John 2:7-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "2 Macc 8 † 1-29"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Matthew 27:57-28 end"
+    }
+  ],
+  "10-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 John 3:1-10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "2 Macc 10 † 1-8,24-38"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 1:1-13"
+    }
+  ],
+  "10-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 6 † 1-24"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 John 3:11-4:6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "1 Macc 7 † 1-6,23-50"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 1:14-31"
+    }
+  ],
+  "10-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 7"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 John 4:7-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "1 Macc 9 † 1-31"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 1:32-end"
+    }
+  ],
+  "10-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 8 † 1-19,25-27"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "1 John 5"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "1 Macc 13 † 1-30,41-42"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 2:1-22"
+    }
+  ],
+  "10-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 John"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Luke 1:1-4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "1 Macc 14 † 4-18,35-43"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 2:23-3:12"
+    }
+  ],
+  "10-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 9 † 1-26,30-37"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "3 John"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 3:13-end"
+    }
+  ],
+  "10-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 10 † 1-11,18-31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 1:1-14"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 4:1-34"
+    }
+  ],
+  "10-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 11 † 1-16,23-27"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 1:15-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 4:35-5:20"
+    }
+  ],
+  "10-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 12"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 2:1-21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 5:21-end"
+    }
+  ],
+  "10-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Acts 2:22-end"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "James 1"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 6:1-29"
+    }
+  ],
+  "10-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 3:1-4:4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 6:30-end"
+    }
+  ],
+  "10-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 14"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 4:5-31"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 7:1-23"
+    }
+  ],
+  "10-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 26"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 4:32-5:11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 7:24-8:10"
+    }
+  ],
+  "10-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 15 † 1-29"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 5:12-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 9"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 8:11-end"
+    }
+  ],
+  "10-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Acts 6:1-7:16"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 14:15-31"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 10"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 9:1-29"
+    }
+  ],
+  "10-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 16"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 7:17-34"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 11"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 9:30-end"
+    }
+  ],
+  "10-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 17 † 1-28,41"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 7:35-8:3"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 12"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 10:1-31"
+    }
+  ],
+  "10-31": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 8:4-25"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 13"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 10:32-end"
+    }
+  ],
+  "11-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Hebrews 11:32-12:2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 8:26-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 14"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Revelation 19:1-16"
+    }
+  ],
+  "11-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 29 † 1-11,20-30,35-36"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 9:1-31"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 15"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 11:1-26"
+    }
+  ],
+  "11-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 30 † 1-22,26-27"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 9:32-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 16"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 11:27-12:12"
+    }
+  ],
+  "11-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 18 † 1-13,17-30,35-37"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 10:1-23"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 17"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 12:13-34"
+    }
+  ],
+  "11-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 19 † 1-20,29-31,35-37"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 10:24-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 18"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 12:35-13:13"
+    }
+  ],
+  "11-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 20"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 11:1-18"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 19"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 13:14-end"
+    }
+  ],
+  "11-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Chronicles 33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 11:19-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 20"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 14:1-25"
+    }
+  ],
+  "11-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 21"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 12:1-24"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 21"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 14:26-52"
+    }
+  ],
+  "11-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 22"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 12:25-13:12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 22"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 14:53-end"
+    }
+  ],
+  "11-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 23 † 1-20,26-30"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 13:13-43"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 23"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 15"
+    }
+  ],
+  "11-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 24"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 13:44-14:7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 24"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Mark 16"
+    }
+  ],
+  "11-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "2 Kings 25 † 1-22,25-30"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 14:8-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 25"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 1:1-23"
+    }
+  ],
+  "11-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 4"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 15:1-21"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 26"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 1:24-56"
+    }
+  ],
+  "11-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 15:22-35"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 27"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 1:57-end"
+    }
+  ],
+  "11-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 9"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 15:36-16:5"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 28"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 2:1-21"
+    }
+  ],
+  "11-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 10"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 16:6-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 29"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 2:22-end"
+    }
+  ],
+  "11-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 11"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 17:1-15"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 30"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 3:1-22"
+    }
+  ],
+  "11-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 12"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 17:16-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 31"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 3:23-end"
+    }
+  ],
+  "11-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 18:1-23"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 32"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 4:1-30"
+    }
+  ],
+  "11-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 14"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 18:24-19:7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 33"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 4:31-end"
+    }
+  ],
+  "11-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 15"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 19:8-20"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 34"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 5:1-16"
+    }
+  ],
+  "11-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Judith 16"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 19:21-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 35"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 5:17-end"
+    }
+  ],
+  "11-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 1"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 20:1-16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 36"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 6:1-19"
+    }
+  ],
+  "11-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 20:17-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 37"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 6:20-38"
+    }
+  ],
+  "11-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 4 † 1-19"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 21:1-16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 38"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 6:39-7:10"
+    }
+  ],
+  "11-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 6 † 5-31"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 21:17-36"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 39"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 7:11-35"
+    }
+  ],
+  "11-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 7 † 1-21,27-36"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 21:37-22:22"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 40"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 7:36-end"
+    }
+  ],
+  "11-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 9"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 22:23-23:11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 41"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 8:1-21"
+    }
+  ],
+  "11-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 10 † 1-24"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 23:12-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 42"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 8:22-end"
+    }
+  ],
+  "11-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 11 † 1-9,18-28"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 1:35-42"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 43"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 9:1-17"
+    }
+  ],
+  "12-01": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 14"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 24:1-23"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 44"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 9:18-50"
+    }
+  ],
+  "12-02": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 17"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 24:24-25:12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 45"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 9:51-end"
+    }
+  ],
+  "12-03": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 18 † 1-26,30-33"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 25:13-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 46"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 10:1-24"
+    }
+  ],
+  "12-04": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 21"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 26"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 47"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 10:25-end"
+    }
+  ],
+  "12-05": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 27"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 48"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 11:1-28"
+    }
+  ],
+  "12-06": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 38 † 1-15,24-34"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 28:1-15"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 49"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 11:29-end"
+    }
+  ],
+  "12-07": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 39 † 1-11,16-35"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Acts 28:16-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 50"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 12:1-34"
+    }
+  ],
+  "12-08": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 44"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 1"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 51"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 12:35-53"
+    }
+  ],
+  "12-09": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 45"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 2:1-17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 52"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 12:54-13:9"
+    }
+  ],
+  "12-10": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 46"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 2:18-3:6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 53"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 13:10-end"
+    }
+  ],
+  "12-11": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 47"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 3:7-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 54"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 14:1-24"
+    }
+  ],
+  "12-12": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 48"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 4"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 55"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 14:25-15:10"
+    }
+  ],
+  "12-13": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 49"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 5"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 56"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 15:11-end"
+    }
+  ],
+  "12-14": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 50"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 6"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 57"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 16"
+    }
+  ],
+  "12-15": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Ecclesiasticus 51"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 58"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 17:1-19"
+    }
+  ],
+  "12-16": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 1"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 8"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 59"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 17:20-end"
+    }
+  ],
+  "12-17": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 2"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 9"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 60"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 18:1-30"
+    }
+  ],
+  "12-18": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 3"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 10"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 61"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 18:31-19:10"
+    }
+  ],
+  "12-19": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 4"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 11"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 62"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 19:11-28"
+    }
+  ],
+  "12-20": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 5"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 12"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 63"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 19:29-end"
+    }
+  ],
+  "12-21": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Revelation 13"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 14:1-7"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 64"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 20:1-26"
+    }
+  ],
+  "12-22": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 6"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 14"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 65"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 20:27-21:4"
+    }
+  ],
+  "12-23": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 7"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 15"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Isaiah 66"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 21:5-end"
+    }
+  ],
+  "12-24": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 16"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Song of Songs 1"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 22:1-38"
+    }
+  ],
+  "12-25": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Isaiah 9:1-8"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 17"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Song of Songs 2"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 2:1-14"
+    }
+  ],
+  "12-26": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Acts 6:8-7:6, 7:44-60"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 18"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Song of Songs 3"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 22:39-53"
+    }
+  ],
+  "12-27": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Revelation 19"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "John 21:9-25"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Song of Songs 4"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 22:54-end"
+    }
+  ],
+  "12-28": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Jeremiah 31:1-17"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 20"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Song of Songs 5"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 23:1-25"
+    }
+  ],
+  "12-29": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 9"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 21:1-14"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Song of Songs 6"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke:23:26-49"
+    }
+  ],
+  "12-30": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 10"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 21:15-22:5"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Song of Songs 7"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 23:50-24:12"
+    }
+  ],
+  "12-31": [
+    {
+      "type": "MorningFirstLesson",
+      "citation": "Wisdom 11"
+    },
+    {
+      "type": "MorningSecondLesson",
+      "citation": "Revelation 22:6-end"
+    },
+    {
+      "type": "EveningFirstLesson",
+      "citation": "Song of Songs 8"
+    },
+    {
+      "type": "EveningSecondLesson",
+      "citation": "Luke 24:13-end"
+    }
+  ]
+}
