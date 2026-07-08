@@ -40,6 +40,9 @@
       <div class="color-bar"></div>
       <div class="day-header-content">
         <div class="day-date">{{ d.date | date:'EEEE, MMMM d, y' }}</div>
+        @if (d.sundayTitle) {
+          <div class="sunday-title">{{ d.sundayTitle }}</div>
+        }
         <div class="day-season">
           <mat-chip-set>
             <mat-chip>{{ d.season | seasonLabel }}</mat-chip>
