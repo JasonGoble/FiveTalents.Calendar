@@ -1248,7 +1248,7 @@
   "Proper22": {
     "A": [
       { "type": "FirstLesson", "citation": "Isa 5:1-7" },
-      { "type": "Psalm", "citation": "Ps 80:1-19", "alternate": "Ps 80:1-19" , "translationCode": "NCP" },
+      { "type": "Psalm", "citation": "Ps 80:1-19", "translationCode": "NCP" },
       { "type": "SecondLesson", "citation": "Phil 3:14-21" },
       { "type": "Gospel", "citation": "Matt 21:33-44" }
     ],
