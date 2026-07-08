@@ -28,6 +28,7 @@ export interface LiturgicalDay {
   week: LiturgicalWeek;
   feast: FeastDay | null;
   commemorations: FeastDay[];
+  sundayTitle: string | null;
   readings: LiturgicalService[];
   properNumber: number | null;
   isEmberDay: boolean;

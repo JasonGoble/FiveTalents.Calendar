@@ -168,6 +168,21 @@ internal static class AcnaSundayLectionary
             return null; // Days After Epiphany — no Sunday proper
         }
 
+        // The last one/two Sundays of Epiphany always use their own fixed propers
+        // (Transfiguration and the Sunday before it), regardless of the forward-counted
+        // week number — the number of Epiphany Sundays varies by year depending on when
+        // Ash Wednesday falls, but these two are always Easter − 49 / − 56 days.
+        var easter = EasterCalculator.GetEaster(day.Date.Year);
+        if (day.Date == easter.AddDays(-49))
+        {
+            return "EpiphanyLast";
+        }
+
+        if (day.Date == easter.AddDays(-56))
+        {
+            return "EpiphanySecondToLast";
+        }
+
         return day.Week.WeekNumber switch
         {
             1 => "Epiphany1",
@@ -178,7 +193,7 @@ internal static class AcnaSundayLectionary
             6 => "Epiphany6",
             7 => "Epiphany7",
             8 => "Epiphany8",
-            _ => null, // Will be overridden by EpiphanySecondToLast/Last detection below
+            _ => null,
         };
     }
 

@@ -48,6 +48,7 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             IsRogationDay = IsRogationDay(date, date.Year),
             IsFastDay = IsFastDay(date, info.Season),
             ProperNumber = properNumber,
+            SundayTitle = GetSundayTitle(date, info.Season, info.WeekNumber, properNumber),
         };
 
         return day with { Readings = AcnaSundayLectionary.GetReadings(day) };
@@ -78,6 +79,41 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
         return date == ascension.AddDays(-3)
             || date == ascension.AddDays(-2)
             || date == ascension.AddDays(-1);
+    }
+
+    /// <summary>
+    /// Returns the special title for this Sunday, if any. The Last Sunday of Epiphany
+    /// is computed directly from Easter (Easter − 49 days, always a Sunday) rather than
+    /// from the forward-counted week number, since the number of Epiphany Sundays varies
+    /// by year depending on when Ash Wednesday falls.
+    /// </summary>
+    private static string? GetSundayTitle(DateOnly date, LiturgicalSeason season, int weekNumber, int? properNumber)
+    {
+        if (date.DayOfWeek != DayOfWeek.Sunday)
+        {
+            return null;
+        }
+
+        if (season == LiturgicalSeason.Epiphany)
+        {
+            if (weekNumber == 1)
+            {
+                return "The Baptism of Our Lord";
+            }
+
+            var lastSundayOfEpiphany = EasterCalculator.GetEaster(date.Year).AddDays(-49);
+            if (date == lastSundayOfEpiphany)
+            {
+                return "Transfiguration Sunday";
+            }
+        }
+
+        if (season == LiturgicalSeason.OrdinaryTime && properNumber == 29)
+        {
+            return "Christ the King";
+        }
+
+        return null;
     }
 
     private static bool IsFastDay(DateOnly date, LiturgicalSeason season)

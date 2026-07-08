@@ -26,6 +26,16 @@ public sealed record LiturgicalDay
     public IReadOnlyList<FeastDay> Commemorations { get; init; } = [];
 
     /// <summary>
+    /// The special title for this Sunday, if any, distinct from its ordinal week
+    /// designation — e.g. "The Baptism of Our Lord" for the First Sunday of Epiphany,
+    /// "Transfiguration Sunday" for the Last Sunday of Epiphany, "Christ the King" for
+    /// the Last Sunday After Pentecost. Null for Sundays without a special title and
+    /// for non-Sunday days. Feasts that already carry their own name (e.g. Trinity
+    /// Sunday) are exposed via <see cref="Feast"/> instead and do not set this property.
+    /// </summary>
+    public string? SundayTitle { get; init; }
+
+    /// <summary>
     /// Liturgical services for this day, each with their own set of readings.
     /// Most days have one unnamed service. Palm Sunday has two named services:
     /// "Liturgy of the Palms" and "Liturgy of the Word".

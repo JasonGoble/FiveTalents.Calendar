@@ -130,6 +130,32 @@ public sealed class LectionaryTests
         Assert.Empty(day.Readings);
     }
 
+    [Fact]
+    public void Readings_EpiphanyLast_TransfigurationSunday_YearA()
+    {
+        // Last Sunday of Epiphany 2026 = Feb 15 (Easter Apr 5 − 49 days).
+        // Forward week-count would land on week 6 ("Epiphany6") — must be overridden.
+        var day = _calendar.GetDay(new DateOnly(2026, 2, 15));
+        Assert.Equal(LiturgicalSeason.Epiphany, day.Season);
+        Assert.Equal("Transfiguration Sunday", day.SundayTitle);
+
+        var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
+        Assert.Equal("Matt 17:1-9", gospel.Citation);
+    }
+
+    [Fact]
+    public void Readings_EpiphanySecondToLast_YearA()
+    {
+        // Second-to-last Sunday of Epiphany 2026 = Feb 8 (Easter Apr 5 − 56 days).
+        // Forward week-count would land on week 5 ("Epiphany5") — must be overridden.
+        var day = _calendar.GetDay(new DateOnly(2026, 2, 8));
+        Assert.Equal(LiturgicalSeason.Epiphany, day.Season);
+        Assert.Null(day.SundayTitle);
+
+        var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
+        Assert.Equal("Matt 9:35-38", gospel.Citation);
+    }
+
     // ── Lent readings ─────────────────────────────────────────────────────────
 
     [Fact]

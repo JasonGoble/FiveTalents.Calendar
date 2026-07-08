@@ -255,4 +255,31 @@ public sealed class AcnaBcp2019CalendarTests
     public void GetRange_ThrowsWhenToBeforeFrom() =>
         Assert.Throws<ArgumentException>(() =>
             _calendar.GetRange(new DateOnly(2026, 4, 30), new DateOnly(2026, 4, 1)));
+
+    // ── SundayTitle ───────────────────────────────────────────────────────────
+    // 2026: Easter Apr 5, Ash Wed Feb 18. First Sunday of Epiphany Jan 11.
+    // Last Sunday of Epiphany = Easter − 49 days = Feb 15. Proper 29 = Nov 22.
+
+    [Theory]
+    [InlineData(2026, 1, 11, "The Baptism of Our Lord")] // First Sunday of Epiphany
+    [InlineData(2026, 2, 15, "Transfiguration Sunday")] // Last Sunday of Epiphany
+    [InlineData(2026, 11, 22, "Christ the King")] // Proper 29 — Last Sunday After Pentecost
+    public void GetDay_SundayTitle_MatchesExpected(int y, int m, int d, string expected) =>
+        Assert.Equal(expected, _calendar.GetDay(new DateOnly(y, m, d)).SundayTitle);
+
+    [Theory]
+    [InlineData(2026, 1, 18)] // Second Sunday of Epiphany — no special title
+    [InlineData(2026, 2, 8)] // Second-to-last Sunday of Epiphany — no title, only special readings
+    [InlineData(2026, 6, 7)] // An ordinary Sunday after Trinity
+    public void GetDay_SundayTitle_IsNullOnOrdinarySundays(int y, int m, int d) =>
+        Assert.Null(_calendar.GetDay(new DateOnly(y, m, d)).SundayTitle);
+
+    [Fact]
+    public void GetDay_SundayTitle_IsNullOnNonSundayWithinEpiphany1Week()
+    {
+        // Monday of the First Sunday of Epiphany's week — title is Sunday-specific
+        var day = _calendar.GetDay(new DateOnly(2026, 1, 12));
+        Assert.Equal(1, day.Week.WeekNumber);
+        Assert.Null(day.SundayTitle);
+    }
 }
