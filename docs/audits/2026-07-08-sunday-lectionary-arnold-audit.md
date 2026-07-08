@@ -34,17 +34,19 @@ Arnold's data for this stretch has internal gaps (skips Ephesians 3 entirely, ju
 
 `PresentationOfChrist` was a flat, unreferenced duplicate of `HolyDay_Presentation` (identical content, confirmed via `grep` that no C# or Angular code ever looks it up). Removed.
 
-## Unresolved — needs manual verification (5 items, tracked in issue #25)
+## Update 2026-07-08 — the 5 remaining items resolved (issue #25)
 
-These showed real content differences (not formatting) between our JSON and Arnold's data, and I could not locate them in the downloaded DOCX with confidence — its table structure is irregular enough (split cells, inconsistent row grouping) that I hit a real misattribution once already while investigating the Proper13–17 cluster above, and didn't want to repeat that mistake by forcing a resolution here:
+The DOCX's table structure proved too unreliable to arbitrate the 5 items below (see the Proper13–17 misattribution note above), so #25 re-checked them against the BCP 2019 **PDF** instead — reading it directly (rendered pages, not raw XML) sidestepped the table-extraction problems entirely and was far more reliable. **All five are confirmed correct in our data; no changes were needed.**
 
-| Entry | Ours | Arnold's |
-|---|---|---|
-| `Easter6[A]` First Lesson | `Acts 17:16-34` | `Acts 17:22-34` |
-| `Lent3[C]` Gospel | `Luke 13:1-17` | `Luke 13:1-9` |
-| `Proper3[A]` First Lesson | `Isa 49:8-23` | `Isaiah 49:8-18` |
-| `Proper24[A]` First Lesson | `Mal 3:6-12` | `Isaiah 45:1-7` |
-| `HolyDay_MaryMagdalene` First Lesson | `Judg 4:4-10` | `Judith 9:1-14` |
+| Entry | Ours | Arnold's | PDF says | Verdict |
+|---|---|---|---|---|
+| `Easter6[A]` First Lesson | `Acts 17:16-34` | `Acts 17:22-34` | `Acts 17:(16-21)22-34` | Both correct — ours is the full span (optional prefix included), Arnold's is the required core only |
+| `Lent3[C]` Gospel | `Luke 13:1-17` | `Luke 13:1-9` | `Luke 13:1-9(10-17)` | Both correct — same optional-verse pattern, ours is the full span |
+| `Proper3[A]` First Lesson | `Isa 49:8-23` | `Isaiah 49:8-18` | `Isa 49:8-18(19-23)` | Ours correct (full span); Arnold captured only the required core |
+| `Proper24[A]` First Lesson | `Mal 3:6-12` | `Isaiah 45:1-7` | `Mal 3:6-12` | Ours correct; Arnold's value is simply wrong for this occasion |
+| `HolyDay_MaryMagdalene` First Lesson | `Judg 4:4-10` (alt: `Judith 9:1,11-14`) | `Judith 9:1-14` | `Judg 4:4-10 or Judith 9:1,11-14` | Ours already correct — primary matches the BCP's primary choice, and the alternate Arnold surfaced was already recorded in our `AlternateCitations`, exact verse notation included |
+
+Three of the five turn out to be the same underlying pattern: a BCP citation like `17:(16-21)22-34` marks the parenthesized part optional. Our data consistently records the *full* span (required + optional) as the primary citation; Arnold's transcription consistently records only the required core. Neither is "wrong" — they're different, valid representations of the same citation — but it's worth knowing this pattern exists before treating any future ours-vs-Arnold span mismatch as an automatic bug.
 
 ## Tooling
 
