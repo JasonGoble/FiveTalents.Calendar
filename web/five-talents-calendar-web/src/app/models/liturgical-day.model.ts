@@ -22,6 +22,11 @@ export interface LiturgicalService {
   readings: LectionaryReading[];
 }
 
+export interface DailyOfficeReadings {
+  morningPrayer: LiturgicalService;
+  eveningPrayer: LiturgicalService;
+}
+
 export interface LiturgicalDay {
   date: string;
   season: string;
@@ -30,6 +35,7 @@ export interface LiturgicalDay {
   commemorations: FeastDay[];
   sundayTitle: string | null;
   readings: LiturgicalService[];
+  dailyOffice: DailyOfficeReadings;
   properNumber: number | null;
   isEmberDay: boolean;
   isRogationDay: boolean;
