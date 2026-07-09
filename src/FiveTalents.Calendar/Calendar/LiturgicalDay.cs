@@ -43,6 +43,13 @@ public sealed record LiturgicalDay
     public IReadOnlyList<LiturgicalService> Readings { get; init; } = [];
 
     /// <summary>
+    /// Morning and Evening Prayer readings for this date. Unlike <see cref="Readings"/>
+    /// (the Sunday/Holy Day Eucharist lectionary, often empty on ordinary weekdays), this
+    /// is always populated — the Daily Office is prayed every day of the year.
+    /// </summary>
+    public required DailyOfficeReadings DailyOffice { get; init; }
+
+    /// <summary>
     /// The BCP Proper number (1–29) governing this day's readings in the Season after
     /// Pentecost. Null outside OrdinaryTime. Weekdays share the Proper of their
     /// preceding Sunday.

@@ -49,6 +49,7 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             IsFastDay = IsFastDay(date, info.Season),
             ProperNumber = properNumber,
             SundayTitle = GetSundayTitle(date, info.Season, info.WeekNumber, properNumber),
+            DailyOffice = AcnaDailyOfficeLectionary.GetReadings(date),
         };
 
         return day with { Readings = AcnaSundayLectionary.GetReadings(day) };
