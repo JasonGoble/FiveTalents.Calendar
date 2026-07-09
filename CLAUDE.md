@@ -51,3 +51,14 @@ Every method that resolves a liturgical date is scoped to a `LiturgicalTradition
 ## Architecture Decision Records
 
 ADRs live in `docs/decisions/`. See `docs/decisions/README.md` for the index. Starting range: 0001+.
+
+## GitHub Issues
+
+Every issue created (including ones spun off mid-PR, e.g. "found a gap, opened a follow-up") must get:
+
+- **A type label:** `feature`, `bug`, `chore` (test suites, audits/data-fidelity verification, tooling — anything without a dedicated `feature`/`bug`/`documentation` fit), or `documentation`.
+- **`backend` and/or `frontend`** as applicable.
+- **An `area:*` label** for what part of the domain it touches: `area:acna`, `area:calendar`, `area:lectionary`, `area:rcl`. Multiple apply when the issue spans areas (e.g. precedence-rule tests touch both `area:calendar` and `area:lectionary`).
+- **A milestone**, even for a narrow spin-off — pick whichever open milestone the work actually belongs to (query `gh api repos/JasonGoble/FiveTalents.Calendar/milestones` rather than assuming; don't invent a new milestone without asking first).
+
+`gh label list` shows the full set. Don't invent new labels without asking first.
