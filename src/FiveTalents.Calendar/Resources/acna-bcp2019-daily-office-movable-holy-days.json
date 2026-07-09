@@ -1,0 +1,38 @@
+{
+  "_comment": "STAGING DATA — Proper Psalms/Lessons for the Daily Office's Easter-cycle movable Holy Days, transcribed directly from the BCP 2019 Daily Office Lectionary DOCX (59-Daily-Office-Lectionary-12.15.2021.docx) — not from a third party, no THIRD_PARTY_NOTICES.md entry needed. NOT yet consumed by the calendar engine (that is issue #9); no <EmbeddedResource> entry yet. These are NOT part of the calendar-date grid (acna-bcp2019-daily-office-lessons.json / the Psalter files): per the DOCX front matter, 'The readings for it, and through Easter Day, replace those appointed for the Calendar dates' — each entry here is resolved by an Easter-relative offset (the same pattern AcnaFeastCatalog/SeasonResolver already use elsewhere, e.g. Ascension = Easter + 39 days), not by calendar date. The double-dagger (‡) marginal marker in the printed calendar-date tables (at the earliest possible date each entry could fall — Feb 4 for Ash Wednesday, Mar 19 for Maundy Thursday, Apr 30 for Ascension) is purely a print-navigation pointer to these tables; it carries no data of its own and does not need to appear in the calendar-date JSON. See docs/decisions/0004-daily-office-marker-semantics.md and docs/audits/2026-07-08-daily-office-psalter-sourcing.md.",
+  "AshWednesday": {
+    "easterOffsetDays": -46,
+    "morningPrayer": { "psalms": ["38"], "firstLesson": "Isaiah 58:1-12", "secondLesson": "Luke 18:9-14" },
+    "eveningPrayer": { "psalms": ["6", "32"], "firstLesson": "Jonah 3", "secondLesson": "1 Corinthians 9:24-27" }
+  },
+  "MaundyThursday": {
+    "easterOffsetDays": -3,
+    "morningPrayer": { "psalms": ["41"], "firstLesson": "Daniel 9", "secondLesson": "John 13:1-20" },
+    "eveningPrayer": { "psalms": ["142", "143"], "firstLesson": "1 Corinthians 10:1-22", "secondLesson": "John 13:21-38" }
+  },
+  "GoodFriday": {
+    "easterOffsetDays": -2,
+    "morningPrayer": { "psalms": ["40"], "firstLesson": "Lamentations 3:1-36", "secondLesson": "John 18" },
+    "eveningPrayer": { "psalms": ["102"], "firstLesson": "1 Peter 2:11-25", "secondLesson": "Luke 23:18-49" }
+  },
+  "HolySaturday": {
+    "easterOffsetDays": -1,
+    "morningPrayer": { "psalms": ["88"], "firstLesson": "Lamentations 3:37-58", "secondLesson": "Hebrews 4" },
+    "eveningPrayer": { "psalms": ["91"], "firstLesson": "1 Peter 4:1-8", "secondLesson": "Luke 23:50-56" }
+  },
+  "EasterDay": {
+    "easterOffsetDays": 0,
+    "morningPrayer": { "psalms": ["118"], "firstLesson": "Exodus 15", "secondLesson": "Acts 2:22-32" },
+    "eveningPrayer": { "psalms": ["111", "113", "114"], "firstLesson": "Romans 6", "secondLesson": "Luke 24:13-43" }
+  },
+  "Ascension": {
+    "easterOffsetDays": 39,
+    "morningPrayer": { "psalms": ["8", "47"], "firstLesson": "2 Kings 2", "secondLesson": "Ephesians 4:1-17" },
+    "eveningPrayer": { "psalms": ["21", "24"], "firstLesson": "Hebrews 8", "secondLesson": "Luke 24:44-53" }
+  },
+  "Pentecost": {
+    "easterOffsetDays": 49,
+    "morningPrayer": { "psalms": ["48"], "firstLesson": "Isaiah 11", "secondLesson": "John 16:1-15" },
+    "eveningPrayer": { "psalms": ["145"], "firstLesson": "Acts 2", "secondLesson": "Acts 10:34-end" }
+  }
+}
