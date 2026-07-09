@@ -43,7 +43,7 @@ Day view URL takes `date`/`tradition` as query params directly (no need to click
 
 Minimal Playwright driver — `chromium.launch()`, `page.goto(url, { waitUntil: 'networkidle' })`, then either `page.locator(...).allTextContents()` for structured checks or `page.screenshot({ path, fullPage: true })` for a visual read. Useful selectors already in the day view: `.readings-card` (Eucharist), `.daily-office-card`, `.no-readings-card`, `.readings-table .reading-type` / `.reading-citation`, `mat-panel-title`. The prev/next-day buttons are `button[matTooltip="Previous day"]` / `button[matTooltip="Next day"]` — click these (not just re-navigating the URL) at least once per session to confirm the page's `computed()` signals actually react to client-side navigation, not just fresh loads.
 
-**Cleanup — `pkill -f` alone is unreliable in this sandbox** (has left `ng serve` running silently before). Confirm each port is actually dead after killing:
+**Cleanup — `pkill -f` alone is unreliable in this sandbox** (has left both `ng serve` and `dotnet run` processes running silently before, and once served visibly stale API responses because of it — see below). Confirm each port is actually dead after killing:
 
 ```bash
 pkill -f "dotnet.*FiveTalents.Calendar.Api"
@@ -51,9 +51,11 @@ pkill -f "ng serve"
 sleep 1
 curl -s -o /dev/null -w "%{http_code}" http://localhost:5299/... --max-time 2   # want 000
 curl -s -o /dev/null -w "%{http_code}" http://localhost:4200 --max-time 2       # want 000
-# if still alive: ps aux | grep "ng serve" | grep -v grep, then kill -9 <pid> directly
-# (lsof -i:PORT has not reliably shown these processes in this sandbox)
+# if still alive: ss -tlnp | grep <port>  (lsof -i:PORT has not reliably shown these
+# processes in this sandbox), find the PID from that, kill -9 <pid> directly
 ```
+
+**`dotnet run` spawns a child process that survives killing the parent.** `dotnet run --project X` forks the actual compiled binary (`bin/Debug/net10.0/<AssemblyName>`) as a child; `kill`-ing the `dotnet run` wrapper PID leaves that child listening and serving the *old* build. Symptom: you rebuild, restart, curl again, and get identical output to before your change — looks like the change didn't take effect, but it's actually a stale server. `ss -tlnp | grep <port>` shows the true PID (the binary path, not `dotnet run ...`) — kill that one specifically, not just whatever `ps aux | grep dotnet` first shows.
 
 ## Gotchas
 

@@ -27,6 +27,28 @@ public sealed class CalendarEndpointTests(WebApplicationFactory<Program> factory
         Assert.Equal("ACNA Book of Common Prayer 2019", root[0].GetProperty("name").GetString());
     }
 
+    // ── GET /translations ──────────────────────────────────────────────────────
+
+    [Fact]
+    public async Task GetTranslations_ReturnsKnownCodes()
+    {
+        HttpResponseMessage response = await _client.GetAsync("/translations");
+
+        response.EnsureSuccessStatusCode();
+
+        using JsonDocument doc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+        JsonElement root = doc.RootElement;
+
+        Assert.Equal(JsonValueKind.Array, root.ValueKind);
+        JsonElement ncp = root.EnumerateArray().First(e => e.GetProperty("code").GetString() == "NCP");
+        Assert.Equal("New Coverdale Psalter", ncp.GetProperty("name").GetString());
+        Assert.Equal("Psalter", ncp.GetProperty("resourceType").GetString());
+
+        JsonElement esvA = root.EnumerateArray().First(e => e.GetProperty("code").GetString() == "ESV-A");
+        Assert.Equal("Bible", esvA.GetProperty("resourceType").GetString());
+        Assert.Contains("Ecclesiasticus", esvA.GetProperty("additionalBooks").EnumerateArray().Select(b => b.GetString()));
+    }
+
     // ── GET /calendar/{tradition}/day/{date} ──────────────────────────────────
 
     [Fact]
