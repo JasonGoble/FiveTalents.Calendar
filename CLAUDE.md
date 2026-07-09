@@ -65,4 +65,8 @@ Every issue created (including ones spun off mid-PR, e.g. "found a gap, opened a
 
 ### Frontend parity
 
-Backend issues have a track record of shipping API/model changes with no companion frontend work (Daily Office readings in #9 landed with the Angular `LiturgicalDay` type never updated — issue #34, milestone "v0.3 — Frontend Parity" caught it after the fact). When closing a backend issue that changes what `GetDay`/`GetRange` returns, check whether the Angular app (`web/five-talents-calendar-web`) needs a companion update. If the frontend work is nontrivial, open an issue in the **v0.3 — Frontend Parity** milestone rather than silently deferring it — don't open speculative frontend issues for backend work that hasn't shipped yet.
+Backend issues have a track record of shipping API/model changes with no companion frontend work (Daily Office readings in #9 landed with the Angular `LiturgicalDay` type never updated — issue #34, milestone "Frontend Parity" caught it after the fact). When closing a backend issue that changes what `GetDay`/`GetRange` returns, check whether the Angular app (`web/five-talents-calendar-web`) needs a companion update. If the frontend work is nontrivial, open an issue in the **Frontend Parity** milestone rather than silently deferring it — don't open speculative frontend issues for backend work that hasn't shipped yet.
+
+### Milestone naming
+
+Milestones are project-management groupings, not release versions — none carry a `vX` prefix. If a real release version is ever needed (e.g. the library's first NuGet publish), it lives in the relevant `.csproj`/`package.json`, not the milestone name.
