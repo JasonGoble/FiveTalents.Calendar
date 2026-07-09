@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 
 using FiveTalents.Calendar.Calendar;
+using FiveTalents.Calendar.Lectionary;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,10 @@ app.MapGet("/calendar/traditions",
     (IReadOnlyDictionary<LiturgicalTradition, ILiturgicalCalendar> calendars) =>
         calendars.Keys.Select(t => new { tradition = t, name = TraditionDisplayName(t) }))
     .WithName("GetTraditions");
+
+// GET /translations
+app.MapGet("/translations", () => Results.Ok(TranslationCatalog.GetAll()))
+    .WithName("GetTranslations");
 
 // GET /calendar/{tradition}/day/{date}
 app.MapGet("/calendar/{tradition}/day/{date}",

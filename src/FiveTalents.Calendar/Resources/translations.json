@@ -1,0 +1,13 @@
+{
+  "_comment": "Reference data for LectionaryReading.TranslationCode — resolves each code to a human-readable edition name. 'resourceType' distinguishes a full Bible translation from a Psalter (a Psalter only ever covers Psalms, regardless of what other citations exist). 'ESV' represents the default/untagged case (TranslationCode: null means ESV for prose, per ADR 0002) and is included here so consumers have a name for it even though it never appears as an explicit string in reading data. 'NCP' is the only code currently tagged explicitly in the data (all Sunday and Daily Office Psalm entries). 'additionalBooks' lists books an edition includes BEYOND the standard canon for its resourceType (not a restriction to only those books) — 'ESV-A' is ESV's full canon plus the Apocrypha, sourced from the Apocryphal books that already appear untagged in the Daily Office continuous-reading data (Baruch, Ecclesiasticus, Judith, Wisdom, Susanna, 1/2 Maccabees); included for completeness per issue #11's own example shape, not because any reading is currently tagged with the ESV-A code.",
+  "translations": [
+    { "code": "ESV", "name": "English Standard Version", "resourceType": "Bible" },
+    {
+      "code": "ESV-A",
+      "name": "English Standard Version with Apocrypha",
+      "resourceType": "Bible",
+      "additionalBooks": ["Baruch", "Ecclesiasticus", "Judith", "Wisdom", "Susanna", "1 Maccabees", "2 Maccabees"]
+    },
+    { "code": "NCP", "name": "New Coverdale Psalter", "resourceType": "Psalter" }
+  ]
+}
