@@ -1,0 +1,4782 @@
+{
+  "_comment": "STAGING DATA — 60-day alternating Psalter cycle, transcribed directly from the BCP 2019 Daily Office Lectionary DOCX (59-Daily-Office-Lectionary-12.15.2021.docx), the PSALTER–MP / PSALTER–EP columns printed alongside each month's Lesson tables — not from a third party, no THIRD_PARTY_NOTICES.md entry needed. NOT yet consumed by the calendar engine (that is issue #9); no <EmbeddedResource> entry yet. Keyed by MM-DD like acna-bcp2019-daily-office-lessons.json (02-29 included for leap years). Each office is { \"psalms\": [...] } for a list of whole Psalms read that office, or a single-element citation with \"translationCode\": \"NCP\" for a verse-range citation (mirrors LectionaryReading.TranslationCode already used for Sunday-lectionary Psalms — replaces the DOCX's literal trailing ‘v’ versification marker, e.g. \"78:41-73v\"). Christmas Day (12-25) Morning Prayer is the sole exception to the pattern: the BCP names two specific alternative Psalms (\"19 or 45\"), represented as psalms:[\"19\"], alternatePsalms:[\"45\"]. See docs/decisions/0004-daily-office-marker-semantics.md and docs/audits/2026-07-08-daily-office-psalter-sourcing.md.",
+  "01-01": {
+    "morningPrayer": {
+      "psalms": [
+        "1",
+        "2"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "3",
+        "4"
+      ]
+    }
+  },
+  "01-02": {
+    "morningPrayer": {
+      "psalms": [
+        "5",
+        "6"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "7"
+      ]
+    }
+  },
+  "01-03": {
+    "morningPrayer": {
+      "psalms": [
+        "9"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "10"
+      ]
+    }
+  },
+  "01-04": {
+    "morningPrayer": {
+      "psalms": [
+        "8",
+        "11"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "15",
+        "16"
+      ]
+    }
+  },
+  "01-05": {
+    "morningPrayer": {
+      "psalms": [
+        "12",
+        "13",
+        "14"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "17"
+      ]
+    }
+  },
+  "01-06": {
+    "morningPrayer": {
+      "psalms": [
+        "96",
+        "97"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "67",
+        "72"
+      ]
+    }
+  },
+  "01-07": {
+    "morningPrayer": {
+      "psalms": [
+        "18:1-20"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "18:21-52"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "01-08": {
+    "morningPrayer": {
+      "psalms": [
+        "19"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "20",
+        "21"
+      ]
+    }
+  },
+  "01-09": {
+    "morningPrayer": {
+      "psalms": [
+        "22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "23",
+        "24"
+      ]
+    }
+  },
+  "01-10": {
+    "morningPrayer": {
+      "psalms": [
+        "25"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "27"
+      ]
+    }
+  },
+  "01-11": {
+    "morningPrayer": {
+      "psalms": [
+        "26",
+        "28"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "31"
+      ]
+    }
+  },
+  "01-12": {
+    "morningPrayer": {
+      "psalms": [
+        "29",
+        "30"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "33"
+      ]
+    }
+  },
+  "01-13": {
+    "morningPrayer": {
+      "psalms": [
+        "34"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "35"
+      ]
+    }
+  },
+  "01-14": {
+    "morningPrayer": {
+      "psalms": [
+        "32",
+        "36"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "38"
+      ]
+    }
+  },
+  "01-15": {
+    "morningPrayer": {
+      "psalms": [
+        "37:1-17"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "37:18-41"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "01-16": {
+    "morningPrayer": {
+      "psalms": [
+        "40"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "39",
+        "41"
+      ]
+    }
+  },
+  "01-17": {
+    "morningPrayer": {
+      "psalms": [
+        "42",
+        "43"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "44"
+      ]
+    }
+  },
+  "01-18": {
+    "morningPrayer": {
+      "psalms": [
+        "45"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "46"
+      ]
+    }
+  },
+  "01-19": {
+    "morningPrayer": {
+      "psalms": [
+        "47",
+        "48"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "49"
+      ]
+    }
+  },
+  "01-20": {
+    "morningPrayer": {
+      "psalms": [
+        "50"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "51"
+      ]
+    }
+  },
+  "01-21": {
+    "morningPrayer": {
+      "psalms": [
+        "52",
+        "53",
+        "54"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "55"
+      ]
+    }
+  },
+  "01-22": {
+    "morningPrayer": {
+      "psalms": [
+        "56",
+        "57"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "58",
+        "60"
+      ]
+    }
+  },
+  "01-23": {
+    "morningPrayer": {
+      "psalms": [
+        "59"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "63",
+        "64"
+      ]
+    }
+  },
+  "01-24": {
+    "morningPrayer": {
+      "psalms": [
+        "61",
+        "62"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "65",
+        "67"
+      ]
+    }
+  },
+  "01-25": {
+    "morningPrayer": {
+      "psalms": [
+        "68:1-18"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "68:19-36"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "01-26": {
+    "morningPrayer": {
+      "psalms": [
+        "69:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "69:19-37"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "01-27": {
+    "morningPrayer": {
+      "psalms": [
+        "66"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "70",
+        "72"
+      ]
+    }
+  },
+  "01-28": {
+    "morningPrayer": {
+      "psalms": [
+        "71"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "73"
+      ]
+    }
+  },
+  "01-29": {
+    "morningPrayer": {
+      "psalms": [
+        "74"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "77"
+      ]
+    }
+  },
+  "01-30": {
+    "morningPrayer": {
+      "psalms": [
+        "75",
+        "76"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "79",
+        "82"
+      ]
+    }
+  },
+  "01-31": {
+    "morningPrayer": {
+      "psalms": [
+        "78:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "78:19-40"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "02-01": {
+    "morningPrayer": {
+      "psalms": [
+        "78:41-73"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "147"
+      ]
+    }
+  },
+  "02-02": {
+    "morningPrayer": {
+      "psalms": [
+        "24",
+        "81"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "149",
+        "150"
+      ]
+    }
+  },
+  "02-03": {
+    "morningPrayer": {
+      "psalms": [
+        "83"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "3",
+        "4"
+      ]
+    }
+  },
+  "02-04": {
+    "morningPrayer": {
+      "psalms": [
+        "86",
+        "87"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "7"
+      ]
+    }
+  },
+  "02-05": {
+    "morningPrayer": {
+      "psalms": [
+        "89:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "10"
+      ]
+    }
+  },
+  "02-06": {
+    "morningPrayer": {
+      "psalms": [
+        "90"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "15",
+        "16"
+      ]
+    }
+  },
+  "02-07": {
+    "morningPrayer": {
+      "psalms": [
+        "92",
+        "93"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "17"
+      ]
+    }
+  },
+  "02-08": {
+    "morningPrayer": {
+      "psalms": [
+        "95",
+        "96"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "18:21-52"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "02-09": {
+    "morningPrayer": {
+      "psalms": [
+        "99",
+        "100",
+        "101"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "20",
+        "21"
+      ]
+    }
+  },
+  "02-10": {
+    "morningPrayer": {
+      "psalms": [
+        "103"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "23",
+        "24"
+      ]
+    }
+  },
+  "02-11": {
+    "morningPrayer": {
+      "psalms": [
+        "105:1-22"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "27"
+      ]
+    }
+  },
+  "02-12": {
+    "morningPrayer": {
+      "psalms": [
+        "106:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "31"
+      ]
+    }
+  },
+  "02-13": {
+    "morningPrayer": {
+      "psalms": [
+        "107:1-22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "33"
+      ]
+    }
+  },
+  "02-14": {
+    "morningPrayer": {
+      "psalms": [
+        "108",
+        "110"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "35"
+      ]
+    }
+  },
+  "02-15": {
+    "morningPrayer": {
+      "psalms": [
+        "111",
+        "112"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "38"
+      ]
+    }
+  },
+  "02-16": {
+    "morningPrayer": {
+      "psalms": [
+        "115"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "37:18-41"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "02-17": {
+    "morningPrayer": {
+      "psalms": [
+        "119:1-24"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "39",
+        "41"
+      ]
+    }
+  },
+  "02-18": {
+    "morningPrayer": {
+      "psalms": [
+        "119:49-72"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "44"
+      ]
+    }
+  },
+  "02-19": {
+    "morningPrayer": {
+      "psalms": [
+        "119:89-104"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "46"
+      ]
+    }
+  },
+  "02-20": {
+    "morningPrayer": {
+      "psalms": [
+        "119:129-152"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "49"
+      ]
+    }
+  },
+  "02-21": {
+    "morningPrayer": {
+      "psalms": [
+        "118"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "51"
+      ]
+    }
+  },
+  "02-22": {
+    "morningPrayer": {
+      "psalms": [
+        "122",
+        "123"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "55"
+      ]
+    }
+  },
+  "02-23": {
+    "morningPrayer": {
+      "psalms": [
+        "127",
+        "128"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "58",
+        "60"
+      ]
+    }
+  },
+  "02-24": {
+    "morningPrayer": {
+      "psalms": [
+        "132",
+        "133"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "63",
+        "64"
+      ]
+    }
+  },
+  "02-25": {
+    "morningPrayer": {
+      "psalms": [
+        "136"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "131",
+        "132"
+      ]
+    }
+  },
+  "02-26": {
+    "morningPrayer": {
+      "psalms": [
+        "139"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "65",
+        "67"
+      ]
+    }
+  },
+  "02-27": {
+    "morningPrayer": {
+      "psalms": [
+        "140"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "68:19-36"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "02-28": {
+    "morningPrayer": {
+      "psalms": [
+        "144"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "69:19-37"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "02-29": {
+    "morningPrayer": {
+      "psalms": [
+        "90"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "104"
+      ]
+    }
+  },
+  "03-01": {
+    "morningPrayer": {
+      "psalms": [
+        "146"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "147"
+      ]
+    }
+  },
+  "03-02": {
+    "morningPrayer": {
+      "psalms": [
+        "148"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "149",
+        "150"
+      ]
+    }
+  },
+  "03-03": {
+    "morningPrayer": {
+      "psalms": [
+        "1",
+        "2"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "3",
+        "4"
+      ]
+    }
+  },
+  "03-04": {
+    "morningPrayer": {
+      "psalms": [
+        "5",
+        "6"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "7"
+      ]
+    }
+  },
+  "03-05": {
+    "morningPrayer": {
+      "psalms": [
+        "9"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "10"
+      ]
+    }
+  },
+  "03-06": {
+    "morningPrayer": {
+      "psalms": [
+        "8",
+        "11"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "15",
+        "16"
+      ]
+    }
+  },
+  "03-07": {
+    "morningPrayer": {
+      "psalms": [
+        "12",
+        "13",
+        "14"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "17"
+      ]
+    }
+  },
+  "03-08": {
+    "morningPrayer": {
+      "psalms": [
+        "18:1-20"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "18:21-52"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "03-09": {
+    "morningPrayer": {
+      "psalms": [
+        "19"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "20",
+        "21"
+      ]
+    }
+  },
+  "03-10": {
+    "morningPrayer": {
+      "psalms": [
+        "22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "23",
+        "24"
+      ]
+    }
+  },
+  "03-11": {
+    "morningPrayer": {
+      "psalms": [
+        "25"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "27"
+      ]
+    }
+  },
+  "03-12": {
+    "morningPrayer": {
+      "psalms": [
+        "26",
+        "28"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "31"
+      ]
+    }
+  },
+  "03-13": {
+    "morningPrayer": {
+      "psalms": [
+        "29",
+        "30"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "33"
+      ]
+    }
+  },
+  "03-14": {
+    "morningPrayer": {
+      "psalms": [
+        "34"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "35"
+      ]
+    }
+  },
+  "03-15": {
+    "morningPrayer": {
+      "psalms": [
+        "32",
+        "36"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "38"
+      ]
+    }
+  },
+  "03-16": {
+    "morningPrayer": {
+      "psalms": [
+        "37:1-17"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "37:18-41"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "03-17": {
+    "morningPrayer": {
+      "psalms": [
+        "40"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "39",
+        "41"
+      ]
+    }
+  },
+  "03-18": {
+    "morningPrayer": {
+      "psalms": [
+        "42",
+        "43"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "44"
+      ]
+    }
+  },
+  "03-19": {
+    "morningPrayer": {
+      "psalms": [
+        "45"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "46"
+      ]
+    }
+  },
+  "03-20": {
+    "morningPrayer": {
+      "psalms": [
+        "47",
+        "48"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "49"
+      ]
+    }
+  },
+  "03-21": {
+    "morningPrayer": {
+      "psalms": [
+        "50"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "51"
+      ]
+    }
+  },
+  "03-22": {
+    "morningPrayer": {
+      "psalms": [
+        "52",
+        "53",
+        "54"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "55"
+      ]
+    }
+  },
+  "03-23": {
+    "morningPrayer": {
+      "psalms": [
+        "56",
+        "57"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "58",
+        "60"
+      ]
+    }
+  },
+  "03-24": {
+    "morningPrayer": {
+      "psalms": [
+        "59"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "63",
+        "64"
+      ]
+    }
+  },
+  "03-25": {
+    "morningPrayer": {
+      "psalms": [
+        "113",
+        "138"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "131",
+        "132"
+      ]
+    }
+  },
+  "03-26": {
+    "morningPrayer": {
+      "psalms": [
+        "61",
+        "62"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "65",
+        "67"
+      ]
+    }
+  },
+  "03-27": {
+    "morningPrayer": {
+      "psalms": [
+        "68:1-18"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "68:19-36"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "03-28": {
+    "morningPrayer": {
+      "psalms": [
+        "69:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "69:19-37"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "03-29": {
+    "morningPrayer": {
+      "psalms": [
+        "66"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "70",
+        "72"
+      ]
+    }
+  },
+  "03-30": {
+    "morningPrayer": {
+      "psalms": [
+        "71"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "73"
+      ]
+    }
+  },
+  "03-31": {
+    "morningPrayer": {
+      "psalms": [
+        "74"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "77"
+      ]
+    }
+  },
+  "04-01": {
+    "morningPrayer": {
+      "psalms": [
+        "75",
+        "76"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "79",
+        "82"
+      ]
+    }
+  },
+  "04-02": {
+    "morningPrayer": {
+      "psalms": [
+        "78:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "78:19-40"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "04-03": {
+    "morningPrayer": {
+      "psalms": [
+        "78:41-73"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "80"
+      ]
+    }
+  },
+  "04-04": {
+    "morningPrayer": {
+      "psalms": [
+        "81"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "83"
+      ]
+    }
+  },
+  "04-05": {
+    "morningPrayer": {
+      "psalms": [
+        "84"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "85"
+      ]
+    }
+  },
+  "04-06": {
+    "morningPrayer": {
+      "psalms": [
+        "86",
+        "87"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "88"
+      ]
+    }
+  },
+  "04-07": {
+    "morningPrayer": {
+      "psalms": [
+        "89:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "89:19-51"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "04-08": {
+    "morningPrayer": {
+      "psalms": [
+        "90"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "91"
+      ]
+    }
+  },
+  "04-09": {
+    "morningPrayer": {
+      "psalms": [
+        "92",
+        "93"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "94"
+      ]
+    }
+  },
+  "04-10": {
+    "morningPrayer": {
+      "psalms": [
+        "95",
+        "96"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "97",
+        "98"
+      ]
+    }
+  },
+  "04-11": {
+    "morningPrayer": {
+      "psalms": [
+        "99",
+        "100",
+        "101"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "102"
+      ]
+    }
+  },
+  "04-12": {
+    "morningPrayer": {
+      "psalms": [
+        "103"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "104"
+      ]
+    }
+  },
+  "04-13": {
+    "morningPrayer": {
+      "psalms": [
+        "105:1-22"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "105:23-44"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "04-14": {
+    "morningPrayer": {
+      "psalms": [
+        "106:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "106:19-46"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "04-15": {
+    "morningPrayer": {
+      "psalms": [
+        "107:1-22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "107:23-43"
+      ]
+    }
+  },
+  "04-16": {
+    "morningPrayer": {
+      "psalms": [
+        "108",
+        "110"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "109"
+      ]
+    }
+  },
+  "04-17": {
+    "morningPrayer": {
+      "psalms": [
+        "111",
+        "112"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "113",
+        "114"
+      ]
+    }
+  },
+  "04-18": {
+    "morningPrayer": {
+      "psalms": [
+        "115"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "116",
+        "117"
+      ]
+    }
+  },
+  "04-19": {
+    "morningPrayer": {
+      "psalms": [
+        "119:1-24"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:25-48"
+      ]
+    }
+  },
+  "04-20": {
+    "morningPrayer": {
+      "psalms": [
+        "119:49-72"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:73-88"
+      ]
+    }
+  },
+  "04-21": {
+    "morningPrayer": {
+      "psalms": [
+        "119:89-104"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:105-128"
+      ]
+    }
+  },
+  "04-22": {
+    "morningPrayer": {
+      "psalms": [
+        "119:129-152"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:153-176"
+      ]
+    }
+  },
+  "04-23": {
+    "morningPrayer": {
+      "psalms": [
+        "118"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "120",
+        "121"
+      ]
+    }
+  },
+  "04-24": {
+    "morningPrayer": {
+      "psalms": [
+        "122",
+        "123"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "124",
+        "125",
+        "126"
+      ]
+    }
+  },
+  "04-25": {
+    "morningPrayer": {
+      "psalms": [
+        "127",
+        "128"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "129",
+        "130",
+        "131"
+      ]
+    }
+  },
+  "04-26": {
+    "morningPrayer": {
+      "psalms": [
+        "132",
+        "133"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "134",
+        "135"
+      ]
+    }
+  },
+  "04-27": {
+    "morningPrayer": {
+      "psalms": [
+        "136"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "137",
+        "138"
+      ]
+    }
+  },
+  "04-28": {
+    "morningPrayer": {
+      "psalms": [
+        "139"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "141",
+        "142"
+      ]
+    }
+  },
+  "04-29": {
+    "morningPrayer": {
+      "psalms": [
+        "140"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "143"
+      ]
+    }
+  },
+  "04-30": {
+    "morningPrayer": {
+      "psalms": [
+        "144"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "145"
+      ]
+    }
+  },
+  "05-01": {
+    "morningPrayer": {
+      "psalms": [
+        "146"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "147"
+      ]
+    }
+  },
+  "05-02": {
+    "morningPrayer": {
+      "psalms": [
+        "148"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "149",
+        "150"
+      ]
+    }
+  },
+  "05-03": {
+    "morningPrayer": {
+      "psalms": [
+        "1",
+        "2"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "3",
+        "4"
+      ]
+    }
+  },
+  "05-04": {
+    "morningPrayer": {
+      "psalms": [
+        "5",
+        "6"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "7"
+      ]
+    }
+  },
+  "05-05": {
+    "morningPrayer": {
+      "psalms": [
+        "9"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "10"
+      ]
+    }
+  },
+  "05-06": {
+    "morningPrayer": {
+      "psalms": [
+        "8",
+        "11"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "15",
+        "16"
+      ]
+    }
+  },
+  "05-07": {
+    "morningPrayer": {
+      "psalms": [
+        "12",
+        "13",
+        "14"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "17"
+      ]
+    }
+  },
+  "05-08": {
+    "morningPrayer": {
+      "psalms": [
+        "18:1-20"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "18:21-52"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "05-09": {
+    "morningPrayer": {
+      "psalms": [
+        "19"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "20",
+        "21"
+      ]
+    }
+  },
+  "05-10": {
+    "morningPrayer": {
+      "psalms": [
+        "22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "23",
+        "24"
+      ]
+    }
+  },
+  "05-11": {
+    "morningPrayer": {
+      "psalms": [
+        "25"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "27"
+      ]
+    }
+  },
+  "05-12": {
+    "morningPrayer": {
+      "psalms": [
+        "26",
+        "28"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "31"
+      ]
+    }
+  },
+  "05-13": {
+    "morningPrayer": {
+      "psalms": [
+        "29",
+        "30"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "33"
+      ]
+    }
+  },
+  "05-14": {
+    "morningPrayer": {
+      "psalms": [
+        "34"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "35"
+      ]
+    }
+  },
+  "05-15": {
+    "morningPrayer": {
+      "psalms": [
+        "32",
+        "36"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "38"
+      ]
+    }
+  },
+  "05-16": {
+    "morningPrayer": {
+      "psalms": [
+        "37:1-17"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "37:18-41"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "05-17": {
+    "morningPrayer": {
+      "psalms": [
+        "40"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "39",
+        "41"
+      ]
+    }
+  },
+  "05-18": {
+    "morningPrayer": {
+      "psalms": [
+        "42",
+        "43"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "44"
+      ]
+    }
+  },
+  "05-19": {
+    "morningPrayer": {
+      "psalms": [
+        "45"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "46"
+      ]
+    }
+  },
+  "05-20": {
+    "morningPrayer": {
+      "psalms": [
+        "47",
+        "48"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "49"
+      ]
+    }
+  },
+  "05-21": {
+    "morningPrayer": {
+      "psalms": [
+        "50"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "51"
+      ]
+    }
+  },
+  "05-22": {
+    "morningPrayer": {
+      "psalms": [
+        "52",
+        "53",
+        "54"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "55"
+      ]
+    }
+  },
+  "05-23": {
+    "morningPrayer": {
+      "psalms": [
+        "56",
+        "57"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "58",
+        "60"
+      ]
+    }
+  },
+  "05-24": {
+    "morningPrayer": {
+      "psalms": [
+        "59"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "63",
+        "64"
+      ]
+    }
+  },
+  "05-25": {
+    "morningPrayer": {
+      "psalms": [
+        "61",
+        "62"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "65",
+        "67"
+      ]
+    }
+  },
+  "05-26": {
+    "morningPrayer": {
+      "psalms": [
+        "68:1-18"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "68:19-36"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "05-27": {
+    "morningPrayer": {
+      "psalms": [
+        "69:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "69:19-37"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "05-28": {
+    "morningPrayer": {
+      "psalms": [
+        "66"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "70",
+        "72"
+      ]
+    }
+  },
+  "05-29": {
+    "morningPrayer": {
+      "psalms": [
+        "71"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "73"
+      ]
+    }
+  },
+  "05-30": {
+    "morningPrayer": {
+      "psalms": [
+        "74"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "77"
+      ]
+    }
+  },
+  "05-31": {
+    "morningPrayer": {
+      "psalms": [
+        "75",
+        "76"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "79",
+        "82"
+      ]
+    }
+  },
+  "06-01": {
+    "morningPrayer": {
+      "psalms": [
+        "78:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "78:19-40"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "06-02": {
+    "morningPrayer": {
+      "psalms": [
+        "78:41-73"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "80"
+      ]
+    }
+  },
+  "06-03": {
+    "morningPrayer": {
+      "psalms": [
+        "81"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "83"
+      ]
+    }
+  },
+  "06-04": {
+    "morningPrayer": {
+      "psalms": [
+        "84"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "85"
+      ]
+    }
+  },
+  "06-05": {
+    "morningPrayer": {
+      "psalms": [
+        "86",
+        "87"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "88"
+      ]
+    }
+  },
+  "06-06": {
+    "morningPrayer": {
+      "psalms": [
+        "89:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "89:19-51"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "06-07": {
+    "morningPrayer": {
+      "psalms": [
+        "90"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "91"
+      ]
+    }
+  },
+  "06-08": {
+    "morningPrayer": {
+      "psalms": [
+        "92",
+        "93"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "94"
+      ]
+    }
+  },
+  "06-09": {
+    "morningPrayer": {
+      "psalms": [
+        "95",
+        "96"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "97",
+        "98"
+      ]
+    }
+  },
+  "06-10": {
+    "morningPrayer": {
+      "psalms": [
+        "99",
+        "100",
+        "101"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "102"
+      ]
+    }
+  },
+  "06-11": {
+    "morningPrayer": {
+      "psalms": [
+        "103"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "104"
+      ]
+    }
+  },
+  "06-12": {
+    "morningPrayer": {
+      "psalms": [
+        "105:1-22"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "105:23-44"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "06-13": {
+    "morningPrayer": {
+      "psalms": [
+        "106:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "106:19-46"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "06-14": {
+    "morningPrayer": {
+      "psalms": [
+        "107:1-22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "107:23-43"
+      ]
+    }
+  },
+  "06-15": {
+    "morningPrayer": {
+      "psalms": [
+        "108",
+        "110"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "109"
+      ]
+    }
+  },
+  "06-16": {
+    "morningPrayer": {
+      "psalms": [
+        "111",
+        "112"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "113",
+        "114"
+      ]
+    }
+  },
+  "06-17": {
+    "morningPrayer": {
+      "psalms": [
+        "115"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "116",
+        "117"
+      ]
+    }
+  },
+  "06-18": {
+    "morningPrayer": {
+      "psalms": [
+        "119:1-24"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:25-48"
+      ]
+    }
+  },
+  "06-19": {
+    "morningPrayer": {
+      "psalms": [
+        "119:49-72"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:73-88"
+      ]
+    }
+  },
+  "06-20": {
+    "morningPrayer": {
+      "psalms": [
+        "119:89-104"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:105-128"
+      ]
+    }
+  },
+  "06-21": {
+    "morningPrayer": {
+      "psalms": [
+        "119:129-152"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:153-176"
+      ]
+    }
+  },
+  "06-22": {
+    "morningPrayer": {
+      "psalms": [
+        "118"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "120",
+        "121"
+      ]
+    }
+  },
+  "06-23": {
+    "morningPrayer": {
+      "psalms": [
+        "122",
+        "123"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "124",
+        "125",
+        "126"
+      ]
+    }
+  },
+  "06-24": {
+    "morningPrayer": {
+      "psalms": [
+        "127",
+        "128"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "129",
+        "130",
+        "131"
+      ]
+    }
+  },
+  "06-25": {
+    "morningPrayer": {
+      "psalms": [
+        "132",
+        "133"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "134",
+        "135"
+      ]
+    }
+  },
+  "06-26": {
+    "morningPrayer": {
+      "psalms": [
+        "136"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "137",
+        "138"
+      ]
+    }
+  },
+  "06-27": {
+    "morningPrayer": {
+      "psalms": [
+        "139"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "141",
+        "142"
+      ]
+    }
+  },
+  "06-28": {
+    "morningPrayer": {
+      "psalms": [
+        "140"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "143"
+      ]
+    }
+  },
+  "06-29": {
+    "morningPrayer": {
+      "psalms": [
+        "144"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "145"
+      ]
+    }
+  },
+  "06-30": {
+    "morningPrayer": {
+      "psalms": [
+        "146"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "147"
+      ]
+    }
+  },
+  "07-01": {
+    "morningPrayer": {
+      "psalms": [
+        "148"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "149",
+        "150"
+      ]
+    }
+  },
+  "07-02": {
+    "morningPrayer": {
+      "psalms": [
+        "1",
+        "2"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "3",
+        "4"
+      ]
+    }
+  },
+  "07-03": {
+    "morningPrayer": {
+      "psalms": [
+        "5",
+        "6"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "7"
+      ]
+    }
+  },
+  "07-04": {
+    "morningPrayer": {
+      "psalms": [
+        "9"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "10"
+      ]
+    }
+  },
+  "07-05": {
+    "morningPrayer": {
+      "psalms": [
+        "8",
+        "11"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "15",
+        "16"
+      ]
+    }
+  },
+  "07-06": {
+    "morningPrayer": {
+      "psalms": [
+        "12",
+        "13",
+        "14"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "17"
+      ]
+    }
+  },
+  "07-07": {
+    "morningPrayer": {
+      "psalms": [
+        "18:1-20"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "18:21-52"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "07-08": {
+    "morningPrayer": {
+      "psalms": [
+        "19"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "20",
+        "21"
+      ]
+    }
+  },
+  "07-09": {
+    "morningPrayer": {
+      "psalms": [
+        "22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "23",
+        "24"
+      ]
+    }
+  },
+  "07-10": {
+    "morningPrayer": {
+      "psalms": [
+        "25"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "27"
+      ]
+    }
+  },
+  "07-11": {
+    "morningPrayer": {
+      "psalms": [
+        "26",
+        "28"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "31"
+      ]
+    }
+  },
+  "07-12": {
+    "morningPrayer": {
+      "psalms": [
+        "29",
+        "30"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "33"
+      ]
+    }
+  },
+  "07-13": {
+    "morningPrayer": {
+      "psalms": [
+        "34"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "35"
+      ]
+    }
+  },
+  "07-14": {
+    "morningPrayer": {
+      "psalms": [
+        "32",
+        "36"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "38"
+      ]
+    }
+  },
+  "07-15": {
+    "morningPrayer": {
+      "psalms": [
+        "37:1-17"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "37:18-41"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "07-16": {
+    "morningPrayer": {
+      "psalms": [
+        "40"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "39",
+        "41"
+      ]
+    }
+  },
+  "07-17": {
+    "morningPrayer": {
+      "psalms": [
+        "42",
+        "43"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "44"
+      ]
+    }
+  },
+  "07-18": {
+    "morningPrayer": {
+      "psalms": [
+        "45"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "46"
+      ]
+    }
+  },
+  "07-19": {
+    "morningPrayer": {
+      "psalms": [
+        "47",
+        "48"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "49"
+      ]
+    }
+  },
+  "07-20": {
+    "morningPrayer": {
+      "psalms": [
+        "50"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "51"
+      ]
+    }
+  },
+  "07-21": {
+    "morningPrayer": {
+      "psalms": [
+        "52",
+        "53",
+        "54"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "55"
+      ]
+    }
+  },
+  "07-22": {
+    "morningPrayer": {
+      "psalms": [
+        "56",
+        "57"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "58",
+        "60"
+      ]
+    }
+  },
+  "07-23": {
+    "morningPrayer": {
+      "psalms": [
+        "59"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "63",
+        "64"
+      ]
+    }
+  },
+  "07-24": {
+    "morningPrayer": {
+      "psalms": [
+        "61",
+        "62"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "65",
+        "67"
+      ]
+    }
+  },
+  "07-25": {
+    "morningPrayer": {
+      "psalms": [
+        "68:1-18"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "68:19-36"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "07-26": {
+    "morningPrayer": {
+      "psalms": [
+        "69:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "69:19-37"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "07-27": {
+    "morningPrayer": {
+      "psalms": [
+        "66"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "70",
+        "72"
+      ]
+    }
+  },
+  "07-28": {
+    "morningPrayer": {
+      "psalms": [
+        "71"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "73"
+      ]
+    }
+  },
+  "07-29": {
+    "morningPrayer": {
+      "psalms": [
+        "74"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "77"
+      ]
+    }
+  },
+  "07-30": {
+    "morningPrayer": {
+      "psalms": [
+        "75",
+        "76"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "79",
+        "82"
+      ]
+    }
+  },
+  "07-31": {
+    "morningPrayer": {
+      "psalms": [
+        "78:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "78:19-40"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "08-01": {
+    "morningPrayer": {
+      "psalms": [
+        "78:41-73"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "80"
+      ]
+    }
+  },
+  "08-02": {
+    "morningPrayer": {
+      "psalms": [
+        "81"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "83"
+      ]
+    }
+  },
+  "08-03": {
+    "morningPrayer": {
+      "psalms": [
+        "84"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "85"
+      ]
+    }
+  },
+  "08-04": {
+    "morningPrayer": {
+      "psalms": [
+        "86",
+        "87"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "88"
+      ]
+    }
+  },
+  "08-05": {
+    "morningPrayer": {
+      "psalms": [
+        "89:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "89:19-51"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "08-06": {
+    "morningPrayer": {
+      "psalms": [
+        "27"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "80"
+      ]
+    }
+  },
+  "08-07": {
+    "morningPrayer": {
+      "psalms": [
+        "90"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "91"
+      ]
+    }
+  },
+  "08-08": {
+    "morningPrayer": {
+      "psalms": [
+        "92",
+        "93"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "94"
+      ]
+    }
+  },
+  "08-09": {
+    "morningPrayer": {
+      "psalms": [
+        "95",
+        "96"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "97",
+        "98"
+      ]
+    }
+  },
+  "08-10": {
+    "morningPrayer": {
+      "psalms": [
+        "99",
+        "100",
+        "101"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "102"
+      ]
+    }
+  },
+  "08-11": {
+    "morningPrayer": {
+      "psalms": [
+        "103"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "104"
+      ]
+    }
+  },
+  "08-12": {
+    "morningPrayer": {
+      "psalms": [
+        "105:1-22"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "105:23-44"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "08-13": {
+    "morningPrayer": {
+      "psalms": [
+        "106:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "106:19-46"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "08-14": {
+    "morningPrayer": {
+      "psalms": [
+        "107:1-22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "107:23-43"
+      ]
+    }
+  },
+  "08-15": {
+    "morningPrayer": {
+      "psalms": [
+        "108",
+        "110"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "109"
+      ]
+    }
+  },
+  "08-16": {
+    "morningPrayer": {
+      "psalms": [
+        "111",
+        "112"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "113",
+        "114"
+      ]
+    }
+  },
+  "08-17": {
+    "morningPrayer": {
+      "psalms": [
+        "115"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "116",
+        "117"
+      ]
+    }
+  },
+  "08-18": {
+    "morningPrayer": {
+      "psalms": [
+        "119:1-24"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:25-48"
+      ]
+    }
+  },
+  "08-19": {
+    "morningPrayer": {
+      "psalms": [
+        "119:49-72"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:73-88"
+      ]
+    }
+  },
+  "08-20": {
+    "morningPrayer": {
+      "psalms": [
+        "119:89-104"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:105-128"
+      ]
+    }
+  },
+  "08-21": {
+    "morningPrayer": {
+      "psalms": [
+        "119:129-152"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:153-176"
+      ]
+    }
+  },
+  "08-22": {
+    "morningPrayer": {
+      "psalms": [
+        "118"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "120",
+        "121"
+      ]
+    }
+  },
+  "08-23": {
+    "morningPrayer": {
+      "psalms": [
+        "122",
+        "123"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "124",
+        "125",
+        "126"
+      ]
+    }
+  },
+  "08-24": {
+    "morningPrayer": {
+      "psalms": [
+        "127",
+        "128"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "129",
+        "130",
+        "131"
+      ]
+    }
+  },
+  "08-25": {
+    "morningPrayer": {
+      "psalms": [
+        "132",
+        "133"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "134",
+        "135"
+      ]
+    }
+  },
+  "08-26": {
+    "morningPrayer": {
+      "psalms": [
+        "136"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "137",
+        "138"
+      ]
+    }
+  },
+  "08-27": {
+    "morningPrayer": {
+      "psalms": [
+        "139"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "141",
+        "142"
+      ]
+    }
+  },
+  "08-28": {
+    "morningPrayer": {
+      "psalms": [
+        "140"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "143"
+      ]
+    }
+  },
+  "08-29": {
+    "morningPrayer": {
+      "psalms": [
+        "144"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "145"
+      ]
+    }
+  },
+  "08-30": {
+    "morningPrayer": {
+      "psalms": [
+        "146"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "147"
+      ]
+    }
+  },
+  "08-31": {
+    "morningPrayer": {
+      "psalms": [
+        "148"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "149",
+        "150"
+      ]
+    }
+  },
+  "09-01": {
+    "morningPrayer": {
+      "psalms": [
+        "1",
+        "2"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "3",
+        "4"
+      ]
+    }
+  },
+  "09-02": {
+    "morningPrayer": {
+      "psalms": [
+        "5",
+        "6"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "7"
+      ]
+    }
+  },
+  "09-03": {
+    "morningPrayer": {
+      "psalms": [
+        "9"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "10"
+      ]
+    }
+  },
+  "09-04": {
+    "morningPrayer": {
+      "psalms": [
+        "8",
+        "11"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "15",
+        "16"
+      ]
+    }
+  },
+  "09-05": {
+    "morningPrayer": {
+      "psalms": [
+        "12",
+        "13",
+        "14"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "17"
+      ]
+    }
+  },
+  "09-06": {
+    "morningPrayer": {
+      "psalms": [
+        "18:1-20"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "18:21-52"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "09-07": {
+    "morningPrayer": {
+      "psalms": [
+        "19"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "20",
+        "21"
+      ]
+    }
+  },
+  "09-08": {
+    "morningPrayer": {
+      "psalms": [
+        "22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "23",
+        "24"
+      ]
+    }
+  },
+  "09-09": {
+    "morningPrayer": {
+      "psalms": [
+        "25"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "27"
+      ]
+    }
+  },
+  "09-10": {
+    "morningPrayer": {
+      "psalms": [
+        "26",
+        "28"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "31"
+      ]
+    }
+  },
+  "09-11": {
+    "morningPrayer": {
+      "psalms": [
+        "29",
+        "30"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "33"
+      ]
+    }
+  },
+  "09-12": {
+    "morningPrayer": {
+      "psalms": [
+        "34"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "35"
+      ]
+    }
+  },
+  "09-13": {
+    "morningPrayer": {
+      "psalms": [
+        "32",
+        "36"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "38"
+      ]
+    }
+  },
+  "09-14": {
+    "morningPrayer": {
+      "psalms": [
+        "37:1-17"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "37:18-41"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "09-15": {
+    "morningPrayer": {
+      "psalms": [
+        "40"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "39",
+        "41"
+      ]
+    }
+  },
+  "09-16": {
+    "morningPrayer": {
+      "psalms": [
+        "42",
+        "43"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "44"
+      ]
+    }
+  },
+  "09-17": {
+    "morningPrayer": {
+      "psalms": [
+        "45"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "46"
+      ]
+    }
+  },
+  "09-18": {
+    "morningPrayer": {
+      "psalms": [
+        "47",
+        "48"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "49"
+      ]
+    }
+  },
+  "09-19": {
+    "morningPrayer": {
+      "psalms": [
+        "50"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "51"
+      ]
+    }
+  },
+  "09-20": {
+    "morningPrayer": {
+      "psalms": [
+        "52",
+        "53",
+        "54"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "55"
+      ]
+    }
+  },
+  "09-21": {
+    "morningPrayer": {
+      "psalms": [
+        "56",
+        "57"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "58",
+        "60"
+      ]
+    }
+  },
+  "09-22": {
+    "morningPrayer": {
+      "psalms": [
+        "59"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "63",
+        "64"
+      ]
+    }
+  },
+  "09-23": {
+    "morningPrayer": {
+      "psalms": [
+        "61",
+        "62"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "65",
+        "67"
+      ]
+    }
+  },
+  "09-24": {
+    "morningPrayer": {
+      "psalms": [
+        "68:1-18"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "68:19-36"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "09-25": {
+    "morningPrayer": {
+      "psalms": [
+        "69:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "69:19-37"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "09-26": {
+    "morningPrayer": {
+      "psalms": [
+        "66"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "70",
+        "72"
+      ]
+    }
+  },
+  "09-27": {
+    "morningPrayer": {
+      "psalms": [
+        "71"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "73"
+      ]
+    }
+  },
+  "09-28": {
+    "morningPrayer": {
+      "psalms": [
+        "74"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "77"
+      ]
+    }
+  },
+  "09-29": {
+    "morningPrayer": {
+      "psalms": [
+        "75",
+        "76"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "79",
+        "82"
+      ]
+    }
+  },
+  "09-30": {
+    "morningPrayer": {
+      "psalms": [
+        "78:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "78:19-40"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "10-01": {
+    "morningPrayer": {
+      "psalms": [
+        "78:41-73"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "80"
+      ]
+    }
+  },
+  "10-02": {
+    "morningPrayer": {
+      "psalms": [
+        "81"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "83"
+      ]
+    }
+  },
+  "10-03": {
+    "morningPrayer": {
+      "psalms": [
+        "84"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "85"
+      ]
+    }
+  },
+  "10-04": {
+    "morningPrayer": {
+      "psalms": [
+        "86",
+        "87"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "88"
+      ]
+    }
+  },
+  "10-05": {
+    "morningPrayer": {
+      "psalms": [
+        "89:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "89:19-51"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "10-06": {
+    "morningPrayer": {
+      "psalms": [
+        "90"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "91"
+      ]
+    }
+  },
+  "10-07": {
+    "morningPrayer": {
+      "psalms": [
+        "92",
+        "93"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "94"
+      ]
+    }
+  },
+  "10-08": {
+    "morningPrayer": {
+      "psalms": [
+        "95",
+        "96"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "97",
+        "98"
+      ]
+    }
+  },
+  "10-09": {
+    "morningPrayer": {
+      "psalms": [
+        "99",
+        "100",
+        "101"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "102"
+      ]
+    }
+  },
+  "10-10": {
+    "morningPrayer": {
+      "psalms": [
+        "103"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "104"
+      ]
+    }
+  },
+  "10-11": {
+    "morningPrayer": {
+      "psalms": [
+        "105:1-22"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "105:23-44"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "10-12": {
+    "morningPrayer": {
+      "psalms": [
+        "106:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "106:19-46"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "10-13": {
+    "morningPrayer": {
+      "psalms": [
+        "107:1-22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "107:23-43"
+      ]
+    }
+  },
+  "10-14": {
+    "morningPrayer": {
+      "psalms": [
+        "108",
+        "110"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "109"
+      ]
+    }
+  },
+  "10-15": {
+    "morningPrayer": {
+      "psalms": [
+        "111",
+        "112"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "113",
+        "114"
+      ]
+    }
+  },
+  "10-16": {
+    "morningPrayer": {
+      "psalms": [
+        "115"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "116",
+        "117"
+      ]
+    }
+  },
+  "10-17": {
+    "morningPrayer": {
+      "psalms": [
+        "119:1-24"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:25-48"
+      ]
+    }
+  },
+  "10-18": {
+    "morningPrayer": {
+      "psalms": [
+        "119:49-72"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:73-88"
+      ]
+    }
+  },
+  "10-19": {
+    "morningPrayer": {
+      "psalms": [
+        "119:89-104"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:105-128"
+      ]
+    }
+  },
+  "10-20": {
+    "morningPrayer": {
+      "psalms": [
+        "119:129-152"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:153-176"
+      ]
+    }
+  },
+  "10-21": {
+    "morningPrayer": {
+      "psalms": [
+        "118"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "120",
+        "121"
+      ]
+    }
+  },
+  "10-22": {
+    "morningPrayer": {
+      "psalms": [
+        "122",
+        "123"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "124",
+        "125",
+        "126"
+      ]
+    }
+  },
+  "10-23": {
+    "morningPrayer": {
+      "psalms": [
+        "127",
+        "128"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "129",
+        "130",
+        "131"
+      ]
+    }
+  },
+  "10-24": {
+    "morningPrayer": {
+      "psalms": [
+        "132",
+        "133"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "134",
+        "135"
+      ]
+    }
+  },
+  "10-25": {
+    "morningPrayer": {
+      "psalms": [
+        "136"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "137",
+        "138"
+      ]
+    }
+  },
+  "10-26": {
+    "morningPrayer": {
+      "psalms": [
+        "139"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "141",
+        "142"
+      ]
+    }
+  },
+  "10-27": {
+    "morningPrayer": {
+      "psalms": [
+        "140"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "143"
+      ]
+    }
+  },
+  "10-28": {
+    "morningPrayer": {
+      "psalms": [
+        "144"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "145"
+      ]
+    }
+  },
+  "10-29": {
+    "morningPrayer": {
+      "psalms": [
+        "146"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "147"
+      ]
+    }
+  },
+  "10-30": {
+    "morningPrayer": {
+      "psalms": [
+        "148"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "149",
+        "150"
+      ]
+    }
+  },
+  "10-31": {
+    "morningPrayer": {
+      "psalms": [
+        "2"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "3",
+        "4"
+      ]
+    }
+  },
+  "11-01": {
+    "morningPrayer": {
+      "psalms": [
+        "1",
+        "15"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "34"
+      ]
+    }
+  },
+  "11-02": {
+    "morningPrayer": {
+      "psalms": [
+        "5",
+        "6"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "7"
+      ]
+    }
+  },
+  "11-03": {
+    "morningPrayer": {
+      "psalms": [
+        "9"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "10"
+      ]
+    }
+  },
+  "11-04": {
+    "morningPrayer": {
+      "psalms": [
+        "8",
+        "11"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "15",
+        "16"
+      ]
+    }
+  },
+  "11-05": {
+    "morningPrayer": {
+      "psalms": [
+        "12",
+        "13",
+        "14"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "17"
+      ]
+    }
+  },
+  "11-06": {
+    "morningPrayer": {
+      "psalms": [
+        "18:1-20"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "18:21-52"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "11-07": {
+    "morningPrayer": {
+      "psalms": [
+        "19"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "20",
+        "21"
+      ]
+    }
+  },
+  "11-08": {
+    "morningPrayer": {
+      "psalms": [
+        "22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "23",
+        "24"
+      ]
+    }
+  },
+  "11-09": {
+    "morningPrayer": {
+      "psalms": [
+        "25"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "27"
+      ]
+    }
+  },
+  "11-10": {
+    "morningPrayer": {
+      "psalms": [
+        "26",
+        "28"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "31"
+      ]
+    }
+  },
+  "11-11": {
+    "morningPrayer": {
+      "psalms": [
+        "29",
+        "30"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "33"
+      ]
+    }
+  },
+  "11-12": {
+    "morningPrayer": {
+      "psalms": [
+        "34"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "35"
+      ]
+    }
+  },
+  "11-13": {
+    "morningPrayer": {
+      "psalms": [
+        "32",
+        "36"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "38"
+      ]
+    }
+  },
+  "11-14": {
+    "morningPrayer": {
+      "psalms": [
+        "37:1-17"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "37:18-41"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "11-15": {
+    "morningPrayer": {
+      "psalms": [
+        "40"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "39",
+        "41"
+      ]
+    }
+  },
+  "11-16": {
+    "morningPrayer": {
+      "psalms": [
+        "42",
+        "43"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "44"
+      ]
+    }
+  },
+  "11-17": {
+    "morningPrayer": {
+      "psalms": [
+        "45"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "46"
+      ]
+    }
+  },
+  "11-18": {
+    "morningPrayer": {
+      "psalms": [
+        "47",
+        "48"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "49"
+      ]
+    }
+  },
+  "11-19": {
+    "morningPrayer": {
+      "psalms": [
+        "50"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "51"
+      ]
+    }
+  },
+  "11-20": {
+    "morningPrayer": {
+      "psalms": [
+        "52",
+        "53",
+        "54"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "55"
+      ]
+    }
+  },
+  "11-21": {
+    "morningPrayer": {
+      "psalms": [
+        "56",
+        "57"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "58",
+        "60"
+      ]
+    }
+  },
+  "11-22": {
+    "morningPrayer": {
+      "psalms": [
+        "59"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "63",
+        "64"
+      ]
+    }
+  },
+  "11-23": {
+    "morningPrayer": {
+      "psalms": [
+        "61",
+        "62"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "65",
+        "67"
+      ]
+    }
+  },
+  "11-24": {
+    "morningPrayer": {
+      "psalms": [
+        "68:1-18"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "68:19-36"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "11-25": {
+    "morningPrayer": {
+      "psalms": [
+        "69:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "69:19-37"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "11-26": {
+    "morningPrayer": {
+      "psalms": [
+        "66"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "70",
+        "72"
+      ]
+    }
+  },
+  "11-27": {
+    "morningPrayer": {
+      "psalms": [
+        "71"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "73"
+      ]
+    }
+  },
+  "11-28": {
+    "morningPrayer": {
+      "psalms": [
+        "74"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "77"
+      ]
+    }
+  },
+  "11-29": {
+    "morningPrayer": {
+      "psalms": [
+        "75",
+        "76"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "79",
+        "82"
+      ]
+    }
+  },
+  "11-30": {
+    "morningPrayer": {
+      "psalms": [
+        "78:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "78:19-40"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "12-01": {
+    "morningPrayer": {
+      "psalms": [
+        "78:41-73"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "80"
+      ]
+    }
+  },
+  "12-02": {
+    "morningPrayer": {
+      "psalms": [
+        "81"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "83"
+      ]
+    }
+  },
+  "12-03": {
+    "morningPrayer": {
+      "psalms": [
+        "84"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "85"
+      ]
+    }
+  },
+  "12-04": {
+    "morningPrayer": {
+      "psalms": [
+        "86",
+        "87"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "88"
+      ]
+    }
+  },
+  "12-05": {
+    "morningPrayer": {
+      "psalms": [
+        "89:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "89:19-51"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "12-06": {
+    "morningPrayer": {
+      "psalms": [
+        "90"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "91"
+      ]
+    }
+  },
+  "12-07": {
+    "morningPrayer": {
+      "psalms": [
+        "92",
+        "93"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "94"
+      ]
+    }
+  },
+  "12-08": {
+    "morningPrayer": {
+      "psalms": [
+        "95",
+        "96"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "97",
+        "98"
+      ]
+    }
+  },
+  "12-09": {
+    "morningPrayer": {
+      "psalms": [
+        "99",
+        "100",
+        "101"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "102"
+      ]
+    }
+  },
+  "12-10": {
+    "morningPrayer": {
+      "psalms": [
+        "103"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "104"
+      ]
+    }
+  },
+  "12-11": {
+    "morningPrayer": {
+      "psalms": [
+        "105:1-22"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "105:23-44"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "12-12": {
+    "morningPrayer": {
+      "psalms": [
+        "106:1-18"
+      ],
+      "translationCode": "NCP"
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "106:19-46"
+      ],
+      "translationCode": "NCP"
+    }
+  },
+  "12-13": {
+    "morningPrayer": {
+      "psalms": [
+        "107:1-22"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "107:23-43"
+      ]
+    }
+  },
+  "12-14": {
+    "morningPrayer": {
+      "psalms": [
+        "108",
+        "110"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "109"
+      ]
+    }
+  },
+  "12-15": {
+    "morningPrayer": {
+      "psalms": [
+        "111",
+        "112"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "113",
+        "114"
+      ]
+    }
+  },
+  "12-16": {
+    "morningPrayer": {
+      "psalms": [
+        "115"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "116",
+        "117"
+      ]
+    }
+  },
+  "12-17": {
+    "morningPrayer": {
+      "psalms": [
+        "119:1-24"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:25-48"
+      ]
+    }
+  },
+  "12-18": {
+    "morningPrayer": {
+      "psalms": [
+        "119:49-72"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:73-88"
+      ]
+    }
+  },
+  "12-19": {
+    "morningPrayer": {
+      "psalms": [
+        "119:89-104"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:105-128"
+      ]
+    }
+  },
+  "12-20": {
+    "morningPrayer": {
+      "psalms": [
+        "119:129-152"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "119:153-176"
+      ]
+    }
+  },
+  "12-21": {
+    "morningPrayer": {
+      "psalms": [
+        "118"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "120",
+        "121"
+      ]
+    }
+  },
+  "12-22": {
+    "morningPrayer": {
+      "psalms": [
+        "122",
+        "123"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "124",
+        "125",
+        "126"
+      ]
+    }
+  },
+  "12-23": {
+    "morningPrayer": {
+      "psalms": [
+        "127",
+        "128"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "129",
+        "130",
+        "131"
+      ]
+    }
+  },
+  "12-24": {
+    "morningPrayer": {
+      "psalms": [
+        "132",
+        "133"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "134",
+        "135"
+      ]
+    }
+  },
+  "12-25": {
+    "morningPrayer": {
+      "psalms": [
+        "19"
+      ],
+      "alternatePsalms": [
+        "45"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "85",
+        "110"
+      ]
+    }
+  },
+  "12-26": {
+    "morningPrayer": {
+      "psalms": [
+        "136"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "137",
+        "138"
+      ]
+    }
+  },
+  "12-27": {
+    "morningPrayer": {
+      "psalms": [
+        "139"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "141",
+        "142"
+      ]
+    }
+  },
+  "12-28": {
+    "morningPrayer": {
+      "psalms": [
+        "140"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "143"
+      ]
+    }
+  },
+  "12-29": {
+    "morningPrayer": {
+      "psalms": [
+        "144"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "145"
+      ]
+    }
+  },
+  "12-30": {
+    "morningPrayer": {
+      "psalms": [
+        "146"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "147"
+      ]
+    }
+  },
+  "12-31": {
+    "morningPrayer": {
+      "psalms": [
+        "148"
+      ]
+    },
+    "eveningPrayer": {
+      "psalms": [
+        "149",
+        "150"
+      ]
+    }
+  }
+}
