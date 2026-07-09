@@ -16,7 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule } from '@angular/forms';
 
 import { CalendarService } from '../services/calendar.service';
-import { LiturgicalDay, Tradition } from '../models/liturgical-day.model';
+import { LiturgicalDay, LiturgicalService, Tradition } from '../models/liturgical-day.model';
 import { SeasonLabelPipe } from '../pipes/season-label.pipe';
 import { ReadingTypeLabelPipe } from '../pipes/reading-type-label.pipe';
 
@@ -62,6 +62,11 @@ export class DayView implements OnInit {
   );
 
   colorClass = computed(() => liturgicalColorClass(this.day()?.feast?.color ?? null, this.day()?.season ?? ''));
+
+  dailyOfficeServices = computed<LiturgicalService[]>(() => {
+    const office = this.day()?.dailyOffice;
+    return office ? [office.morningPrayer, office.eveningPrayer] : [];
+  });
 
   ngOnInit(): void {
     const params = this.route.snapshot.queryParamMap;

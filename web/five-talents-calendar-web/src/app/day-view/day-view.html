@@ -132,6 +132,42 @@
         <mat-card-content>No lectionary readings assigned for this day.</mat-card-content>
       </mat-card>
     }
+
+    <!-- Daily Office -->
+    <mat-card class="daily-office-card">
+      <mat-card-header>
+        <mat-card-title>Daily Office</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        @for (service of dailyOfficeServices(); track $index) {
+          <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>{{ service.name ?? 'Readings' }}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <table class="readings-table">
+              <tbody>
+                @for (r of service.readings; track $index) {
+                  <tr>
+                    <td class="reading-type">{{ r.type | readingTypeLabel }}</td>
+                    <td class="reading-citation">
+                      {{ r.citation }}
+                      @if (r.translationCode) {
+                        <span class="translation-code">({{ r.translationCode }})</span>
+                      }
+                      @if (r.alternateCitations.length > 0) {
+                        <span class="alternate-citations">
+                          or {{ r.alternateCitations.join(' / ') }}
+                        </span>
+                      }
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </mat-expansion-panel>
+        }
+      </mat-card-content>
+    </mat-card>
   } @else {
     <mat-card class="loading-card">
       <mat-card-content>Loading…</mat-card-content>
