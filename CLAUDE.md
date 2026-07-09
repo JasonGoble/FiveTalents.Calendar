@@ -62,3 +62,7 @@ Every issue created (including ones spun off mid-PR, e.g. "found a gap, opened a
 - **A milestone**, even for a narrow spin-off — pick whichever open milestone the work actually belongs to (query `gh api repos/JasonGoble/FiveTalents.Calendar/milestones` rather than assuming; don't invent a new milestone without asking first).
 
 `gh label list` shows the full set. Don't invent new labels without asking first.
+
+### Frontend parity
+
+Backend issues have a track record of shipping API/model changes with no companion frontend work (Daily Office readings in #9 landed with the Angular `LiturgicalDay` type never updated — issue #34, milestone "v0.3 — Frontend Parity" caught it after the fact). When closing a backend issue that changes what `GetDay`/`GetRange` returns, check whether the Angular app (`web/five-talents-calendar-web`) needs a companion update. If the frontend work is nontrivial, open an issue in the **v0.3 — Frontend Parity** milestone rather than silently deferring it — don't open speculative frontend issues for backend work that hasn't shipped yet.
