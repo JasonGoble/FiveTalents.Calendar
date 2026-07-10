@@ -14,8 +14,11 @@ public sealed record LiturgicalDay
     public required LiturgicalWeek Week { get; init; }
 
     /// <summary>
-    /// The Principal Feast or Holy Day (rank Major or above) for this day, if any.
-    /// When a fixed feast conflicts with a Sunday, the higher-ranked observance is returned.
+    /// The Principal Feast or Holy Day (rank Major or above) for this day, if any. Derived
+    /// from the first <see cref="ObservancePrecedence.Prescribed"/> item of
+    /// <c>ILiturgicalCalendar.GetPossibleEucharistObservances</c> — see ADR 0008 for the
+    /// full precedence model, including when a Holy Day yields to a governing Sunday
+    /// (<c>Feast</c> is null in that case, not the yielded Holy Day).
     /// </summary>
     public FeastDay? Feast { get; init; }
 
