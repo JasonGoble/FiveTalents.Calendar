@@ -112,31 +112,31 @@ public sealed class PrecedenceRubricTests
 
     // ── Rubric: a Holy Day on a Sunday of Advent, Lent, or Easter yields to the Sunday
     //    propers ──
-    // BCP 2019 p.689 (same sentence, by exclusion): inside Advent, Lent, and Easter the
-    // Sunday's own propers are used and the Holy Day does not displace them.
+    // BCP 2019 p.689: "Any of these feasts that fall on a Sunday, other than in Advent,
+    // Lent, and Easter, may be observed on that Sunday or transferred to the nearest
+    // following weekday" — read together with the Principal-Feasts-always-win rule
+    // (p.688), a non-Principal Holy Day colliding with such a Sunday yields entirely; the
+    // Sunday's own readings already reflected this pre-#43, but Feast still (wrongly)
+    // reported the displaced Holy Day. Fixed here. See ADR 0006/0007. Closes #43.
     //
-    // KNOWN GAP — tracked in #43: readings correctly defer to the Sunday, but
-    // LiturgicalDay.Feast still reports the transferred-away Holy Day rather than null,
-    // and the rubric's instruction to observe the feast "on the nearest following
-    // weekday" isn't implemented at all. These tests pin today's actual (partially
-    // correct) behavior, not the fully rubric-compliant target — update them alongside
-    // whatever #43 lands.
+    // Deliberately NOT covered: where — or whether — the yielded Holy Day is observed
+    // instead. "May be transferred" is pastoral discretion, not something GetDay should
+    // decide unilaterally; see issue #30 (discretionary-rubric representation), which
+    // this question has been folded into rather than answered here.
 
     [Theory]
-    [InlineData(2025, 11, 30, "Andrew the Apostle", "Isa 2:1-5")]               // Advent Sunday 1
-    [InlineData(2023, 3, 19, "Joseph, the Guardian of Jesus", "1 Sam 16:1-13")] // Lent Sunday 4
-    [InlineData(2021, 4, 25, "Mark the Evangelist", "Acts 4:23-37")]           // Easter Sunday 4 (not Easter Day itself)
-    public void HolyDayOnAdventLentOrEasterSunday_ReadingsDeferToSundayPropers(
-        int y, int m, int d, string collidingFeastName, string expectedFirstLesson)
+    [InlineData(2025, 11, 30, "Isa 2:1-5")]      // Advent Sunday 1, collides with Andrew the Apostle
+    [InlineData(2023, 3, 19, "1 Sam 16:1-13")]   // Lent Sunday 4, collides with Joseph, the Guardian of Jesus
+    [InlineData(2021, 4, 25, "Acts 4:23-37")]    // Easter Sunday 4 (not Easter Day itself), collides with Mark the Evangelist
+    public void HolyDayOnAdventLentOrEasterSunday_YieldsFeastAndReadingsToSunday(
+        int y, int m, int d, string expectedFirstLesson)
     {
         var day = _calendar.GetDay(new DateOnly(y, m, d));
 
-        // Readings correctly ignore the colliding Holy Day and use the Sunday's own propers.
+        Assert.Null(day.Feast);
+
         var readings = day.Readings.Single().Readings;
         Assert.Equal(expectedFirstLesson, readings.First(r => r.Type == ReadingType.FirstLesson).Citation);
-
-        // Feast metadata does not yet reflect the transfer — see #43.
-        Assert.Equal(collidingFeastName, day.Feast!.Name);
     }
 
     // ── Rubric: weekdays of the Season after Pentecost borrow their governing Sunday's
