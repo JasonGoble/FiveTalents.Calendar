@@ -23,14 +23,13 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
     public LiturgicalDay GetDay(DateOnly date)
     {
         var info = SeasonResolver.Resolve(date, date.Year);
-        var holyDays = AcnaFeastCatalog.GetHolyDays(date, date.Year);
         var commemorations = AcnaFeastCatalog.GetCommemorations(date, date.Year);
-
-        var primaryFeast = ResolveFeast(date, info.Season, holyDays);
-
         int? properNumber = SeasonResolver.GetProperNumber(date, info.Season);
 
-        LiturgicalDay day = new LiturgicalDay
+        var observances = GetPossibleEucharistObservances(date);
+        var prescribed = observances.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Prescribed);
+
+        return new LiturgicalDay
         {
             Date = date,
             Season = info.Season,
@@ -40,7 +39,7 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                 WeekNumber = info.WeekNumber,
                 LectionaryYear = info.LectionaryYear,
             },
-            Feast = primaryFeast,
+            Feast = prescribed?.Feast,
             Commemorations = commemorations,
             IsEmberDay = AcnaFeastCatalog.IsEmberDay(date, date.Year),
             IsRogationDay = IsRogationDay(date, date.Year),
@@ -48,9 +47,108 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             ProperNumber = properNumber,
             SundayTitle = GetSundayTitle(date, info.Season, info.WeekNumber, properNumber),
             DailyOffice = AcnaDailyOfficeLectionary.GetReadings(date),
+            Readings = prescribed?.Services ?? [],
         };
+    }
 
-        return day with { Readings = AcnaSundayLectionary.GetReadings(day) };
+    /// <summary>
+    /// Returns every rubrically-possible Eucharist observance for <paramref name="date"/>,
+    /// ranked by precedence, instead of resolving a single answer — see ADR 0008.
+    /// <see cref="GetDay"/>'s <c>Feast</c>/<c>Readings</c> are derived from the first
+    /// <see cref="ObservancePrecedence.Prescribed"/> item here, so this is the single
+    /// source of truth for Eucharistic precedence.
+    /// </summary>
+    public IReadOnlyList<ObservanceOption> GetPossibleEucharistObservances(DateOnly date)
+    {
+        var info = SeasonResolver.Resolve(date, date.Year);
+        int? properNumber = SeasonResolver.GetProperNumber(date, info.Season);
+
+        var holyDays = AcnaFeastCatalog.GetHolyDays(date, date.Year);
+        var candidateFeast = holyDays.Count > 0 ? holyDays.MaxBy(f => (int)f.Rank) : null;
+
+        string? seasonKey = AcnaSundayLectionary.GetSeasonKey(date, info.Season, info.WeekNumber, properNumber);
+        string? feastKey = candidateFeast is not null ? AcnaSundayLectionary.TryGetFeastKey(candidateFeast) : null;
+
+        // BCP 2019 p.689: a non-Principal Holy Day falling on a Sunday of Advent, Lent, or
+        // Easter yields to that Sunday's own propers entirely — the rubric grants no choice
+        // here, unlike an ordinary Sunday collision (see below).
+        bool mandatoryYield = date.DayOfWeek == DayOfWeek.Sunday
+            && info.Season is LiturgicalSeason.Advent or LiturgicalSeason.Lent or LiturgicalSeason.Easter
+            && candidateFeast is not null
+            && candidateFeast.Rank != FeastRank.Principal;
+
+        // The Feast is its own distinct option only when it has propers of its own that
+        // differ from the season's (a Principal Feast that owns its Sunday outright, e.g.
+        // Trinity Sunday, resolves to the same key both ways — see ADR 0008).
+        bool feastIsDistinctOption = candidateFeast is not null && feastKey is not null && feastKey != seasonKey && !mandatoryYield;
+
+        List<ObservanceOption> options = new List<ObservanceOption>();
+
+        if (feastIsDistinctOption)
+        {
+            var feastServices = AcnaSundayLectionary.BuildServicesForKey(feastKey, info.LectionaryYear);
+            options.Add(new ObservanceOption
+            {
+                Feast = candidateFeast,
+                Precedence = ObservancePrecedence.Prescribed,
+                Services = feastServices,
+            });
+        }
+
+        var seasonServices = seasonKey is not null
+            ? AcnaSundayLectionary.BuildServicesForKey(seasonKey, info.LectionaryYear)
+            : [];
+
+        if (!feastIsDistinctOption)
+        {
+            // No competing Feast, the Feast's own key already covers the season's slot
+            // (e.g. Trinity Sunday/Easter Day), or the Feast simply has no lectionary
+            // entry of its own (e.g. the Epiphany on a weekday) — either way there is
+            // exactly one thing to say about this date, whether or not lectionary data
+            // happens to resolve for it (a Feast is still "the answer" even on a date
+            // with no JSON readings behind it, matching pre-ADR-0008 behavior).
+            bool attachFeast = candidateFeast is not null && !mandatoryYield;
+            if (attachFeast || seasonServices.Count > 0)
+            {
+                options.Add(new ObservanceOption
+                {
+                    Feast = attachFeast ? candidateFeast : null,
+                    Precedence = ObservancePrecedence.Prescribed,
+                    Services = seasonServices,
+                    RubricNote = mandatoryYield
+                        ? $"BCP 2019 p.689: {candidateFeast!.Name} falls today, but Holy Days do not displace the propers of a Sunday in Advent, Lent, or Easter."
+                        : null,
+                });
+            }
+        }
+        else if (seasonServices.Count > 0)
+        {
+            if (date.DayOfWeek == DayOfWeek.Sunday)
+            {
+                // p.689: a Holy Day colliding with an ordinary Sunday may be observed that
+                // Sunday or transferred — the rubric grants an explicit, equal choice.
+                options.Add(new ObservanceOption
+                {
+                    Precedence = ObservancePrecedence.Prescribed,
+                    Services = seasonServices,
+                });
+            }
+            else if (candidateFeast!.Rank != FeastRank.Principal)
+            {
+                // A Red-Letter Day on its own weekday is BCP-directed (Prescribed);
+                // skipping it for the ordinary reading isn't rubric-sanctioned, but is
+                // real, practiced deviation — surfaced, not hidden.
+                options.Add(new ObservanceOption
+                {
+                    Precedence = ObservancePrecedence.CommonPractice,
+                    Services = seasonServices,
+                });
+            }
+            // A Principal Feast on its own weekday gets no alternative at all — Rule 1
+            // (ADR 0006) is absolute, and there's no evidence of real deviation from it.
+        }
+
+        return options;
     }
 
     public IReadOnlyList<LiturgicalDay> GetRange(DateOnly from, DateOnly to)
@@ -70,27 +168,6 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
     }
 
     // ── Private helpers ───────────────────────────────────────────────────────
-
-    /// <summary>
-    /// Resolves the primary Feast for <paramref name="date"/>, applying the BCP 2019
-    /// p.689 rule that a non-Principal Holy Day falling on a Sunday of Advent, Lent, or
-    /// Easter yields to that Sunday's own propers (matching what <see cref="AcnaSundayLectionary"/>
-    /// already does for <c>Readings</c>). Where — or whether — a yielded Holy Day is
-    /// observed elsewhere is left deliberately unresolved: the rubric only says it "may"
-    /// be transferred, which is a pastoral choice, not something this engine should decide
-    /// unilaterally. See issue #30 (discretionary-rubric representation) and ADR 0006.
-    /// </summary>
-    private static FeastDay? ResolveFeast(DateOnly date, LiturgicalSeason season, IReadOnlyList<FeastDay> holyDays)
-    {
-        var primary = holyDays.Count > 0 ? holyDays.MaxBy(f => (int)f.Rank) : null;
-
-        bool yieldsToSunday = date.DayOfWeek == DayOfWeek.Sunday
-            && season is LiturgicalSeason.Advent or LiturgicalSeason.Lent or LiturgicalSeason.Easter
-            && primary is not null
-            && primary.Rank != FeastRank.Principal;
-
-        return yieldsToSunday ? null : primary;
-    }
 
     private static bool IsRogationDay(DateOnly date, int year)
     {
