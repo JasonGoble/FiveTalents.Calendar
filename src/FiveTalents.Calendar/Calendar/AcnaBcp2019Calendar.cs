@@ -26,9 +26,7 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
         var holyDays = AcnaFeastCatalog.GetHolyDays(date, date.Year);
         var commemorations = AcnaFeastCatalog.GetCommemorations(date, date.Year);
 
-        var primaryFeast = holyDays.Count > 0
-            ? holyDays.MaxBy(f => (int)f.Rank)
-            : null;
+        var primaryFeast = ResolveFeast(date, info.Season, holyDays);
 
         int? properNumber = SeasonResolver.GetProperNumber(date, info.Season);
 
@@ -72,6 +70,27 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
     }
 
     // ── Private helpers ───────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Resolves the primary Feast for <paramref name="date"/>, applying the BCP 2019
+    /// p.689 rule that a non-Principal Holy Day falling on a Sunday of Advent, Lent, or
+    /// Easter yields to that Sunday's own propers (matching what <see cref="AcnaSundayLectionary"/>
+    /// already does for <c>Readings</c>). Where — or whether — a yielded Holy Day is
+    /// observed elsewhere is left deliberately unresolved: the rubric only says it "may"
+    /// be transferred, which is a pastoral choice, not something this engine should decide
+    /// unilaterally. See issue #30 (discretionary-rubric representation) and ADR 0006.
+    /// </summary>
+    private static FeastDay? ResolveFeast(DateOnly date, LiturgicalSeason season, IReadOnlyList<FeastDay> holyDays)
+    {
+        var primary = holyDays.Count > 0 ? holyDays.MaxBy(f => (int)f.Rank) : null;
+
+        bool yieldsToSunday = date.DayOfWeek == DayOfWeek.Sunday
+            && season is LiturgicalSeason.Advent or LiturgicalSeason.Lent or LiturgicalSeason.Easter
+            && primary is not null
+            && primary.Rank != FeastRank.Principal;
+
+        return yieldsToSunday ? null : primary;
+    }
 
     private static bool IsRogationDay(DateOnly date, int year)
     {
