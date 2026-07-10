@@ -9,3 +9,4 @@ ADRs are numbered with a four-digit zero-padded prefix (e.g. `0001-my-decision.m
 | [0003](0003-sunday-title.md) | Sunday Titles: A Property Separate from Feast | Accepted |
 | [0004](0004-daily-office-marker-semantics.md) | Daily Office Marker Semantics: †, ‡, and NCP Versification | Accepted |
 | [0005](0005-daily-office-readings-model.md) | Daily Office Readings Model: Year I/II Division, Reading Types, and the Movable Holy Day Override | Accepted |
+| [0006](0006-precedence-and-substitution-rubrics.md) | Precedence and Substitution Rubrics | Accepted |
