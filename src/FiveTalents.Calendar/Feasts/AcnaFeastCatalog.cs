@@ -16,12 +16,24 @@ internal static class AcnaFeastCatalog
     /// Returns all Principal Feasts and Holy Days (rank Major or above) that fall
     /// on the given date. Multiple feasts may share a date; caller resolves precedence.
     /// </summary>
+    /// <remarks>
+    /// A fixed Holy Day is suppressed entirely when it falls within Holy Week or Easter
+    /// Week (Palm Sunday through the Saturday following Easter Day) — BCP 2019, p.689:
+    /// "No holy day or observance can replace the fixed propers for Ash Wednesday, Holy
+    /// Week, or Easter Week." Several of those days (Monday–Wednesday of Holy Week) share
+    /// <see cref="FeastRank.Major"/> with most fixed Holy Days, so leaving this to rank
+    /// comparison alone is not reliable — suppression makes the outcome unconditional
+    /// rather than dependent on tie-breaking by list order.
+    /// </remarks>
     public static IReadOnlyList<FeastDay> GetHolyDays(DateOnly date, int year)
     {
         var easter = EasterCalculator.GetEaster(year);
         List<FeastDay> feasts = new List<FeastDay>();
 
-        if (_fixedHolyDays.TryGetValue(new MonthDay(date.Month, date.Day), out var fixed_))
+        bool isHolyOrEasterWeek = date >= easter.AddDays(-7) && date <= easter.AddDays(6);
+
+        if (!isHolyOrEasterWeek
+            && _fixedHolyDays.TryGetValue(new MonthDay(date.Month, date.Day), out var fixed_))
         {
             feasts.Add(fixed_);
         }
