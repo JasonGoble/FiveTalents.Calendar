@@ -1,6 +1,11 @@
-# FiveTalents.Calendar — Claude Working Guide
+# FiveTalents.Calendar — Agent Working Guide
 
-Project-specific conventions and technical gotchas. Shared workflow and process policies live in `../CLAUDE.md`.
+Project-specific conventions and technical gotchas. This repo is developed alongside its sibling
+`FiveTalents` and `FiveTalents-site` repos, but each maintains its own `AGENTS.md` independently —
+there's no automatic parent-file inheritance across them, so shared policy (commit checklist, ADR
+rules, milestone naming) is duplicated by hand and can drift; check the sibling repos' `AGENTS.md`
+when updating cross-cutting policy here. See also [docs/ai-agent-notes.md](docs/ai-agent-notes.md)
+for architecture notes and data-sourcing lessons carried over from earlier sessions.
 
 ## Tech Stack (quick reference)
 
