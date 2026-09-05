@@ -116,8 +116,9 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                     Precedence = ObservancePrecedence.Prescribed,
                     Services = seasonServices,
                     RubricNote = mandatoryYield
-                        ? $"BCP 2019 p.689: {candidateFeast!.Name} falls today, but Holy Days do not displace the propers of a Sunday in Advent, Lent, or Easter."
+                        ? $"BCP 2019 p.689: {candidateFeast!.Name} falls today, but Holy Days do not displace the propers of a Sunday in Advent, Lent, or Easter; it may instead be transferred to the nearest following weekday."
                         : null,
+                    YieldedFeast = mandatoryYield ? candidateFeast : null,
                 });
             }
         }

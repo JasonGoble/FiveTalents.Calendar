@@ -124,6 +124,54 @@ public sealed class ObservanceOptionsTests
         Assert.NotNull(option.RubricNote);
         Assert.Contains("Andrew the Apostle", option.RubricNote);
         Assert.Contains("p.689", option.RubricNote);
+        Assert.Contains("transferred", option.RubricNote);
+        Assert.Equal("Andrew the Apostle", option.YieldedFeast?.Name);
+    }
+
+    // ── YieldedFeast is populated across all three yield seasons, not just Advent ────
+    // #30: exposes the yielded Feast as structured data (in addition to RubricNote's free
+    // text) so a consumer can identify it without parsing a sentence. Deliberately does not
+    // compute or suggest a transfer date — see ADR 0010.
+
+    [Theory]
+    [InlineData(2025, 11, 30, "Andrew the Apostle")]              // Advent Sunday 1
+    [InlineData(2023, 3, 19, "Joseph, the Guardian of Jesus")]    // Lent Sunday 4
+    [InlineData(2021, 4, 25, "Mark the Evangelist")]              // Easter Sunday 4
+    public void HolyDayYieldsToSunday_YieldedFeastIsPopulated(int y, int m, int d, string expectedFeastName)
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(y, m, d));
+
+        var option = Assert.Single(options);
+        Assert.Equal(expectedFeastName, option.YieldedFeast?.Name);
+    }
+
+    // ── YieldedFeast stays null everywhere else ──────────────────────────────
+
+    [Fact]
+    public void HolyDayOnOrdinarySunday_YieldedFeastIsNullOnBothOptions()
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2026, 10, 18));
+
+        Assert.All(options, o => Assert.Null(o.YieldedFeast));
+    }
+
+    [Fact]
+    public void RedLetterDayOnItsOwnWeekday_YieldedFeastIsNullOnBothOptions()
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2026, 11, 30));
+
+        Assert.All(options, o => Assert.Null(o.YieldedFeast));
+    }
+
+    [Theory]
+    [InlineData(2026, 3, 30)]
+    [InlineData(2024, 3, 25)]
+    public void HolyWeekWeekday_YieldedFeastIsNull(int y, int m, int d)
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(y, m, d));
+
+        var option = Assert.Single(options);
+        Assert.Null(option.YieldedFeast);
     }
 
     // ── Holy Week: single option, no alternative ──────────────────────────────
