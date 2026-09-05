@@ -1,6 +1,6 @@
 # FiveTalents.Calendar — Claude Working Guide
 
-Project-specific conventions and technical gotchas. Shared workflow and process policies live in `../CLAUDE.md`.
+Project-specific conventions and technical gotchas for AI-assisted development on this repo.
 
 ## Tech Stack (quick reference)
 
