@@ -93,3 +93,7 @@ Backend issues have a track record of shipping API/model changes with no compani
 ### Milestone naming
 
 Milestones are project-management groupings, not release versions — none carry a `vX` prefix. If a real release version is ever needed (e.g. the library's first NuGet publish), it lives in the relevant `.csproj`/`package.json`, not the milestone name.
+
+## Data Sourcing Scripts
+
+One-time scripts written to extract or cross-check BCP data (from a source PDF/DOCX, or to verify already-sourced JSON) go in `scripts/` and get committed — e.g. `scripts/daily-office-continuity-check.py`. This reverses the earlier #19/#20/#28/#29 precedent (see `docs/audits/2026-07-08-daily-office-psalter-sourcing.md`), which treated such scripts as throwaway and never checked them in. Decided 2026-09-05: this project will keep doing sourcing/verification work as more lectionary traditions are added (RCL per ADR 0009), so reusable tooling should accumulate in the repo instead of being rewritten each time. Scripts here are one-time-use helpers, not a maintained library — no test coverage or packaging expected, just enough of a docstring to explain what problem they solved and how to point them at a different file/date range.
