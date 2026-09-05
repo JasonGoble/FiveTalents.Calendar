@@ -26,14 +26,13 @@ public sealed record ObservanceOption
     public string? RubricNote { get; init; }
 
     /// <summary>
-    /// The fixed Holy Day that yielded to this option's Sunday propers per BCP 2019 p.689
-    /// (a non-Principal Holy Day colliding with a Sunday of Advent, Lent, or Easter never
-    /// displaces it). Distinct from <see cref="Feast"/>, which names the Feast an option is
+    /// The fixed Holy Day that yielded to this option's propers per BCP 2019 p.689 — either
+    /// a non-Principal Holy Day colliding with a Sunday of Advent, Lent, or Easter (which
+    /// never displaces it), or a fixed Holy Day suppressed outright by the Holy Week/Easter
+    /// Week rule. Distinct from <see cref="Feast"/>, which names the Feast an option is
     /// *for* — this names one that was excluded. Null in every other case, including the
     /// ordinary-Sunday collision (both Feast and Sunday become their own Prescribed options
-    /// there, so nothing is "yielded") and the Holy Week/Easter Week suppression (tracked
-    /// separately as #47, since <see cref="AcnaFeastCatalog"/> discards that Feast
-    /// before this method ever sees it). See ADR 0010 and issues #30/#43.
+    /// there, so nothing is "yielded"). See ADR 0010/0011 and issues #30/#43/#47.
     /// </summary>
     public FeastDay? YieldedFeast { get; init; }
 }

@@ -30,9 +30,7 @@ internal static class AcnaFeastCatalog
         var easter = EasterCalculator.GetEaster(year);
         List<FeastDay> feasts = new List<FeastDay>();
 
-        bool isHolyOrEasterWeek = date >= easter.AddDays(-7) && date <= easter.AddDays(6);
-
-        if (!isHolyOrEasterWeek
+        if (!IsHolyOrEasterWeek(date, easter)
             && _fixedHolyDays.TryGetValue(new MonthDay(date.Month, date.Day), out var fixed_))
         {
             feasts.Add(fixed_);
@@ -48,6 +46,25 @@ internal static class AcnaFeastCatalog
 
         return feasts;
     }
+
+    /// <summary>
+    /// Returns the fixed Holy Day that <see cref="GetHolyDays"/> suppressed for this date,
+    /// if any, per the Holy Week/Easter Week rule documented there. Exists purely so a
+    /// caller can annotate that suppression (see #47); does not change GetHolyDays' own
+    /// behavior.
+    /// </summary>
+    public static FeastDay? GetSuppressedFixedHolyDay(DateOnly date, int year)
+    {
+        var easter = EasterCalculator.GetEaster(year);
+
+        return IsHolyOrEasterWeek(date, easter)
+            && _fixedHolyDays.TryGetValue(new MonthDay(date.Month, date.Day), out var fixed_)
+            ? fixed_
+            : null;
+    }
+
+    private static bool IsHolyOrEasterWeek(DateOnly date, DateOnly easter) =>
+        date >= easter.AddDays(-7) && date <= easter.AddDays(6);
 
     /// <summary>
     /// Returns all optional commemorations (Anglican and Ecumenical, rank below Major)
