@@ -166,6 +166,26 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             // (ADR 0006) is absolute, and there's no evidence of real deviation from it.
         }
 
+        // BCP 2019 p.688: All Saints' Day may also be observed on the Sunday following
+        // Nov 1, in addition to its Nov 1 observance — additive, not a suppression, so no
+        // Holy Day is ever in play here (Nov 2-8 has none in the catalog) and no
+        // YieldedFeast is set.
+        var allSaintsSunday = AcnaFeastCatalog.GetAllSaintsSundayObservance(date, date.Year);
+        if (allSaintsSunday is not null)
+        {
+            var allSaintsServices = AcnaSundayLectionary.BuildServicesForKey("AllSaints", info.LectionaryYear);
+            if (allSaintsServices.Count > 0)
+            {
+                options.Add(new ObservanceOption
+                {
+                    Feast = allSaintsSunday,
+                    Precedence = ObservancePrecedence.Prescribed,
+                    Services = allSaintsServices,
+                    RubricNote = "BCP 2019 p.688: All Saints' Day may also be observed today, the Sunday following November 1, in addition to its observance on the fixed date.",
+                });
+            }
+        }
+
         return options;
     }
 

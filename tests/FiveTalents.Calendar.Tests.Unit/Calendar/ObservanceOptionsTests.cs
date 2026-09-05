@@ -229,6 +229,39 @@ public sealed class ObservanceOptionsTests
         Assert.Equal("The Annunciation of Our Lord Jesus Christ to the Virgin Mary", option.YieldedFeast?.Name);
     }
 
+    // ── All Saints' Day observed on the Sunday following Nov 1 (additive) ───────
+    // BCP 2019 p.688: "All Saints' Day may also be observed on the Sunday following
+    // November 1, in addition to its observance on the fixed date." Additive, not a
+    // suppression — RubricNote explains the extra option, YieldedFeast stays null. #42.
+
+    [Theory]
+    [InlineData(2024, 11, 3)]  // Nov 1, 2024 = Friday
+    [InlineData(2025, 11, 2)]  // Nov 1, 2025 = Saturday
+    [InlineData(2027, 11, 7)]  // Nov 1, 2027 = Monday
+    public void SundayFollowingAllSaints_AddsAdditionalPrescribedOption(int y, int m, int d)
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(y, m, d));
+
+        var allSaintsOption = Assert.Single(options, o => o.Feast?.Name == "All Saints' Day");
+        Assert.Equal(ObservancePrecedence.Prescribed, allSaintsOption.Precedence);
+        Assert.Contains("p.688", allSaintsOption.RubricNote);
+        Assert.Null(allSaintsOption.YieldedFeast);
+        Assert.NotEmpty(allSaintsOption.Services);
+
+        // The season's own Sunday propers remain the other option, unchanged.
+        Assert.Contains(options, o => o.Feast == null && o.Precedence == ObservancePrecedence.Prescribed);
+    }
+
+    [Fact]
+    public void SundayAfterAllSaintsSunday_NoDuplicateObservance()
+    {
+        // 2026-11-01 falls on a Sunday itself (handled by the existing ordinary-Sunday
+        // collision rule); 2026-11-08, the following Sunday, must NOT also get one.
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2026, 11, 8));
+
+        Assert.DoesNotContain(options, o => o.Feast?.Name == "All Saints' Day");
+    }
+
     // ── GetDay derives from the first Prescribed option ──────────────────────
 
     [Theory]
