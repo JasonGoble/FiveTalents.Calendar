@@ -63,6 +63,18 @@ Every issue created (including ones spun off mid-PR, e.g. "found a gap, opened a
 
 `gh label list` shows the full set. Don't invent new labels without asking first.
 
+### Finding the next issue to work
+
+See ADR 0009 for why this stays on GitHub Issues/Projects rather than Jira/Azure DevOps, and the criteria for revisiting that. There's no priority-tier label or field — with a backlog this size (single digits of open issues), milestone + the "Depends on" notes already written into issue bodies are enough to sequence work, and re-deriving that live avoids a label going stale. To find what's next:
+
+1. Prefer issues in the earliest open milestone (query `gh api repos/JasonGoble/FiveTalents.Calendar/milestones` rather than assuming which is "current").
+2. Check the issue body for a `## Depends on` section — if it names another still-open issue, that one goes first.
+3. If nothing distinguishes two candidates, it's a judgment call — ask rather than picking arbitrarily.
+
+This replaced two earlier experiments, both reverted/retired: a Copilot-authored `.vscode/sprint-board.github-issues` notebook file (VS Code-extension-specific, reverted in `b9e67e5`), and a `priority:now/next/later` label set plus a matching Project field (retired 2026-09-04 — redundant with milestones and didn't answer "what's next" any better than reading dependencies directly).
+
+The visual board — [FiveTalents.Calendar (Project #2)](https://github.com/users/JasonGoble/projects/2), owned by JasonGoble, linked to this repo — is still there for a Kanban view of workflow state (its default `Status` field: Todo/In Progress/Done). It's not used for prioritization.
+
 ### Frontend parity
 
 Backend issues have a track record of shipping API/model changes with no companion frontend work (Daily Office readings in #9 landed with the Angular `LiturgicalDay` type never updated — issue #34, milestone "Frontend Parity" caught it after the fact). When closing a backend issue that changes what `GetDay`/`GetRange` returns, check whether the Angular app (`web/five-talents-calendar-web`) needs a companion update. If the frontend work is nontrivial, open an issue in the **Frontend Parity** milestone rather than silently deferring it — don't open speculative frontend issues for backend work that hasn't shipped yet.
