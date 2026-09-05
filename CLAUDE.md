@@ -61,6 +61,8 @@ ADRs live in `docs/decisions/`. See `docs/decisions/README.md` for the index. St
 
 This distinction was made explicit 2026-09-04 after a GitHub Copilot session pushed a batch of chore commits directly to `main` (later reverted, `b9e67e5`) without it being a documented convention either way.
 
+Assign the issue to whoever is doing the work when work **begins** on it (not before) — `gh issue edit <N> --add-assignee @me` for the person/session actually picking it up. Matches the convention in the main FiveTalents repo's `CLAUDE.md`. When running `gh` commands from a shell whose working directory might not be this repo, pass `--repo JasonGoble/FiveTalents.Calendar` explicitly rather than relying on the ambient directory — `gh` silently targets whatever repo the cwd's git remote points to, and this workspace has multiple sibling repos open side by side.
+
 ## GitHub Issues
 
 Every issue created (including ones spun off mid-PR, e.g. "found a gap, opened a follow-up") must get:
