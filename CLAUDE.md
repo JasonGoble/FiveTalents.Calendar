@@ -52,6 +52,15 @@ Every method that resolves a liturgical date is scoped to a `LiturgicalTradition
 
 ADRs live in `docs/decisions/`. See `docs/decisions/README.md` for the index. Starting range: 0001+.
 
+## Branching & GitHub Workflow
+
+`main`'s branch protection requires 1 approving review but has `enforce_admins` off, so JasonGoble (repo owner) can push directly — GitHub allows it but prints a "bypassed rule violations" warning every time. That bypass is deliberate for one category of change, not a blanket license:
+
+- **Code changes** — anything touching `src/`, `web/`, or their tests/behavior — go through `feature/<issue#>-<slug>` or `fix/<issue#>-<slug>` → PR → merge, per the existing merge-commit history. Don't push these directly to `main` even though GitHub would technically allow it.
+- **Docs/chore-only changes** — `CLAUDE.md`, ADRs, `README.md`, label/Project/milestone config, non-functional tooling — may be committed and pushed straight to `main`. No runtime behavior is at stake, so the review gate isn't buying anything.
+
+This distinction was made explicit 2026-09-04 after a GitHub Copilot session pushed a batch of chore commits directly to `main` (later reverted, `b9e67e5`) without it being a documented convention either way.
+
 ## GitHub Issues
 
 Every issue created (including ones spun off mid-PR, e.g. "found a gap, opened a follow-up") must get:
