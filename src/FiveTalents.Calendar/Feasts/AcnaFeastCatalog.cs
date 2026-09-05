@@ -67,6 +67,31 @@ internal static class AcnaFeastCatalog
         date >= easter.AddDays(-7) && date <= easter.AddDays(6);
 
     /// <summary>
+    /// Returns All Saints' Day when <paramref name="date"/> is the Sunday following
+    /// November 1 in <paramref name="year"/> — BCP 2019 p.688: "All Saints' Day may also be
+    /// observed on the Sunday following November 1, in addition to its observance on the
+    /// fixed date." Returns null on every other date, including a Nov 1 that itself falls on
+    /// a Sunday (already its own Prescribed option via the ordinary-Sunday-collision rule —
+    /// see AcnaBcp2019Calendar.GetPossibleEucharistObservances).
+    /// </summary>
+    public static FeastDay? GetAllSaintsSundayObservance(DateOnly date, int year)
+    {
+        if (date.DayOfWeek != DayOfWeek.Sunday)
+        {
+            return null;
+        }
+
+        DateOnly nov1 = new DateOnly(year, 11, 1);
+        if (nov1.DayOfWeek == DayOfWeek.Sunday)
+        {
+            return null;
+        }
+
+        var sundayFollowing = nov1.AddDays((7 - (int)nov1.DayOfWeek) % 7);
+        return date == sundayFollowing ? _fixedHolyDays[new MonthDay(11, 1)] : null;
+    }
+
+    /// <summary>
     /// Returns all optional commemorations (Anglican and Ecumenical, rank below Major)
     /// observed on the given date.
     /// </summary>

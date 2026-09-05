@@ -19,9 +19,10 @@ public sealed record ObservanceOption
     public required IReadOnlyList<LiturgicalService> Services { get; init; }
 
     /// <summary>
-    /// Explains why an option is absent or constrained, when that's not otherwise obvious
-    /// from the option list alone (e.g. a Holy Day that yielded to a governing Sunday).
-    /// Null when there's nothing that needs explaining.
+    /// Explains why an option is absent, constrained, or additionally offered, when that's
+    /// not otherwise obvious from the option list alone (e.g. a Holy Day that yielded to a
+    /// governing Sunday, or All Saints' Day additionally observable on the Sunday following
+    /// Nov 1). Null when there's nothing that needs explaining.
     /// </summary>
     public string? RubricNote { get; init; }
 
