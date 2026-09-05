@@ -163,12 +163,10 @@ public sealed class ObservanceOptionsTests
         Assert.All(options, o => Assert.Null(o.YieldedFeast));
     }
 
-    [Theory]
-    [InlineData(2026, 3, 30)]
-    [InlineData(2024, 3, 25)]
-    public void HolyWeekWeekday_YieldedFeastIsNull(int y, int m, int d)
+    [Fact]
+    public void HolyWeekWeekday_NoCollision_YieldedFeastIsNull()
     {
-        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(y, m, d));
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2026, 3, 30));
 
         var option = Assert.Single(options);
         Assert.Null(option.YieldedFeast);
@@ -177,8 +175,9 @@ public sealed class ObservanceOptionsTests
     // ── Holy Week: single option, no alternative ──────────────────────────────
     // BCP 2019 p.689: "No holy day or observance can replace the fixed propers for...
     // Holy Week." A fixed feast that would otherwise collide (e.g. the Annunciation on
-    // Monday of Holy Week in 2024) is suppressed upstream in AcnaFeastCatalog, so it never
-    // reaches this method at all — see the known limitation in ADR 0008 re: RubricNote here.
+    // Monday of Holy Week in 2024) is suppressed upstream in AcnaFeastCatalog, so
+    // AcnaFeastCatalog.GetSuppressedFixedHolyDay reports it separately for RubricNote/
+    // YieldedFeast to surface here. See ADR 0011. Closes #47.
 
     [Theory]
     [InlineData(2026, 3, 30, "Monday of Holy Week")] // no collision this year
@@ -190,6 +189,44 @@ public sealed class ObservanceOptionsTests
         var option = Assert.Single(options);
         Assert.Equal(expectedFeast, option.Feast!.Name);
         Assert.Equal(ObservancePrecedence.Prescribed, option.Precedence);
+    }
+
+    [Fact]
+    public void HolyWeekWeekday_NoCollision_RubricNoteIsNull()
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2026, 3, 30));
+
+        var option = Assert.Single(options);
+        Assert.Null(option.RubricNote);
+    }
+
+    [Fact]
+    public void HolyWeekWeekday_CollisionSuppressed_RubricNoteExplainsIt()
+    {
+        // 2024-03-25: the Annunciation's fixed date, suppressed by Monday of Holy Week.
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2024, 3, 25));
+
+        var option = Assert.Single(options);
+        Assert.NotNull(option.RubricNote);
+        Assert.Contains("Annunciation", option.RubricNote);
+        Assert.Contains("p.689", option.RubricNote);
+    }
+
+    // ── YieldedFeast/RubricNote for the Holy Week/Easter Week suppression case ───────
+    // #47: AcnaFeastCatalog.GetSuppressedFixedHolyDay exposes what GetHolyDays discarded,
+    // so this case is annotated the same way the Advent/Lent/Easter Sunday yield already
+    // is (ADR 0010). See ADR 0011.
+
+    [Theory]
+    [InlineData(2024, 3, 25)] // Monday of Holy Week
+    [InlineData(2043, 3, 25)] // Wednesday of Holy Week
+    [InlineData(2160, 3, 25)] // Tuesday of Easter Week — no moveable Feast that day
+    public void HolyWeekOrEasterWeekSuppression_YieldedFeastIsPopulated(int y, int m, int d)
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(y, m, d));
+
+        var option = Assert.Single(options);
+        Assert.Equal("The Annunciation of Our Lord Jesus Christ to the Virgin Mary", option.YieldedFeast?.Name);
     }
 
     // ── GetDay derives from the first Prescribed option ──────────────────────

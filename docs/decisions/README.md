@@ -14,3 +14,4 @@ ADRs are numbered with a four-digit zero-padded prefix (e.g. `0001-my-decision.m
 | [0008](0008-observance-options.md) | Possible Observances: Ranked Options Instead of a Single Answer | Accepted |
 | [0009](0009-backlog-organization-platform.md) | Backlog Organization: Staying on GitHub Issues | Accepted |
 | [0010](0010-yielded-holy-day-transfer-target.md) | Yielded Holy Day Transfer Target: Structured Data, No Cross-Date Lookback | Accepted |
+| [0011](0011-holy-week-suppression-rubric-note.md) | Holy Week/Easter Week Suppression: Extending `YieldedFeast` to a Second Case | Accepted |

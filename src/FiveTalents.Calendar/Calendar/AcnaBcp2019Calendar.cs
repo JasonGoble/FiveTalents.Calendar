@@ -65,6 +65,7 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
 
         var holyDays = AcnaFeastCatalog.GetHolyDays(date, date.Year);
         var candidateFeast = holyDays.Count > 0 ? holyDays.MaxBy(f => (int)f.Rank) : null;
+        var suppressedHolyDay = AcnaFeastCatalog.GetSuppressedFixedHolyDay(date, date.Year);
 
         string? seasonKey = AcnaSundayLectionary.GetSeasonKey(date, info.Season, info.WeekNumber, properNumber);
         string? feastKey = candidateFeast is not null ? AcnaSundayLectionary.TryGetFeastKey(candidateFeast) : null;
@@ -110,15 +111,31 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             bool attachFeast = candidateFeast is not null && !mandatoryYield;
             if (attachFeast || seasonServices.Count > 0)
             {
+                string? rubricNote;
+                FeastDay? yieldedFeast;
+                if (mandatoryYield)
+                {
+                    rubricNote = $"BCP 2019 p.689: {candidateFeast!.Name} falls today, but Holy Days do not displace the propers of a Sunday in Advent, Lent, or Easter; it may instead be transferred to the nearest following weekday.";
+                    yieldedFeast = candidateFeast;
+                }
+                else if (suppressedHolyDay is not null)
+                {
+                    rubricNote = $"BCP 2019 p.689: {suppressedHolyDay.Name} falls today, but no holy day or observance can replace the fixed propers of Holy Week or Easter Week.";
+                    yieldedFeast = suppressedHolyDay;
+                }
+                else
+                {
+                    rubricNote = null;
+                    yieldedFeast = null;
+                }
+
                 options.Add(new ObservanceOption
                 {
                     Feast = attachFeast ? candidateFeast : null,
                     Precedence = ObservancePrecedence.Prescribed,
                     Services = seasonServices,
-                    RubricNote = mandatoryYield
-                        ? $"BCP 2019 p.689: {candidateFeast!.Name} falls today, but Holy Days do not displace the propers of a Sunday in Advent, Lent, or Easter; it may instead be transferred to the nearest following weekday."
-                        : null,
-                    YieldedFeast = mandatoryYield ? candidateFeast : null,
+                    RubricNote = rubricNote,
+                    YieldedFeast = yieldedFeast,
                 });
             }
         }
