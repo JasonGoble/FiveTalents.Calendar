@@ -30,3 +30,7 @@ web/**/test-results/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local planning docs
+planning/**
+resources/**
