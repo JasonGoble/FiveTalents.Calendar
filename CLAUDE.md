@@ -65,7 +65,7 @@ Assign the issue to whoever is doing the work when work **begins** on it (not be
 
 ## GitHub Issues
 
-**Title prefix and body structure come from `.github/ISSUE_TEMPLATE/*.md`** (`feature_request.md`: `feat: ` prefix, `## Background`/`## Scope`/`## Out of scope`/`## Acceptance criteria`/`## Depends on`; `bug_report.md`: `defect: ` prefix, `## Expected behavior`/`## Actual behavior`/`## How to reproduce`/`## If this is a calendar/lectionary data question`/`## Environment`). Use `gh issue create --template` where possible, or match those sections by hand — don't freelance a different header set. The rules below (labels, milestone) apply on top of the template, not instead of it.
+**Title prefix and body structure come from `.github/ISSUE_TEMPLATE/*.md`** (`feature_request.md`: `feat: ` prefix, `## Background`/`## Scope`/`## Out of scope`/`## Acceptance criteria`/`## Depends on`; `bug_report.md`: `bug: ` prefix, `## Expected behavior`/`## Actual behavior`/`## How to reproduce`/`## If this is a calendar/lectionary data question`/`## Environment`). Use `gh issue create --template` where possible, or match those sections by hand — don't freelance a different header set. The rules below (labels, milestone) apply on top of the template, not instead of it.
 
 Every issue created (including ones spun off mid-PR, e.g. "found a gap, opened a follow-up") must get:
 

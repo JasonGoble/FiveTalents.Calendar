@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Something is producing an incorrect or unexpected result
-title: "defect: "
+title: "bug: "
 labels: bug
 assignees: ''
 ---
