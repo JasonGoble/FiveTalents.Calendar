@@ -16,3 +16,4 @@ ADRs are numbered with a four-digit zero-padded prefix (e.g. `0001-my-decision.m
 | [0010](0010-yielded-holy-day-transfer-target.md) | Yielded Holy Day Transfer Target: Structured Data, No Cross-Date Lookback | Accepted |
 | [0011](0011-holy-week-suppression-rubric-note.md) | Holy Week/Easter Week Suppression: Extending `YieldedFeast` to a Second Case | Accepted |
 | [0012](0012-all-saints-sunday-observance.md) | All Saints' Day: Additive Observance on the Sunday Following November 1 | Accepted |
+| [0013](0013-remove-all-saints-sunday-observance.md) | Remove the All Saints' Day Sunday-Alternate Observance | Accepted |
