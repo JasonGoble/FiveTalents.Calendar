@@ -13,6 +13,7 @@
     <EmbeddedResource Include="Resources\acna-bcp2019-daily-office-psalter-60day.json" />
     <EmbeddedResource Include="Resources\acna-bcp2019-daily-office-movable-holy-days.json" />
     <EmbeddedResource Include="Resources\translations.json" />
+    <EmbeddedResource Include="Resources\collects-prefaces.json" />
   </ItemGroup>
 
   <ItemGroup>
