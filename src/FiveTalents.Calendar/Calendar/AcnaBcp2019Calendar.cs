@@ -1,5 +1,6 @@
 using FiveTalents.Calendar.Feasts;
 using FiveTalents.Calendar.Lectionary;
+using FiveTalents.Calendar.Liturgy;
 using FiveTalents.Calendar.Seasons;
 
 namespace FiveTalents.Calendar.Calendar;
@@ -93,6 +94,8 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                 Feast = candidateFeast,
                 Precedence = ObservancePrecedence.Prescribed,
                 Services = feastServices,
+                Collect = AcnaCollectsAndPrefaces.TryGetCollect(feastKey),
+                PrefaceNames = AcnaCollectsAndPrefaces.GetPrefaceNames(feastKey),
             });
         }
 
@@ -136,6 +139,8 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                     Services = seasonServices,
                     RubricNote = rubricNote,
                     YieldedFeast = yieldedFeast,
+                    Collect = AcnaCollectsAndPrefaces.TryGetCollect(seasonKey),
+                    PrefaceNames = AcnaCollectsAndPrefaces.GetPrefaceNames(seasonKey),
                 });
             }
         }
@@ -149,6 +154,8 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                 {
                     Precedence = ObservancePrecedence.Prescribed,
                     Services = seasonServices,
+                    Collect = AcnaCollectsAndPrefaces.TryGetCollect(seasonKey),
+                    PrefaceNames = AcnaCollectsAndPrefaces.GetPrefaceNames(seasonKey),
                 });
             }
             else if (candidateFeast!.Rank != FeastRank.Principal)
@@ -160,6 +167,8 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                 {
                     Precedence = ObservancePrecedence.CommonPractice,
                     Services = seasonServices,
+                    Collect = AcnaCollectsAndPrefaces.TryGetCollect(seasonKey),
+                    PrefaceNames = AcnaCollectsAndPrefaces.GetPrefaceNames(seasonKey),
                 });
             }
             // A Principal Feast on its own weekday gets no alternative at all — Rule 1

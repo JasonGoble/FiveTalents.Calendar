@@ -251,4 +251,28 @@ public sealed class ObservanceOptionsTests
         var actualCitations = day.Readings.SelectMany(s => s.Readings).Select(r => r.Citation);
         Assert.Equal(expectedCitations, actualCitations);
     }
+
+    // ── Collect/PrefaceNames — sourced for Advent, absent elsewhere (ADR 0014) ────
+
+    [Fact]
+    public void AdventSunday_HasCollectAndAdventPreface()
+    {
+        // 2026-11-29 — the First Sunday of Advent.
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2026, 11, 29));
+
+        var option = Assert.Single(options);
+        Assert.NotNull(option.Collect);
+        Assert.StartsWith("Almighty God, give us grace to cast away the works of darkness", option.Collect!.Text);
+        Assert.Equal(["Advent"], option.PrefaceNames);
+    }
+
+    [Fact]
+    public void UnsourcedOrdinaryTimeDate_CollectIsNullAndPrefaceNamesIsEmpty()
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2026, 6, 9));
+
+        var option = Assert.Single(options);
+        Assert.Null(option.Collect);
+        Assert.Empty(option.PrefaceNames);
+    }
 }

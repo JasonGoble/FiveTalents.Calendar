@@ -1,0 +1,75 @@
+{
+  "prefaceCatalog": {
+    "Advent": "Because you sent your beloved Son to redeem us from sin and death, and to make us heirs in him of everlasting life; that when he shall come again in power and great glory to judge the world, we may without shame or fear rejoice to behold his appearing.",
+    "Trinity Sunday": "Who, with your co-eternal Son and Holy Spirit, are one God, one Lord, in Trinity of Persons and in Unity of Substance. For that which we believe of your glory, O Father, we believe the same of your Son, and of the Holy Spirit, without any difference or inequality.",
+    "Canada Day or Independence Day": "Because you have made us in your image, that we might serve you on earth in freedom, justice, and peace; and have given us the hope of our eternal citizenship with you in your heavenly kingdom.",
+    "Remembrance Day or Memorial Day": "For by the sacrifice of your Son on the Cross, all who turn to him in the tribulation of war will find their peace with him in paradise.",
+    "Rogation Days or Thanksgiving Day": "Because the wonders of your Creation reflect your goodness and beauty; and your gifts of sun and rain, seed-time and harvest, manifest your constant love and care for all that you have made.",
+    "Apostles and Ordinations": "Through the great shepherd of your flock, Jesus Christ our Lord, who after his resurrection sent forth his apostles to preach the Gospel and to teach all nations, and promised to be with them always, even to the end of the ages."
+  },
+  "entries": {
+    "Advent1": {
+      "collect": {
+        "text": "Almighty God, give us grace to cast away the works of darkness, and put on the armor of light, now in the time of this mortal life in which your Son Jesus Christ came to visit us in great humility; that in the last day, when he shall come again in his glorious majesty to judge both the living and the dead, we may rise to the life immortal; through him who lives and reigns with you and the Holy Spirit, one God, now and for ever. Amen."
+      },
+      "prefaces": ["Advent"]
+    },
+    "Advent2": {
+      "collect": {
+        "text": "Blessed Lord, who caused all Holy Scriptures to be written for our learning: Grant us so to hear them, read, mark, learn, and inwardly digest them, that by patience and the comfort of your holy Word we may embrace and ever hold fast the blessed hope of everlasting life, which you have given us in our Savior Jesus Christ; who lives and reigns with you and the Holy Spirit, one God, for ever and ever. Amen."
+      },
+      "prefaces": ["Advent"]
+    },
+    "Advent3": {
+      "collect": {
+        "text": "O Lord Jesus Christ, you sent your messengers the prophets to preach repentance and prepare the way for our salvation: Grant that the ministers and stewards of your mysteries may likewise make ready your way, by turning the hearts of the disobedient toward the wisdom of the just, that at your second coming to judge the world, we may be found a people acceptable in your sight; for with the Father and the Holy Spirit you live and reign, one God, now and for ever. Amen."
+      },
+      "prefaces": ["Advent"]
+    },
+    "Advent4": {
+      "collect": {
+        "text": "Stir up your power, O Lord, and with great might come among us; and as we are sorely hindered by our sins from running the race that is set before us, let your bountiful grace and mercy speedily help and deliver us; through Jesus Christ our Lord, to whom, with you and the Holy Spirit, be honor and glory, now and for ever. Amen."
+      },
+      "prefaces": ["Advent"]
+    },
+    "EmberDays": {
+      "collect": {
+        "text": "Almighty God, the giver of all good gifts, in your divine providence you have appointed various orders in your Church: Give your grace, we humbly pray, to all who are [now] called to any office and ministry for your people; and so fill them with the truth of your doctrine and clothe them with holiness of life, that they may faithfully serve before you, to the glory of your great Name and for the benefit of your holy Church; through Jesus Christ our Lord, who lives and reigns with you, in the unity of the Holy Spirit, one God, now and for ever. Amen.",
+        "alternateTexts": [
+          "O God, you led your holy apostles to ordain ministers in every place: Grant that your Church, under the guidance of the Holy Spirit, may choose suitable persons for the ministry of Word and Sacrament, and may uphold them in their work for the extension of your kingdom; through the great Shepherd and Bishop of our souls, Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever. Amen."
+        ]
+      },
+      "prefaces": ["Apostles and Ordinations"]
+    },
+    "NationalDay_ThanksgivingDay": {
+      "collect": {
+        "text": "Most merciful Father, we humbly thank you for all your gifts so freely bestowed upon us: for life and health and safety, for strength to work and leisure to rest, for all that is beautiful in creation and in human life; but above all we thank you for our spiritual mercies in Christ Jesus our Lord; who with you and the Holy Spirit lives and reigns, one God, for ever and ever. Amen."
+      },
+      "prefaces": ["Rogation Days or Thanksgiving Day"]
+    },
+    "NationalDay_CanadaDay": {
+      "collect": {
+        "text": "Almighty God, whose wisdom and love are over all: Accept the prayers we offer for Canada, and give integrity to its citizens and wisdom to those in authority, that harmony and justice may be secured in obedience to your will; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever. Amen."
+      },
+      "prefaces": ["Trinity Sunday", "Canada Day or Independence Day"]
+    },
+    "NationalDay_IndependenceDay": {
+      "collect": {
+        "text": "Lord God, by your providence our founders won their liberties of old: Grant that we and all the people of this land may have grace to exercise these liberties in righteousness and peace; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever. Amen."
+      },
+      "prefaces": ["Trinity Sunday", "Canada Day or Independence Day"]
+    },
+    "NationalDay_RemembranceDay": {
+      "collect": {
+        "text": "O King and Judge of the nations: We remember before you with grateful hearts the men and women of our armed forces, who in the day of decision ventured much for the liberties we now enjoy; grant that we may not rest until all the people of this land share the benefits of true freedom and gladly accept its disciplines; through Jesus Christ our Lord, who with you and the Holy Spirit lives and reigns, now and for ever. Amen."
+      },
+      "prefaces": ["Remembrance Day or Memorial Day"]
+    },
+    "NationalDay_MemorialDay": {
+      "collect": {
+        "text": "O King and Judge of the nations: We remember before you with grateful hearts the men and women of our armed forces, who in the day of decision ventured much for the liberties we now enjoy; grant that we may not rest until all the people of this land share the benefits of true freedom and gladly accept its disciplines; through Jesus Christ our Lord, who with you and the Holy Spirit lives and reigns, now and for ever. Amen."
+      },
+      "prefaces": ["Remembrance Day or Memorial Day"]
+    }
+  }
+}

@@ -1,5 +1,6 @@
 using FiveTalents.Calendar.Feasts;
 using FiveTalents.Calendar.Lectionary;
+using FiveTalents.Calendar.Liturgy;
 
 namespace FiveTalents.Calendar.Calendar;
 
@@ -36,4 +37,12 @@ public sealed record ObservanceOption
     /// there, so nothing is "yielded"). See ADR 0010/0011 and issues #30/#43/#47.
     /// </summary>
     public FeastDay? YieldedFeast { get; init; }
+
+    /// <summary>The proper Collect for this option, or null when unsourced. See ADR 0014.</summary>
+    public Collect? Collect { get; init; }
+
+    /// <summary>
+    /// Preface catalog names for this option, or empty when unsourced. See ADR 0014.
+    /// </summary>
+    public IReadOnlyList<string> PrefaceNames { get; init; } = [];
 }
