@@ -15,10 +15,13 @@ public sealed record LiturgicalDay
 
     /// <summary>
     /// The Principal Feast or Holy Day (rank Major or above) for this day, if any. Derived
-    /// from the first <see cref="ObservancePrecedence.Prescribed"/> item of
-    /// <c>ILiturgicalCalendar.GetPossibleEucharistObservances</c> — see ADR 0008 for the
-    /// full precedence model, including when a Holy Day yields to a governing Sunday
-    /// (<c>Feast</c> is null in that case, not the yielded Holy Day).
+    /// from the first item of <c>ILiturgicalCalendar.GetPossibleEucharistObservances</c>
+    /// matching, in order, <see cref="ObservancePrecedence.Prescribed"/>,
+    /// <see cref="ObservancePrecedence.CommonPractice"/>, then
+    /// <see cref="ObservancePrecedence.Supplementary"/> — see ADR 0008 for the full
+    /// precedence model, including when a Holy Day yields to a governing Sunday
+    /// (<c>Feast</c> is null in that case, not the yielded Holy Day), and ADR 0015 for the
+    /// third tier.
     /// </summary>
     public FeastDay? Feast { get; init; }
 

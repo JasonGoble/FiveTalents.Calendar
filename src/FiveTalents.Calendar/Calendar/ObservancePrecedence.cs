@@ -19,4 +19,14 @@ public enum ObservancePrecedence
     /// Surfaced rather than hidden, so the officiant can make an informed choice.
     /// </summary>
     CommonPractice,
+
+    /// <summary>
+    /// Rubric-sanctioned and has real propers, but never competes with or displaces the
+    /// day's own Sunday/season observance — additive rather than ranked against it. Currently
+    /// used only by the six BCP 2019 civil National Days (Thanksgiving Day, Canada Day,
+    /// Independence Day, Remembrance Day, Memorial Day), which the rubric lists with proper
+    /// lessons but states no precedence rule for. Deliberately not named <c>Optional</c> to
+    /// avoid confusion with the unrelated <see cref="Feasts.FeastRank.Optional"/>. See ADR 0015.
+    /// </summary>
+    Supplementary,
 }

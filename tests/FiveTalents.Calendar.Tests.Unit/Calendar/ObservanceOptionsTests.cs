@@ -1,4 +1,6 @@
 using FiveTalents.Calendar.Calendar;
+using FiveTalents.Calendar.Feasts;
+using FiveTalents.Calendar.Lectionary;
 
 namespace FiveTalents.Calendar.Tests.Unit.Calendar;
 
@@ -274,5 +276,109 @@ public sealed class ObservanceOptionsTests
         var option = Assert.Single(options);
         Assert.Null(option.Collect);
         Assert.Empty(option.PrefaceNames);
+    }
+
+    // ── National Days (ADR 0015): Supplementary, additive, never competing ──────
+    // BCP 2019 states no precedence rule for these six civil observances, so they're
+    // modeled as a distinct third tier that never displaces the day's own Sunday/season
+    // propers. 2027 is used throughout: it conveniently puts Independence Day on a Sunday
+    // (see AdditiveNotCompeting test below), exercising the collision case directly.
+
+    [Theory]
+    [InlineData(2027, 7, 1, "Canada Day", "Almighty God, whose wisdom and love are over all")]
+    [InlineData(2027, 10, 11, "Thanksgiving Day (Canada)", "Most merciful Father, we humbly thank you")]
+    [InlineData(2027, 11, 25, "Thanksgiving Day (United States)", "Most merciful Father, we humbly thank you")]
+    [InlineData(2027, 11, 11, "Remembrance Day", "O King and Judge of the nations")]
+    [InlineData(2027, 5, 31, "Memorial Day", "O King and Judge of the nations")]
+    public void NationalDay_ResolvesAsSupplementaryOptionWithCollect(int y, int m, int d, string expectedFeastName, string expectedCollectStart)
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(y, m, d));
+
+        var nationalDay = Assert.Single(options, o => o.Precedence == ObservancePrecedence.Supplementary);
+        Assert.Equal(expectedFeastName, nationalDay.Feast!.Name);
+        Assert.Equal(FeastRank.Commemoration, nationalDay.Feast.Rank);
+        Assert.Null(nationalDay.Feast.Color);
+        Assert.NotNull(nationalDay.Collect);
+        Assert.StartsWith(expectedCollectStart, nationalDay.Collect!.Text);
+    }
+
+    [Fact]
+    public void CanadaDayAndIndependenceDay_SharePrefaceNamesIncludingTrinitySunday()
+    {
+        // Both use a two-item preface list ("Trinity Sunday" plus their own shared entry) —
+        // distinct from every other National Day, which has a single preface.
+        var canadaDay = Assert.Single(_calendar.GetPossibleEucharistObservances(new DateOnly(2027, 7, 1)),
+            o => o.Precedence == ObservancePrecedence.Supplementary);
+        var independenceDay = Assert.Single(_calendar.GetPossibleEucharistObservances(new DateOnly(2027, 7, 4)),
+            o => o.Precedence == ObservancePrecedence.Supplementary);
+
+        Assert.Equal(["Trinity Sunday", "Canada Day or Independence Day"], canadaDay.PrefaceNames);
+        Assert.Equal(["Trinity Sunday", "Canada Day or Independence Day"], independenceDay.PrefaceNames);
+    }
+
+    [Fact]
+    public void ThanksgivingDay_BothCountries_ShareOnePrefaceName()
+    {
+        var canada = Assert.Single(_calendar.GetPossibleEucharistObservances(new DateOnly(2027, 10, 11)),
+            o => o.Precedence == ObservancePrecedence.Supplementary);
+        var us = Assert.Single(_calendar.GetPossibleEucharistObservances(new DateOnly(2027, 11, 25)),
+            o => o.Precedence == ObservancePrecedence.Supplementary);
+
+        Assert.Equal(["Rogation Days or Thanksgiving Day"], canada.PrefaceNames);
+        Assert.Equal(["Rogation Days or Thanksgiving Day"], us.PrefaceNames);
+    }
+
+    [Fact]
+    public void RemembranceDayAndMemorialDay_ShareIdenticalContentButAreIndependentlyKeyed()
+    {
+        var remembranceDay = Assert.Single(_calendar.GetPossibleEucharistObservances(new DateOnly(2027, 11, 11)),
+            o => o.Precedence == ObservancePrecedence.Supplementary);
+        var memorialDay = Assert.Single(_calendar.GetPossibleEucharistObservances(new DateOnly(2027, 5, 31)),
+            o => o.Precedence == ObservancePrecedence.Supplementary);
+
+        Assert.NotEqual(remembranceDay.Feast!.Name, memorialDay.Feast!.Name);
+        Assert.Equal(remembranceDay.Collect!.Text, memorialDay.Collect!.Text);
+        Assert.Equal(remembranceDay.PrefaceNames, memorialDay.PrefaceNames);
+        Assert.Equal(["Remembrance Day or Memorial Day"], remembranceDay.PrefaceNames);
+    }
+
+    [Fact]
+    public void RemembranceDay_GospelHasAlternateCitation()
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2027, 11, 11));
+        var nationalDay = Assert.Single(options, o => o.Precedence == ObservancePrecedence.Supplementary);
+
+        var gospel = nationalDay.Services.SelectMany(s => s.Readings).Single(r => r.Type == ReadingType.Gospel);
+        Assert.Equal("John 11:21-27", gospel.Citation);
+        Assert.Equal(["John 15:12-17"], gospel.AlternateCitations);
+    }
+
+    [Fact]
+    public void IndependenceDayOnASunday_AdditiveNotCompeting_PrescribedSundayStillWins()
+    {
+        // 2027-07-04 is both the Fourth Sunday after Pentecost and Independence Day — the
+        // National Day option must appear alongside the ordinary Sunday's Prescribed option,
+        // not replace or compete with it, and GetDay() must still resolve to the Prescribed
+        // Sunday propers.
+        DateOnly date = new DateOnly(2027, 7, 4);
+        var options = _calendar.GetPossibleEucharistObservances(date);
+
+        Assert.Equal(2, options.Count);
+
+        var prescribed = Assert.Single(options, o => o.Precedence == ObservancePrecedence.Prescribed);
+        var supplementary = Assert.Single(options, o => o.Precedence == ObservancePrecedence.Supplementary);
+        Assert.Equal("Independence Day", supplementary.Feast!.Name);
+
+        var day = _calendar.GetDay(date);
+        Assert.Equal(prescribed.Feast?.Name, day.Feast?.Name);
+        Assert.NotEqual("Independence Day", day.Feast?.Name);
+    }
+
+    [Fact]
+    public void DateWithNoNationalDay_HasNoSupplementaryOption()
+    {
+        var options = _calendar.GetPossibleEucharistObservances(new DateOnly(2027, 6, 9));
+
+        Assert.DoesNotContain(options, o => o.Precedence == ObservancePrecedence.Supplementary);
     }
 }
