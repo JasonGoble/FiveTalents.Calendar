@@ -82,7 +82,7 @@ public sealed class CalendarEndpointTests(WebApplicationFactory<Program> factory
         Assert.Equal("HolyWeek", root.GetProperty("season").GetString());
 
         // Feast color is a string
-        Assert.Equal(JsonValueKind.String, root.GetProperty("feast").GetProperty("color").ValueKind);
+        Assert.Equal(JsonValueKind.String, root.GetProperty("occurrences")[0].GetProperty("feast").GetProperty("color").ValueKind);
 
         // ReadingType is a string
         JsonElement firstReading = root.GetProperty("readings")[0].GetProperty("readings")[0];

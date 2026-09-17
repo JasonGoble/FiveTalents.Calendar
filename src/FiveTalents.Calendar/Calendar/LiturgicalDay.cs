@@ -1,4 +1,3 @@
-using FiveTalents.Calendar.Feasts;
 using FiveTalents.Calendar.Lectionary;
 using FiveTalents.Calendar.Seasons;
 
@@ -14,37 +13,23 @@ public sealed record LiturgicalDay
     public required LiturgicalWeek Week { get; init; }
 
     /// <summary>
-    /// The Principal Feast or Holy Day (rank Major or above) for this day, if any. Derived
-    /// from the first item of <c>ILiturgicalCalendar.GetPossibleEucharistObservances</c>
-    /// matching, in order, <see cref="ObservancePrecedence.Prescribed"/>,
-    /// <see cref="ObservancePrecedence.CommonPractice"/>, then
-    /// <see cref="ObservancePrecedence.Supplementary"/> — see ADR 0008 for the full
-    /// precedence model, including when a Holy Day yields to a governing Sunday
-    /// (<c>Feast</c> is null in that case, not the yielded Holy Day), and ADR 0015 for the
-    /// third tier.
+    /// Every occurrence this day carries — Feasts, the Sunday's own slot, commemorations,
+    /// Ember/Rogation Days, and season-day naming — ordered by <see cref="OccurrenceType"/>.
+    /// Index 0 is always the highest-precedence occurrence when more than one is Prescribed
+    /// or CommonPractice. Supersedes the old separate <c>Feast</c>/<c>Commemorations</c>/
+    /// <c>SundayTitle</c> fields, which could only ever surface one winning answer even on
+    /// dates where several occurrences genuinely coexist (e.g. a Major Feast landing on a
+    /// Sunday that is also a named day of Christmastide). See ADR 0008, ADR 0016.
     /// </summary>
-    public FeastDay? Feast { get; init; }
+    public IReadOnlyList<Occurrence> Occurrences { get; init; } = [];
 
     /// <summary>
-    /// Optional commemorations (Anglican and Ecumenical) observed on this day.
-    /// These do not displace the season or a higher-ranked feast.
-    /// </summary>
-    public IReadOnlyList<FeastDay> Commemorations { get; init; } = [];
-
-    /// <summary>
-    /// The special title for this Sunday, if any, distinct from its ordinal week
-    /// designation — e.g. "The Baptism of Our Lord" for the First Sunday of Epiphany,
-    /// "Transfiguration Sunday" for the Last Sunday of Epiphany, "Christ the King" for
-    /// the Last Sunday After Pentecost. Null for Sundays without a special title and
-    /// for non-Sunday days. Feasts that already carry their own name (e.g. Trinity
-    /// Sunday) are exposed via <see cref="Feast"/> instead and do not set this property.
-    /// </summary>
-    public string? SundayTitle { get; init; }
-
-    /// <summary>
-    /// Liturgical services for this day, each with their own set of readings.
-    /// Most days have one unnamed service. Palm Sunday has two named services:
-    /// "Liturgy of the Palms" and "Liturgy of the Word".
+    /// Liturgical services for this day, each with their own set of readings. Derived from
+    /// the first item of <see cref="Occurrences"/> matching, in order,
+    /// <see cref="ObservancePrecedence.Prescribed"/>, <see cref="ObservancePrecedence.CommonPractice"/>,
+    /// then <see cref="ObservancePrecedence.Supplementary"/> — see ADR 0008/0015/0016. Most
+    /// days have one unnamed service. Palm Sunday has two named services: "Liturgy of the
+    /// Palms" and "Liturgy of the Word".
     /// </summary>
     public IReadOnlyList<LiturgicalService> Readings { get; init; } = [];
 

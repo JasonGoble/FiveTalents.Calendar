@@ -65,7 +65,7 @@ export class WeekView implements OnInit {
   );
 
   colorClassFor(day: LiturgicalDay): string {
-    return liturgicalColorClass(day.feast?.color ?? null, day.season);
+    return liturgicalColorClass(day.occurrences[0]?.feast?.color ?? null, day.season);
   }
 
   ngOnInit(): void {

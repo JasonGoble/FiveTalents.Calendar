@@ -24,8 +24,10 @@
           <div class="day-name">{{ day.date | date:'EEE' }}</div>
           <div class="day-date">{{ day.date | date:'MMM d' }}</div>
           <div class="day-season">{{ day.season | seasonLabel }}</div>
-          @if (day.feast) {
-            <div class="day-feast" [title]="day.feast.name">{{ day.feast.name }}</div>
+          @if (day.occurrences[0]; as primary) {
+            <div class="day-feast" [title]="primary.name ?? primary.feast?.name ?? ''">
+              {{ primary.name ?? primary.feast?.name }}
+            </div>
           }
           @if (day.isEmberDay || day.isRogationDay || day.isFastDay) {
             <div class="day-flags">

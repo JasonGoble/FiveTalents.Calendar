@@ -68,11 +68,11 @@ internal static class AcnaFeastCatalog
 
     /// <summary>
     /// Returns all optional commemorations (Anglican and Ecumenical, rank below Major)
-    /// observed on the given date.
+    /// observed on the given date. Rogation Day is its own <c>OccurrenceType</c> — see
+    /// <see cref="IsRogationDay"/> — and is no longer included here (ADR 0016).
     /// </summary>
     public static IReadOnlyList<FeastDay> GetCommemorations(DateOnly date, int year)
     {
-        var easter = EasterCalculator.GetEaster(year);
         List<FeastDay> result = new List<FeastDay>();
 
         if (_fixedCommemorations.TryGetValue(new MonthDay(date.Month, date.Day), out var list))
@@ -80,16 +80,19 @@ internal static class AcnaFeastCatalog
             result.AddRange(list);
         }
 
-        // Rogation Days: Mon, Tue, Wed before Ascension (Easter + 36, 37, 38)
-        for (int offset = 36; offset <= 38; offset++)
-        {
-            if (easter.AddDays(offset) == date)
-            {
-                result.Add(new FeastDay { Name = "Rogation Day", Rank = FeastRank.Minor });
-            }
-        }
-
         return result;
+    }
+
+    /// <summary>
+    /// Returns true if the given date is one of the three Rogation Days per year:
+    /// Mon, Tue, Wed before Ascension Day.
+    /// </summary>
+    public static bool IsRogationDay(DateOnly date, int year)
+    {
+        var easter = EasterCalculator.GetEaster(year);
+        return date == easter.AddDays(36)
+            || date == easter.AddDays(37)
+            || date == easter.AddDays(38);
     }
 
     /// <summary>

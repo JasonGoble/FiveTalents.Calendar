@@ -41,6 +41,15 @@ internal static class SeasonResolver
         };
     }
 
+    /// <summary>
+    /// Returns the 1-based day number within Christmastide (Dec 25 = 1, Jan 5 = 12) for a
+    /// date already known to fall in that range. Used both for <see cref="Resolve"/>'s own
+    /// week numbering and to name each day of Christmastide (e.g. "The Third Day of
+    /// Christmas") — see ADR 0016.
+    /// </summary>
+    public static int GetChristmasDayNumber(DateOnly date) =>
+        date.Month == 12 ? date.Day - 24 : date.Day + 7;
+
     public sealed record SeasonInfo(
         LiturgicalSeason Season,
         int WeekNumber,
@@ -76,13 +85,13 @@ internal static class SeasonResolver
         DateOnly christmasStart = new DateOnly(gregorianYear, 12, 25);
         if (date >= christmasStart)
         {
-            int christmasDay = date.Day - 24; // Dec 25 = day 1, Dec 31 = day 7
+            int christmasDay = GetChristmasDayNumber(date);
             return new SeasonInfo(LiturgicalSeason.Christmas, (christmasDay - 1) / 7 + 1, lectionaryYear);
         }
 
         if (date.Month == 1 && date.Day <= 5)
         {
-            int christmasDay = date.Day + 7; // Jan 1 = day 8, Jan 5 = day 12
+            int christmasDay = GetChristmasDayNumber(date);
             return new SeasonInfo(LiturgicalSeason.Christmas, (christmasDay - 1) / 7 + 1, lectionaryYear);
         }
 

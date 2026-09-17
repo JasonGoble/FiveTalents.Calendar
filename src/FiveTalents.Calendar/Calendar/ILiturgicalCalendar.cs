@@ -11,14 +11,15 @@ public interface ILiturgicalCalendar
     public IReadOnlyList<LiturgicalDay> GetRange(DateOnly from, DateOnly to);
 
     /// <summary>
-    /// Returns every rubrically-possible Eucharist observance for <paramref name="date"/>,
-    /// ranked by precedence, rather than resolving a single answer — see ADR 0008.
-    /// <see cref="LiturgicalDay.Feast"/>/<see cref="LiturgicalDay.Readings"/> are the first
-    /// item of this list matching, in order, <see cref="ObservancePrecedence.Prescribed"/>,
+    /// Returns every rubrically-possible Eucharist occurrence for <paramref name="date"/>,
+    /// ranked by <see cref="OccurrenceType"/>, rather than resolving a single answer — see
+    /// ADR 0008, ADR 0016. <see cref="LiturgicalDay.Readings"/> is derived from the first
+    /// item here (or in <see cref="LiturgicalDay.Occurrences"/> generally) matching, in
+    /// order, <see cref="ObservancePrecedence.Prescribed"/>,
     /// <see cref="ObservancePrecedence.CommonPractice"/>, then
     /// <see cref="ObservancePrecedence.Supplementary"/> (see ADR 0015).
     /// </summary>
-    public IReadOnlyList<ObservanceOption> GetPossibleEucharistObservances(DateOnly date);
+    public IReadOnlyList<Occurrence> GetPossibleEucharistObservances(DateOnly date);
 
     /// <summary>Returns the liturgical year that contains <paramref name="date"/>.</summary>
     public int GetLiturgicalYear(DateOnly date);
