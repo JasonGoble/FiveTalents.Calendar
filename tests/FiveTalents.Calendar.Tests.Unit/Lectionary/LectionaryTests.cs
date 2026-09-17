@@ -13,6 +13,20 @@ public sealed class LectionaryTests
 {
     private readonly AcnaBcp2019Calendar _calendar = new();
 
+    /// <summary>
+    /// Mirrors <see cref="AcnaBcp2019Calendar.GetDay"/>'s own three-tier fallback over
+    /// <see cref="LiturgicalDay.Occurrences"/> — the removed <c>LiturgicalDay.Feast</c>
+    /// field's equivalent (see ADR 0016).
+    /// </summary>
+    private static Occurrence? Resolved(LiturgicalDay day) =>
+        day.Occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Prescribed)
+        ?? day.Occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.CommonPractice)
+        ?? day.Occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Supplementary);
+
+    /// <summary>The removed <c>LiturgicalDay.SundayTitle</c> field's equivalent — see ADR 0016.</summary>
+    private static string? SundayName(LiturgicalDay day) =>
+        day.Occurrences.SingleOrDefault(o => o.Type == OccurrenceType.Sunday)?.Name;
+
     // ── ProperNumber ──────────────────────────────────────────────────────────
 
     [Theory]
@@ -74,8 +88,9 @@ public sealed class LectionaryTests
         // via the season lookup (the feast → CircumcisionHolyName mapping is Jan 1)
         // Christmas Day should return ChristmasDay readings via the feast path
         var day = _calendar.GetDay(new DateOnly(2026, 12, 25));
-        Assert.NotNull(day.Feast);
-        Assert.Equal("Christmas Day", day.Feast.Name);
+        var feast = Resolved(day);
+        Assert.NotNull(feast?.Feast);
+        Assert.Equal("Christmas Day", feast!.Feast!.Name);
         // Readings come from EasterPrincipalService or Christmas day lookup
         // Christmas Day feast name is not in _feastKeyMap — falls through to season
         // Season = Christmas, WeekNumber = 1 → Christmas1 (First Sunday of Christmas)
@@ -91,7 +106,7 @@ public sealed class LectionaryTests
         // Jan 1 is in Christmas season, has feast "The Circumcision and Holy Name..."
         // which maps to "CircumcisionHolyName" in the JSON
         var day = _calendar.GetDay(new DateOnly(2026, 1, 1));
-        Assert.NotNull(day.Feast);
+        Assert.NotNull(Resolved(day)?.Feast);
 
         var readings = day.Readings[0].Readings;
         var firstLesson = readings.FirstOrDefault(r => r.Type == ReadingType.FirstLesson);
@@ -137,7 +152,7 @@ public sealed class LectionaryTests
         // Forward week-count would land on week 6 ("Epiphany6") — must be overridden.
         var day = _calendar.GetDay(new DateOnly(2026, 2, 15));
         Assert.Equal(LiturgicalSeason.Epiphany, day.Season);
-        Assert.Equal("Transfiguration Sunday", day.SundayTitle);
+        Assert.Equal("Transfiguration Sunday", SundayName(day));
 
         var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 17:1-9", gospel.Citation);
@@ -150,7 +165,8 @@ public sealed class LectionaryTests
         // Forward week-count would land on week 5 ("Epiphany5") — must be overridden.
         var day = _calendar.GetDay(new DateOnly(2026, 2, 8));
         Assert.Equal(LiturgicalSeason.Epiphany, day.Season);
-        Assert.Null(day.SundayTitle);
+        // No special BCP title, but every Sunday gets a general name now — see ADR 0016.
+        Assert.Equal("The Fifth Sunday of Epiphany", SundayName(day));
 
         var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 9:35-38", gospel.Citation);
@@ -162,7 +178,7 @@ public sealed class LectionaryTests
     public void Readings_AshWednesday_HasOrAlternative()
     {
         var day = _calendar.GetDay(new DateOnly(2026, 2, 18));
-        Assert.Equal("Ash Wednesday", day.Feast!.Name);
+        Assert.Equal("Ash Wednesday", Resolved(day)!.Feast!.Name);
 
         var readings = day.Readings[0].Readings;
         var firstLesson = readings.First(r => r.Type == ReadingType.FirstLesson);
@@ -206,7 +222,7 @@ public sealed class LectionaryTests
     public void Readings_GoodFriday_HasReadings()
     {
         var day = _calendar.GetDay(new DateOnly(2026, 4, 3));
-        Assert.Equal("Good Friday", day.Feast!.Name);
+        Assert.Equal("Good Friday", Resolved(day)!.Feast!.Name);
         Assert.Equal(4, day.Readings[0].Readings.Count);
 
         var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
@@ -220,7 +236,7 @@ public sealed class LectionaryTests
     public void Readings_EasterDay_YearA_HasFourReadings()
     {
         var day = _calendar.GetDay(new DateOnly(2026, 4, 5));
-        Assert.Equal("Easter Day", day.Feast!.Name);
+        Assert.Equal("Easter Day", Resolved(day)!.Feast!.Name);
         Assert.Equal(4, day.Readings[0].Readings.Count);
 
         var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
@@ -244,7 +260,7 @@ public sealed class LectionaryTests
     {
         // Trinity Sunday 2026 = May 31 (Year A)
         var day = _calendar.GetDay(new DateOnly(2026, 5, 31));
-        Assert.Equal("Trinity Sunday", day.Feast!.Name);
+        Assert.Equal("Trinity Sunday", Resolved(day)!.Feast!.Name);
 
         var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 28:16-20", gospel.Citation);
@@ -286,7 +302,7 @@ public sealed class LectionaryTests
     public void Readings_AllSaints_HasOtAndAlternate()
     {
         var day = _calendar.GetDay(new DateOnly(2026, 11, 1));
-        Assert.Equal("All Saints' Day", day.Feast!.Name);
+        Assert.Equal("All Saints' Day", Resolved(day)!.Feast!.Name);
 
         var firstLesson = day.Readings[0].Readings.First(r => r.Type == ReadingType.FirstLesson);
         Assert.Equal("Ecclesiasticus 44:1-14", firstLesson.Citation);
@@ -298,8 +314,9 @@ public sealed class LectionaryTests
     {
         var day = _calendar.GetDay(new DateOnly(2026, 11, 30));
         // Nov 29, 2026 = First Sunday of Advent; Nov 30 = Monday of Advent + St. Andrew's Day
-        Assert.NotNull(day.Feast);
-        Assert.Equal("Andrew the Apostle", day.Feast.Name);
+        var feast = Resolved(day);
+        Assert.NotNull(feast?.Feast);
+        Assert.Equal("Andrew the Apostle", feast!.Feast!.Name);
 
         var gospel = day.Readings[0].Readings.First(r => r.Type == ReadingType.Gospel);
         Assert.Equal("Matt 4:18-22", gospel.Citation);
@@ -310,7 +327,7 @@ public sealed class LectionaryTests
     {
         // Annunciation = March 25
         var day = _calendar.GetDay(new DateOnly(2026, 3, 25));
-        Assert.Equal("The Annunciation of Our Lord Jesus Christ to the Virgin Mary", day.Feast!.Name);
+        Assert.Equal("The Annunciation of Our Lord Jesus Christ to the Virgin Mary", Resolved(day)!.Feast!.Name);
 
         var psalm = day.Readings[0].Readings.First(r => r.Type == ReadingType.Psalm);
         Assert.Equal("Ps 40:1-13", psalm.Citation);
@@ -326,7 +343,7 @@ public sealed class LectionaryTests
         // Governing Sunday = July 5 → Proper 9 (July 3-9), Year A
         var day = _calendar.GetDay(new DateOnly(2026, 7, 7));
         Assert.Equal(LiturgicalSeason.OrdinaryTime, day.Season);
-        Assert.Null(day.Feast);
+        Assert.Null(Resolved(day)?.Feast);
         Assert.Equal(9, day.ProperNumber);
 
         // BCP: "The Lessons for each Sunday are used at celebrations of the

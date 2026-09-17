@@ -19,3 +19,4 @@ ADRs are numbered with a four-digit zero-padded prefix (e.g. `0001-my-decision.m
 | [0013](0013-remove-all-saints-sunday-observance.md) | Remove the All Saints' Day Sunday-Alternate Observance | Accepted |
 | [0014](0014-collects-and-prefaces.md) | Collects and Prefaces: A New Content Type, Sourced Partially | Accepted |
 | [0015](0015-national-days-supplementary-precedence.md) | National Days: A Third Precedence Tier, Additive Not Competing | Accepted |
+| [0016](0016-occurrence-stack.md) | The Occurrence Stack: One Ordered List Instead of Feast/Commemorations/SundayTitle | Accepted |

@@ -17,6 +17,16 @@ public sealed class PrecedenceRubricTests
 {
     private readonly AcnaBcp2019Calendar _calendar = new();
 
+    /// <summary>
+    /// Mirrors <see cref="AcnaBcp2019Calendar.GetDay"/>'s own three-tier fallback over
+    /// <see cref="LiturgicalDay.Occurrences"/> — the removed <c>LiturgicalDay.Feast</c>
+    /// field's equivalent (see ADR 0016).
+    /// </summary>
+    private static Occurrence? Resolved(LiturgicalDay day) =>
+        day.Occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Prescribed)
+        ?? day.Occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.CommonPractice)
+        ?? day.Occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Supplementary);
+
     // ── Rubric: Principal Feasts take precedence over any other day or observance ──
     // BCP 2019 p.688: "These feasts take precedence over any other day or observance."
 
@@ -26,8 +36,9 @@ public sealed class PrecedenceRubricTests
         // 2026: Trinity Sunday (Principal) falls May 31, the fixed date of the
         // Visitation of the Virgin Mary (Major).
         var day = _calendar.GetDay(new DateOnly(2026, 5, 31));
-        Assert.Equal("Trinity Sunday", day.Feast!.Name);
-        Assert.Equal(FeastRank.Principal, day.Feast.Rank);
+        var feast = Resolved(day);
+        Assert.Equal("Trinity Sunday", feast!.Feast!.Name);
+        Assert.Equal(FeastRank.Principal, feast.Feast.Rank);
     }
 
     [Fact]
@@ -37,7 +48,7 @@ public sealed class PrecedenceRubricTests
         // Annunciation (Major). Confirms the rank rule holds even when the colliding
         // day is itself a moveable Principal Feast, not just a fixed Holy Day.
         var day = _calendar.GetDay(new DateOnly(2035, 3, 25));
-        Assert.Equal("Easter Day", day.Feast!.Name);
+        Assert.Equal("Easter Day", Resolved(day)!.Feast!.Name);
 
         var readings = day.Readings.Single().Readings;
         Assert.Equal("Acts 10:34-43", readings.First(r => r.Type == ReadingType.FirstLesson).Citation);
@@ -59,7 +70,7 @@ public sealed class PrecedenceRubricTests
         // Each date is the fixed date of the Annunciation, colliding with a weekday of
         // Holy Week that carries its own fixed propers.
         var day = _calendar.GetDay(new DateOnly(y, m, d));
-        Assert.Equal(expectedFeast, day.Feast!.Name);
+        Assert.Equal(expectedFeast, Resolved(day)!.Feast!.Name);
 
         var readings = day.Readings.Single().Readings;
         Assert.Equal(expectedFirstLesson, readings.First(r => r.Type == ReadingType.FirstLesson).Citation);
@@ -73,7 +84,7 @@ public sealed class PrecedenceRubricTests
         // — unlike Holy Week's named weekdays — so the fixed feast must be suppressed
         // outright rather than relying on a rank comparison that never happens.
         var day = _calendar.GetDay(new DateOnly(2160, 3, 25));
-        Assert.Null(day.Feast);
+        Assert.Null(Resolved(day)?.Feast);
 
         var readings = day.Readings.Single().Readings;
         Assert.Equal("Acts 2:14,36-41", readings.First(r => r.Type == ReadingType.FirstLesson).Citation);
@@ -88,7 +99,7 @@ public sealed class PrecedenceRubricTests
         // so this already held via rank alone — asserted to confirm the p.689
         // suppression doesn't change behavior at the edges of the protected range.
         var day = _calendar.GetDay(new DateOnly(y, m, d));
-        Assert.Equal(expectedFeast, day.Feast!.Name);
+        Assert.Equal(expectedFeast, Resolved(day)!.Feast!.Name);
     }
 
     // ── Rubric: a Holy Day on a Sunday, other than in Advent/Lent/Easter, may be
@@ -104,7 +115,7 @@ public sealed class PrecedenceRubricTests
         // 2026-10-18: Luke the Evangelist (Major) falls on a Sunday in OrdinaryTime.
         var day = _calendar.GetDay(new DateOnly(2026, 10, 18));
         Assert.Equal(LiturgicalSeason.OrdinaryTime, day.Season);
-        Assert.Equal("Luke the Evangelist and Companion of Paul", day.Feast!.Name);
+        Assert.Equal("Luke the Evangelist and Companion of Paul", Resolved(day)!.Feast!.Name);
 
         var readings = day.Readings.Single().Readings;
         Assert.Equal("Ecclesiasticus 38:1-14", readings.First(r => r.Type == ReadingType.FirstLesson).Citation);
@@ -133,7 +144,7 @@ public sealed class PrecedenceRubricTests
     {
         var day = _calendar.GetDay(new DateOnly(y, m, d));
 
-        Assert.Null(day.Feast);
+        Assert.Null(Resolved(day)?.Feast);
 
         var readings = day.Readings.Single().Readings;
         Assert.Equal(expectedFirstLesson, readings.First(r => r.Type == ReadingType.FirstLesson).Citation);

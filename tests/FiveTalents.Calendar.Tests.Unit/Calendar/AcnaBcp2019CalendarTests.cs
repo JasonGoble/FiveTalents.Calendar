@@ -132,8 +132,9 @@ public sealed class AcnaBcp2019CalendarTests
     public void GetDay_Feast_HasExpectedName(int y, int m, int d, string expected)
     {
         var day = _calendar.GetDay(new DateOnly(y, m, d));
-        Assert.NotNull(day.Feast);
-        Assert.Equal(expected, day.Feast.Name);
+        var feast = day.Occurrences.SingleOrDefault(o => o.Type is OccurrenceType.PrincipalFeast or OccurrenceType.MajorFeast);
+        Assert.NotNull(feast);
+        Assert.Equal(expected, feast.Name);
     }
 
     [Fact]
@@ -141,8 +142,9 @@ public sealed class AcnaBcp2019CalendarTests
     {
         // In 2025 Pentecost = June 8, Trinity = June 15, so Visitation (May 31) is free
         var day = _calendar.GetDay(new DateOnly(2025, 5, 31));
-        Assert.NotNull(day.Feast);
-        Assert.Equal("The Visitation of the Virgin Mary to Elizabeth and Zechariah", day.Feast.Name);
+        var feast = day.Occurrences.SingleOrDefault(o => o.Type is OccurrenceType.PrincipalFeast or OccurrenceType.MajorFeast);
+        Assert.NotNull(feast);
+        Assert.Equal("The Visitation of the Virgin Mary to Elizabeth and Zechariah", feast.Name);
     }
 
     // ── Feast rank corrections ────────────────────────────────────────────────
@@ -150,8 +152,12 @@ public sealed class AcnaBcp2019CalendarTests
     [Theory]
     [InlineData(2026, 3, 25)]  // Annunciation
     [InlineData(2026, 8, 6)]  // Transfiguration
-    public void GetDay_FormerlyPrincipalFeasts_AreNowMajor(int y, int m, int d) =>
-        Assert.Equal(FeastRank.Major, _calendar.GetDay(new DateOnly(y, m, d)).Feast!.Rank);
+    public void GetDay_FormerlyPrincipalFeasts_AreNowMajor(int y, int m, int d)
+    {
+        var day = _calendar.GetDay(new DateOnly(y, m, d));
+        var feast = day.Occurrences.Single(o => o.Type is OccurrenceType.PrincipalFeast or OccurrenceType.MajorFeast);
+        Assert.Equal(FeastRank.Major, feast.Feast!.Rank);
+    }
 
     // ── Commemorations ───────────────────────────────────────────────────────
 
@@ -165,17 +171,19 @@ public sealed class AcnaBcp2019CalendarTests
     public void GetDay_Commemoration_IsInList(int y, int m, int d, string name, FeastRank rank)
     {
         var day = _calendar.GetDay(new DateOnly(y, m, d));
-        var match = day.Commemorations.FirstOrDefault(c => c.Name == name);
+        var match = day.Occurrences.FirstOrDefault(o =>
+            o.Type is OccurrenceType.AnglicanCommemoration or OccurrenceType.EcumenicalCommemoration
+            && o.Name == name);
         Assert.NotNull(match);
-        Assert.Equal(rank, match.Rank);
+        Assert.Equal(rank, match.Feast!.Rank);
     }
 
     [Fact]
     public void GetDay_Commemoration_HasNullColor()
     {
         var day = _calendar.GetDay(new DateOnly(2026, 1, 13)); // Hilary of Poitiers
-        var hilary = day.Commemorations.First(c => c.Name.StartsWith("Hilary"));
-        Assert.Null(hilary.Color);
+        var hilary = day.Occurrences.First(o => o.Name is not null && o.Name.StartsWith("Hilary"));
+        Assert.Null(hilary.Feast!.Color);
     }
 
     // ── Rogation Days ────────────────────────────────────────────────────────
@@ -256,30 +264,34 @@ public sealed class AcnaBcp2019CalendarTests
         Assert.Throws<ArgumentException>(() =>
             _calendar.GetRange(new DateOnly(2026, 4, 30), new DateOnly(2026, 4, 1)));
 
-    // ── SundayTitle ───────────────────────────────────────────────────────────
+    // ── Sunday naming ─────────────────────────────────────────────────────────
     // 2026: Easter Apr 5, Ash Wed Feb 18. First Sunday of Epiphany Jan 11.
     // Last Sunday of Epiphany = Easter − 49 days = Feb 15. Proper 29 = Nov 22.
 
-    [Theory]
-    [InlineData(2026, 1, 11, "The Baptism of Our Lord")] // First Sunday of Epiphany
-    [InlineData(2026, 2, 15, "Transfiguration Sunday")] // Last Sunday of Epiphany
-    [InlineData(2026, 11, 22, "Christ the King")] // Proper 29 — Last Sunday After Pentecost
-    public void GetDay_SundayTitle_MatchesExpected(int y, int m, int d, string expected) =>
-        Assert.Equal(expected, _calendar.GetDay(new DateOnly(y, m, d)).SundayTitle);
+    private static string? SundayName(LiturgicalDay day) =>
+        day.Occurrences.SingleOrDefault(o => o.Type == OccurrenceType.Sunday)?.Name;
 
     [Theory]
-    [InlineData(2026, 1, 18)] // Second Sunday of Epiphany — no special title
-    [InlineData(2026, 2, 8)] // Second-to-last Sunday of Epiphany — no title, only special readings
-    [InlineData(2026, 6, 7)] // An ordinary Sunday after Trinity
-    public void GetDay_SundayTitle_IsNullOnOrdinarySundays(int y, int m, int d) =>
-        Assert.Null(_calendar.GetDay(new DateOnly(y, m, d)).SundayTitle);
+    [InlineData(2026, 1, 11, "The Baptism of Our Lord")] // First Sunday of Epiphany — special case
+    [InlineData(2026, 2, 15, "Transfiguration Sunday")] // Last Sunday of Epiphany — special case
+    [InlineData(2026, 11, 22, "Christ the King")] // Proper 29 — Last Sunday After Pentecost, special case
+    public void GetDay_SundayName_MatchesExpected(int y, int m, int d, string expected) =>
+        Assert.Equal(expected, SundayName(_calendar.GetDay(new DateOnly(y, m, d))));
+
+    [Theory]
+    // Every Sunday gets a name now, not just the three BCP-specific special cases above.
+    [InlineData(2026, 1, 18, "The Second Sunday of Epiphany")]
+    [InlineData(2026, 2, 8, "The Fifth Sunday of Epiphany")] // one week before Transfiguration Sunday
+    [InlineData(2026, 6, 7, "The Sunday after Pentecost (Proper 5)")]
+    public void GetDay_SundayName_CoversOrdinarySundaysToo(int y, int m, int d, string expected) =>
+        Assert.Equal(expected, SundayName(_calendar.GetDay(new DateOnly(y, m, d))));
 
     [Fact]
-    public void GetDay_SundayTitle_IsNullOnNonSundayWithinEpiphany1Week()
+    public void GetDay_SundayName_IsAbsentOnNonSundayWithinEpiphany1Week()
     {
-        // Monday of the First Sunday of Epiphany's week — title is Sunday-specific
+        // Monday of the First Sunday of Epiphany's week — Sunday naming is Sunday-specific
         var day = _calendar.GetDay(new DateOnly(2026, 1, 12));
         Assert.Equal(1, day.Week.WeekNumber);
-        Assert.Null(day.SundayTitle);
+        Assert.Null(SundayName(day));
     }
 }

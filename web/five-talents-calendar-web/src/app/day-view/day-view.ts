@@ -16,9 +16,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule } from '@angular/forms';
 
 import { CalendarService } from '../services/calendar.service';
-import { LiturgicalDay, LiturgicalService, Tradition } from '../models/liturgical-day.model';
+import { LiturgicalDay, LiturgicalService, Occurrence, Tradition } from '../models/liturgical-day.model';
 import { SeasonLabelPipe } from '../pipes/season-label.pipe';
 import { ReadingTypeLabelPipe } from '../pipes/reading-type-label.pipe';
+import { OccurrenceTypeLabelPipe } from '../pipes/occurrence-type-label.pipe';
 
 @Component({
   selector: 'app-day-view',
@@ -39,6 +40,7 @@ import { ReadingTypeLabelPipe } from '../pipes/reading-type-label.pipe';
     DatePipe,
     SeasonLabelPipe,
     ReadingTypeLabelPipe,
+    OccurrenceTypeLabelPipe,
   ],
 })
 export class DayView implements OnInit {
@@ -61,7 +63,16 @@ export class DayView implements OnInit {
     ),
   );
 
-  colorClass = computed(() => liturgicalColorClass(this.day()?.feast?.color ?? null, this.day()?.season ?? ''));
+  primaryOccurrence = computed<Occurrence | null>(() => this.day()?.occurrences?.[0] ?? null);
+
+  // occurrences[0] is always the highest-precedence occurrence (the list is Type-sorted, and
+  // the competing tiers that can carry Prescribed/CommonPractice sort first) — the same one
+  // LiturgicalDay.Readings is derived from. Shown separately above, so excluded here.
+  otherOccurrences = computed<Occurrence[]>(() => this.day()?.occurrences?.slice(1) ?? []);
+
+  colorClass = computed(() =>
+    liturgicalColorClass(this.primaryOccurrence()?.feast?.color ?? null, this.day()?.season ?? ''),
+  );
 
   dailyOfficeServices = computed<LiturgicalService[]>(() => {
     const office = this.day()?.dailyOffice;

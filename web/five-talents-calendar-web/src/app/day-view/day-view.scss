@@ -42,13 +42,6 @@
     margin-bottom: 8px;
   }
 
-  .sunday-title {
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--mat-sys-on-surface-variant);
-    margin-bottom: 8px;
-  }
-
   .day-flags {
     margin-top: 8px;
     display: flex;
@@ -65,21 +58,11 @@
   }
 }
 
-.feast-card mat-card-title {
+.readings-card mat-card-title {
   font-size: 1.1rem;
 }
 
-.commemoration-list {
-  margin: 0;
-  padding-left: 20px;
-
-  .rank-label {
-    color: var(--mat-sys-outline);
-    font-size: 0.85rem;
-  }
-}
-
-.readings-card mat-expansion-panel,
+.occurrences-card mat-expansion-panel,
 .daily-office-card mat-expansion-panel {
   margin-bottom: 4px;
 }
@@ -122,7 +105,6 @@
   }
 }
 
-.no-readings-card,
 .loading-card {
   color: var(--mat-sys-outline);
 }

@@ -13,6 +13,17 @@ public sealed class ObservanceOptionsTests
 {
     private readonly AcnaBcp2019Calendar _calendar = new();
 
+    /// <summary>
+    /// Mirrors <see cref="AcnaBcp2019Calendar.GetDay"/>'s own three-tier fallback over
+    /// <see cref="LiturgicalDay.Occurrences"/>, so tests can cross-check <c>GetDay</c>'s
+    /// resolved occurrence against <see cref="AcnaBcp2019Calendar.GetPossibleEucharistObservances"/>'s
+    /// own list — the removed <c>LiturgicalDay.Feast</c> field's equivalent (see ADR 0016).
+    /// </summary>
+    private static Occurrence? Resolved(LiturgicalDay day) =>
+        day.Occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Prescribed)
+        ?? day.Occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.CommonPractice)
+        ?? day.Occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Supplementary);
+
     // ── No competing Holy Day ────────────────────────────────────────────────
 
     [Fact]
@@ -244,7 +255,7 @@ public sealed class ObservanceOptionsTests
         var day = _calendar.GetDay(date);
 
         var firstPrescribed = options.First(o => o.Precedence == ObservancePrecedence.Prescribed);
-        Assert.Equal(expectedFeastName, day.Feast?.Name);
+        Assert.Equal(expectedFeastName, Resolved(day)?.Feast?.Name);
 
         // Compare citations rather than the LiturgicalService/LectionaryReading records
         // directly — each call rebuilds the JSON-backed object graph from scratch, and
@@ -370,8 +381,9 @@ public sealed class ObservanceOptionsTests
         Assert.Equal("Independence Day", supplementary.Feast!.Name);
 
         var day = _calendar.GetDay(date);
-        Assert.Equal(prescribed.Feast?.Name, day.Feast?.Name);
-        Assert.NotEqual("Independence Day", day.Feast?.Name);
+        var resolved = Resolved(day);
+        Assert.Equal(prescribed.Feast?.Name, resolved?.Feast?.Name);
+        Assert.NotEqual("Independence Day", resolved?.Feast?.Name);
     }
 
     [Fact]

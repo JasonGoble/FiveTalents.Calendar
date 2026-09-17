@@ -24,17 +24,25 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
     public LiturgicalDay GetDay(DateOnly date)
     {
         var info = SeasonResolver.Resolve(date, date.Year);
-        var commemorations = AcnaFeastCatalog.GetCommemorations(date, date.Year);
         int? properNumber = SeasonResolver.GetProperNumber(date, info.Season);
 
-        var observances = GetPossibleEucharistObservances(date);
+        var eucharistOptions = BuildEucharistOptions(date);
+        var commemorations = BuildCommemorations(date, date.Year);
+        var disciplineOccurrences = BuildDisciplineOccurrences(date, date.Year, info.Season);
+
+        List<Occurrence> occurrences = eucharistOptions
+            .Concat(commemorations)
+            .Concat(disciplineOccurrences)
+            .OrderBy(o => o.Type)
+            .ToList();
 
         // Ordered fallback across all three tiers — Prescribed is effectively always present
         // today, so this generalizes the picker defensively rather than changing any observable
-        // result. See ADR 0015.
-        var resolvedOption = observances.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Prescribed)
-            ?? observances.FirstOrDefault(o => o.Precedence == ObservancePrecedence.CommonPractice)
-            ?? observances.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Supplementary);
+        // result. See ADR 0015. Only the Eucharist tiers ever carry Services, so this resolves
+        // identically whether picked from `occurrences` or `eucharistOptions` alone.
+        var resolvedOption = occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Prescribed)
+            ?? occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.CommonPractice)
+            ?? occurrences.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Supplementary);
 
         return new LiturgicalDay
         {
@@ -46,28 +54,51 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                 WeekNumber = info.WeekNumber,
                 LectionaryYear = info.LectionaryYear,
             },
-            Feast = resolvedOption?.Feast,
-            Commemorations = commemorations,
-            IsEmberDay = AcnaFeastCatalog.IsEmberDay(date, date.Year),
-            IsRogationDay = IsRogationDay(date, date.Year),
+            Occurrences = occurrences,
+            IsEmberDay = occurrences.Any(o => o.Type == OccurrenceType.EmberDay),
+            IsRogationDay = occurrences.Any(o => o.Type == OccurrenceType.RogationDay),
             IsFastDay = IsFastDay(date, info.Season),
             ProperNumber = properNumber,
-            SundayTitle = GetSundayTitle(date, info.Season, info.WeekNumber, properNumber),
             DailyOffice = AcnaDailyOfficeLectionary.GetReadings(date),
             Readings = resolvedOption?.Services ?? [],
         };
     }
 
     /// <summary>
-    /// Returns every rubrically-possible Eucharist observance for <paramref name="date"/>,
-    /// ranked by precedence, instead of resolving a single answer — see ADR 0008.
-    /// <see cref="GetDay"/>'s <c>Feast</c>/<c>Readings</c> are derived from the first item
-    /// here matching, in order, <see cref="ObservancePrecedence.Prescribed"/>,
-    /// <see cref="ObservancePrecedence.CommonPractice"/>, then
-    /// <see cref="ObservancePrecedence.Supplementary"/> (see ADR 0015), so this is the single
-    /// source of truth for Eucharistic precedence.
+    /// Returns every rubrically-possible Eucharist occurrence for <paramref name="date"/>,
+    /// ranked by <see cref="OccurrenceType"/> — see ADR 0008, ADR 0016.
+    /// <see cref="LiturgicalDay.Readings"/> is derived from the first item here (or in
+    /// <see cref="LiturgicalDay.Occurrences"/> generally) matching, in order,
+    /// <see cref="ObservancePrecedence.Prescribed"/>, <see cref="ObservancePrecedence.CommonPractice"/>,
+    /// then <see cref="ObservancePrecedence.Supplementary"/> (see ADR 0015), so this is the
+    /// single source of truth for Eucharistic precedence.
     /// </summary>
-    public IReadOnlyList<ObservanceOption> GetPossibleEucharistObservances(DateOnly date)
+    public IReadOnlyList<Occurrence> GetPossibleEucharistObservances(DateOnly date) =>
+        BuildEucharistOptions(date).OrderBy(o => o.Type).ToList();
+
+    public IReadOnlyList<LiturgicalDay> GetRange(DateOnly from, DateOnly to)
+    {
+        if (to < from)
+        {
+            throw new ArgumentException("'to' must be on or after 'from'.", nameof(to));
+        }
+
+        List<LiturgicalDay> days = new List<LiturgicalDay>();
+        for (var d = from; d <= to; d = d.AddDays(1))
+        {
+            days.Add(GetDay(d));
+        }
+
+        return days;
+    }
+
+    // ── Occurrence builders ───────────────────────────────────────────────────
+
+    /// <summary>
+    /// Builds the competing-tier occurrences — Principal/Major Feasts, the Sunday slot, and
+    /// the ordinary-weekday season slot — plus the always-additive National Days. See ADR 0008.
+    /// </summary>
+    private static List<Occurrence> BuildEucharistOptions(DateOnly date)
     {
         var info = SeasonResolver.Resolve(date, date.Year);
         int? properNumber = SeasonResolver.GetProperNumber(date, info.Season);
@@ -92,13 +123,19 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
         // Trinity Sunday, resolves to the same key both ways — see ADR 0008).
         bool feastIsDistinctOption = candidateFeast is not null && feastKey is not null && feastKey != seasonKey && !mandatoryYield;
 
-        List<ObservanceOption> options = new List<ObservanceOption>();
+        string? sundayName = date.DayOfWeek == DayOfWeek.Sunday
+            ? GetSundayName(date, info.Season, info.WeekNumber, properNumber)
+            : null;
+
+        List<Occurrence> options = new List<Occurrence>();
 
         if (feastIsDistinctOption)
         {
             var feastServices = AcnaSundayLectionary.BuildServicesForKey(feastKey, info.LectionaryYear);
-            options.Add(new ObservanceOption
+            options.Add(new Occurrence
             {
+                Type = FeastOccurrenceType(candidateFeast!.Rank),
+                Name = candidateFeast.Name,
                 Feast = candidateFeast,
                 Precedence = ObservancePrecedence.Prescribed,
                 Services = feastServices,
@@ -140,8 +177,12 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                     yieldedFeast = null;
                 }
 
-                options.Add(new ObservanceOption
+                options.Add(new Occurrence
                 {
+                    Type = attachFeast
+                        ? FeastOccurrenceType(candidateFeast!.Rank)
+                        : date.DayOfWeek == DayOfWeek.Sunday ? OccurrenceType.Sunday : OccurrenceType.SeasonDay,
+                    Name = attachFeast ? candidateFeast!.Name : sundayName,
                     Feast = attachFeast ? candidateFeast : null,
                     Precedence = ObservancePrecedence.Prescribed,
                     Services = seasonServices,
@@ -158,8 +199,10 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             {
                 // p.689: a Holy Day colliding with an ordinary Sunday may be observed that
                 // Sunday or transferred — the rubric grants an explicit, equal choice.
-                options.Add(new ObservanceOption
+                options.Add(new Occurrence
                 {
+                    Type = OccurrenceType.Sunday,
+                    Name = sundayName,
                     Precedence = ObservancePrecedence.Prescribed,
                     Services = seasonServices,
                     Collect = AcnaCollectsAndPrefaces.TryGetCollect(seasonKey),
@@ -171,8 +214,9 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                 // A Red-Letter Day on its own weekday is BCP-directed (Prescribed);
                 // skipping it for the ordinary reading isn't rubric-sanctioned, but is
                 // real, practiced deviation — surfaced, not hidden.
-                options.Add(new ObservanceOption
+                options.Add(new Occurrence
                 {
+                    Type = OccurrenceType.SeasonDay,
                     Precedence = ObservancePrecedence.CommonPractice,
                     Services = seasonServices,
                     Collect = AcnaCollectsAndPrefaces.TryGetCollect(seasonKey),
@@ -195,8 +239,10 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                 continue;
             }
 
-            options.Add(new ObservanceOption
+            options.Add(new Occurrence
             {
+                Type = OccurrenceType.NationalDay,
+                Name = name,
                 Feast = new FeastDay { Name = name, Rank = FeastRank.Commemoration },
                 Precedence = ObservancePrecedence.Supplementary,
                 Services = AcnaSundayLectionary.BuildServicesForKey(key, info.LectionaryYear),
@@ -208,20 +254,64 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
         return options;
     }
 
-    public IReadOnlyList<LiturgicalDay> GetRange(DateOnly from, DateOnly to)
+    /// <summary>
+    /// Builds the additive Anglican/Ecumenical commemoration occurrences for
+    /// <paramref name="date"/>. Always <see cref="ObservancePrecedence.Supplementary"/> —
+    /// these never compete for the day's slot. See ADR 0016.
+    /// </summary>
+    private static List<Occurrence> BuildCommemorations(DateOnly date, int year)
     {
-        if (to < from)
+        var commemorations = AcnaFeastCatalog.GetCommemorations(date, year);
+        List<Occurrence> result = new List<Occurrence>(commemorations.Count);
+
+        foreach (var feast in commemorations)
         {
-            throw new ArgumentException("'to' must be on or after 'from'.", nameof(to));
+            result.Add(new Occurrence
+            {
+                Type = feast.Rank == FeastRank.Optional ? OccurrenceType.AnglicanCommemoration : OccurrenceType.EcumenicalCommemoration,
+                Name = feast.Name,
+                Feast = feast,
+                Precedence = ObservancePrecedence.Supplementary,
+            });
         }
 
-        List<LiturgicalDay> days = new List<LiturgicalDay>();
-        for (var d = from; d <= to; d = d.AddDays(1))
+        return result;
+    }
+
+    /// <summary>
+    /// Builds the additive discipline/season-naming occurrences — Ember Days, Rogation
+    /// Days, and (Christmastide only, for now) the ordinal day-of-Christmas naming.
+    /// Always <see cref="ObservancePrecedence.Supplementary"/>, and independent of the
+    /// Feast/Sunday competition in <see cref="BuildEucharistOptions"/> — a Christmastide
+    /// SeasonDay entry fires on every date Dec 25–Jan 5 regardless of what else that date
+    /// carries. See ADR 0016.
+    /// </summary>
+    private static List<Occurrence> BuildDisciplineOccurrences(DateOnly date, int year, LiturgicalSeason season)
+    {
+        List<Occurrence> result = new List<Occurrence>();
+
+        if (AcnaFeastCatalog.IsEmberDay(date, year))
         {
-            days.Add(GetDay(d));
+            result.Add(new Occurrence { Type = OccurrenceType.EmberDay, Precedence = ObservancePrecedence.Supplementary });
         }
 
-        return days;
+        if (AcnaFeastCatalog.IsRogationDay(date, year))
+        {
+            result.Add(new Occurrence { Type = OccurrenceType.RogationDay, Precedence = ObservancePrecedence.Supplementary });
+        }
+
+        if (season == LiturgicalSeason.Christmas)
+        {
+            int dayNumber = SeasonResolver.GetChristmasDayNumber(date);
+            result.Add(new Occurrence
+            {
+                Type = OccurrenceType.SeasonDay,
+                Name = $"The {ToOrdinalWords(dayNumber)} Day of Christmas",
+                Precedence = ObservancePrecedence.Supplementary,
+            });
+        }
+
+        return result;
     }
 
     // ── Private helpers ───────────────────────────────────────────────────────
@@ -259,22 +349,17 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
         return lastDay.AddDays(-offset);
     }
 
-    private static bool IsRogationDay(DateOnly date, int year)
-    {
-        var ascension = EasterCalculator.GetEaster(year).AddDays(39);
-        // Rogation Days: Mon, Tue, Wed before Ascension Thursday
-        return date == ascension.AddDays(-3)
-            || date == ascension.AddDays(-2)
-            || date == ascension.AddDays(-1);
-    }
+    private static OccurrenceType FeastOccurrenceType(FeastRank rank) =>
+        rank == FeastRank.Principal ? OccurrenceType.PrincipalFeast : OccurrenceType.MajorFeast;
 
     /// <summary>
-    /// Returns the special title for this Sunday, if any. The Last Sunday of Epiphany
+    /// Returns the display name for this Sunday, if any. Every Sunday gets a name now, not
+    /// just the two BCP-specific special cases — see ADR 0016. The Last Sunday of Epiphany
     /// is computed directly from Easter (Easter − 49 days, always a Sunday) rather than
     /// from the forward-counted week number, since the number of Epiphany Sundays varies
     /// by year depending on when Ash Wednesday falls.
     /// </summary>
-    private static string? GetSundayTitle(DateOnly date, LiturgicalSeason season, int weekNumber, int? properNumber)
+    private static string? GetSundayName(DateOnly date, LiturgicalSeason season, int weekNumber, int? properNumber)
     {
         if (date.DayOfWeek != DayOfWeek.Sunday)
         {
@@ -295,13 +380,37 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             }
         }
 
-        if (season == LiturgicalSeason.OrdinaryTime && properNumber == 29)
+        if (season == LiturgicalSeason.OrdinaryTime)
         {
-            return "Christ the King";
+            return properNumber == 29
+                ? "Christ the King"
+                : $"The Sunday after Pentecost (Proper {properNumber})";
+        }
+
+        if (season is LiturgicalSeason.Advent or LiturgicalSeason.Christmas or LiturgicalSeason.Epiphany or LiturgicalSeason.Lent or LiturgicalSeason.Easter)
+        {
+            return $"The {ToOrdinalWords(weekNumber)} Sunday of {season}";
         }
 
         return null;
     }
+
+    private static string ToOrdinalWords(int n) => n switch
+    {
+        1 => "First",
+        2 => "Second",
+        3 => "Third",
+        4 => "Fourth",
+        5 => "Fifth",
+        6 => "Sixth",
+        7 => "Seventh",
+        8 => "Eighth",
+        9 => "Ninth",
+        10 => "Tenth",
+        11 => "Eleventh",
+        12 => "Twelfth",
+        _ => $"{n}th",
+    };
 
     private static bool IsFastDay(DateOnly date, LiturgicalSeason season)
     {

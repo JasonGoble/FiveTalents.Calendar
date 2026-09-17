@@ -5,7 +5,6 @@ public enum FeastRank
 {
     Commemoration = 1,
     Optional = 2,
-    Minor = 3,
     Major = 4,
     Principal = 5,
 }
