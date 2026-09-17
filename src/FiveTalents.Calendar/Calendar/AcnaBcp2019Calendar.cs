@@ -28,7 +28,13 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
         int? properNumber = SeasonResolver.GetProperNumber(date, info.Season);
 
         var observances = GetPossibleEucharistObservances(date);
-        var prescribed = observances.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Prescribed);
+
+        // Ordered fallback across all three tiers — Prescribed is effectively always present
+        // today, so this generalizes the picker defensively rather than changing any observable
+        // result. See ADR 0015.
+        var resolvedOption = observances.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Prescribed)
+            ?? observances.FirstOrDefault(o => o.Precedence == ObservancePrecedence.CommonPractice)
+            ?? observances.FirstOrDefault(o => o.Precedence == ObservancePrecedence.Supplementary);
 
         return new LiturgicalDay
         {
@@ -40,7 +46,7 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
                 WeekNumber = info.WeekNumber,
                 LectionaryYear = info.LectionaryYear,
             },
-            Feast = prescribed?.Feast,
+            Feast = resolvedOption?.Feast,
             Commemorations = commemorations,
             IsEmberDay = AcnaFeastCatalog.IsEmberDay(date, date.Year),
             IsRogationDay = IsRogationDay(date, date.Year),
@@ -48,15 +54,17 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             ProperNumber = properNumber,
             SundayTitle = GetSundayTitle(date, info.Season, info.WeekNumber, properNumber),
             DailyOffice = AcnaDailyOfficeLectionary.GetReadings(date),
-            Readings = prescribed?.Services ?? [],
+            Readings = resolvedOption?.Services ?? [],
         };
     }
 
     /// <summary>
     /// Returns every rubrically-possible Eucharist observance for <paramref name="date"/>,
     /// ranked by precedence, instead of resolving a single answer — see ADR 0008.
-    /// <see cref="GetDay"/>'s <c>Feast</c>/<c>Readings</c> are derived from the first
-    /// <see cref="ObservancePrecedence.Prescribed"/> item here, so this is the single
+    /// <see cref="GetDay"/>'s <c>Feast</c>/<c>Readings</c> are derived from the first item
+    /// here matching, in order, <see cref="ObservancePrecedence.Prescribed"/>,
+    /// <see cref="ObservancePrecedence.CommonPractice"/>, then
+    /// <see cref="ObservancePrecedence.Supplementary"/> (see ADR 0015), so this is the single
     /// source of truth for Eucharistic precedence.
     /// </summary>
     public IReadOnlyList<ObservanceOption> GetPossibleEucharistObservances(DateOnly date)
@@ -175,6 +183,28 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
             // (ADR 0006) is absolute, and there's no evidence of real deviation from it.
         }
 
+        // BCP 2019's six National Days are civil observances the rubric never ranks against
+        // anything else — always shown, additive, and never participating in candidateFeast's
+        // rank comparison above. Jurisdiction is named in the label text itself, not a
+        // structured field — ADR 0012/0013 already rejected a jurisdiction concept for this
+        // reason. See ADR 0015.
+        foreach (var (name, key, resolve) in _nationalDays)
+        {
+            if (resolve(date.Year) != date)
+            {
+                continue;
+            }
+
+            options.Add(new ObservanceOption
+            {
+                Feast = new FeastDay { Name = name, Rank = FeastRank.Commemoration },
+                Precedence = ObservancePrecedence.Supplementary,
+                Services = AcnaSundayLectionary.BuildServicesForKey(key, info.LectionaryYear),
+                Collect = AcnaCollectsAndPrefaces.TryGetCollect(key),
+                PrefaceNames = AcnaCollectsAndPrefaces.GetPrefaceNames(key),
+            });
+        }
+
         return options;
     }
 
@@ -195,6 +225,39 @@ public sealed class AcnaBcp2019Calendar : ILiturgicalCalendar
     }
 
     // ── Private helpers ───────────────────────────────────────────────────────
+
+    /// <summary>
+    /// BCP 2019's six civil National Days (see ADR 0015). Each entry resolves its own date
+    /// independently and shares no rank comparison with <c>candidateFeast</c> above — these
+    /// are always additive, never competing. Remembrance Day and Memorial Day are two
+    /// distinct entries despite sharing readings/Collect content with no other day; the two
+    /// Thanksgivings share one lectionary/Collect key but get distinct labels.
+    /// </summary>
+    private static readonly (string Name, string Key, Func<int, DateOnly> Resolve)[] _nationalDays =
+    [
+        ("Thanksgiving Day (Canada)", "NationalDay_ThanksgivingDay", year => NthWeekdayOfMonth(year, 10, DayOfWeek.Monday, 2)),
+        ("Thanksgiving Day (United States)", "NationalDay_ThanksgivingDay", year => NthWeekdayOfMonth(year, 11, DayOfWeek.Thursday, 4)),
+        ("Canada Day", "NationalDay_CanadaDay", year => new DateOnly(year, 7, 1)),
+        ("Independence Day", "NationalDay_IndependenceDay", year => new DateOnly(year, 7, 4)),
+        ("Remembrance Day", "NationalDay_RemembranceDay", year => new DateOnly(year, 11, 11)),
+        ("Memorial Day", "NationalDay_MemorialDay", year => LastWeekdayOfMonth(year, 5, DayOfWeek.Monday)),
+    ];
+
+    /// <summary>Returns the date of the <paramref name="n"/>th <paramref name="dayOfWeek"/> in the given month.</summary>
+    private static DateOnly NthWeekdayOfMonth(int year, int month, DayOfWeek dayOfWeek, int n)
+    {
+        DateOnly first = new DateOnly(year, month, 1);
+        int offset = ((int)dayOfWeek - (int)first.DayOfWeek + 7) % 7;
+        return first.AddDays(offset + 7 * (n - 1));
+    }
+
+    /// <summary>Returns the date of the last <paramref name="dayOfWeek"/> in the given month.</summary>
+    private static DateOnly LastWeekdayOfMonth(int year, int month, DayOfWeek dayOfWeek)
+    {
+        DateOnly lastDay = new DateOnly(year, month, DateTime.DaysInMonth(year, month));
+        int offset = ((int)lastDay.DayOfWeek - (int)dayOfWeek + 7) % 7;
+        return lastDay.AddDays(-offset);
+    }
 
     private static bool IsRogationDay(DateOnly date, int year)
     {

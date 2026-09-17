@@ -14,7 +14,9 @@ public interface ILiturgicalCalendar
     /// Returns every rubrically-possible Eucharist observance for <paramref name="date"/>,
     /// ranked by precedence, rather than resolving a single answer — see ADR 0008.
     /// <see cref="LiturgicalDay.Feast"/>/<see cref="LiturgicalDay.Readings"/> are the first
-    /// <see cref="ObservancePrecedence.Prescribed"/> item of this list.
+    /// item of this list matching, in order, <see cref="ObservancePrecedence.Prescribed"/>,
+    /// <see cref="ObservancePrecedence.CommonPractice"/>, then
+    /// <see cref="ObservancePrecedence.Supplementary"/> (see ADR 0015).
     /// </summary>
     public IReadOnlyList<ObservanceOption> GetPossibleEucharistObservances(DateOnly date);
 

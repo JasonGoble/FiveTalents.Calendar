@@ -1712,5 +1712,40 @@
     { "type": "Psalm", "citation": "Ps 15" , "translationCode": "NCP" },
     { "type": "SecondLesson", "citation": "Phil 4:4-9" },
     { "type": "Gospel", "citation": "Luke 6:17-23" }
+  ],
+
+  "NationalDay_ThanksgivingDay": [
+    { "type": "FirstLesson", "citation": "Deut 8" },
+    { "type": "Psalm", "citation": "Ps 65:1-14", "alternate": "Ps 65:1-8" },
+    { "type": "SecondLesson", "citation": "James 1:17-27" },
+    { "type": "Gospel", "citation": "Matt 6:25-33" }
+  ],
+
+  "NationalDay_CanadaDay": [
+    { "type": "FirstLesson", "citation": "Deut 6:1-15" },
+    { "type": "Psalm", "citation": "Ps 145" },
+    { "type": "SecondLesson", "citation": "1 Peter 2:1-6" },
+    { "type": "Gospel", "citation": "Matt 22:16-21", "alternate": "Matt 25:14-30" }
+  ],
+
+  "NationalDay_IndependenceDay": [
+    { "type": "FirstLesson", "citation": "Deut 10:17-21" },
+    { "type": "Psalm", "citation": "Ps 145" },
+    { "type": "SecondLesson", "citation": "Heb 11:8-16" },
+    { "type": "Gospel", "citation": "Matt 5:43-48" }
+  ],
+
+  "NationalDay_RemembranceDay": [
+    { "type": "FirstLesson", "citation": "Wisdom 3:1-9" },
+    { "type": "Psalm", "citation": "Ps 121" },
+    { "type": "SecondLesson", "citation": "Rev 7:9-17" },
+    { "type": "Gospel", "citation": "John 11:21-27", "alternate": "John 15:12-17" }
+  ],
+
+  "NationalDay_MemorialDay": [
+    { "type": "FirstLesson", "citation": "Wisdom 3:1-9" },
+    { "type": "Psalm", "citation": "Ps 121" },
+    { "type": "SecondLesson", "citation": "Rev 7:9-17" },
+    { "type": "Gospel", "citation": "John 11:21-27", "alternate": "John 15:12-17" }
   ]
 }
